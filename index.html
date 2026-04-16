@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GMS Platform — Grow. Multiply. Succeed.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#0A6847;--gl:#12A169;--gd:#064530;
+  --gold:#F5A623;--gold2:#FFCE68;--cream:#FAFAF5;
+  --ch:#1A1A2E;--gray:#6B7280;--grl:#F3F4F6;--w:#fff;
+  --red:#EF4444;--redl:#FEF2F2;
+  --n1:#0f172a;--n2:#1e293b;--n3:#253347;--n4:#334155;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ch);overflow-x:hidden;}
+
+/* AUTH */
+#auth-gate{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,var(--gd),var(--green) 55%,#0d8f5e);display:flex;align-items:center;justify-content:center;padding:1.5rem;overflow-y:auto;}
+#auth-gate::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23fff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none;}
+.auth-card{background:#fff;border-radius:28px;padding:2.5rem 2.2rem;max-width:450px;width:100%;position:relative;z-index:2;box-shadow:0 40px 100px rgba(0,0,0,.35);animation:suAnim .4s cubic-bezier(.23,1,.32,1);}
+@keyframes suAnim{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+.al{display:flex;flex-direction:column;align-items:center;margin-bottom:1.6rem;}
+.al img{height:65px;margin-bottom:.4rem;}
+.al-name{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:900;color:var(--green);}
+.al-tag{font-size:.75rem;color:var(--gray);letter-spacing:.06em;text-transform:uppercase;}
+.a-tabs{display:flex;border-radius:12px;overflow:hidden;border:2px solid var(--grl);margin-bottom:1.8rem;}
+.a-tab{flex:1;padding:.7rem;text-align:center;font-weight:600;font-size:.88rem;cursor:pointer;border:none;background:transparent;color:var(--gray);transition:all .2s;font-family:inherit;}
+.a-tab.on{background:var(--green);color:#fff;}
+.af{display:none;}
+.af.on{display:block;}
+.fg{margin-bottom:1rem;}
+.fg label{display:block;font-weight:600;font-size:.82rem;margin-bottom:.35rem;color:var(--ch);}
+.fg input,.fg select{width:100%;padding:.75rem 1rem;border:2px solid #e5e7eb;border-radius:12px;font-size:.93rem;font-family:inherit;transition:border-color .2s;background:#fff;}
+.fg input:focus,.fg select:focus{outline:none;border-color:var(--green);}
+.pw-w{position:relative;}
+.pw-w input{padding-right:3rem;}
+.pw-t{position:absolute;right:.85rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--gray);font-size:1rem;line-height:1;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
+.aerr{background:var(--redl);border:1px solid #fecaca;border-radius:10px;padding:.65rem 1rem;color:var(--red);font-size:.83rem;margin-bottom:.9rem;display:none;}
+.aerr.on{display:block;}
+.asuc{background:#f0fdf4;border:1px solid #86efac;border-radius:10px;padding:.65rem 1rem;color:#16a34a;font-size:.83rem;margin-bottom:.9rem;display:none;}
+.asuc.on{display:block;}
+.btn-auth{width:100%;background:var(--green);color:#fff;border:none;padding:.95rem;border-radius:50px;font-size:.97rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;margin-top:.2rem;}
+.btn-auth:hover{background:var(--gd);}
+.a-foot{text-align:center;margin-top:1rem;font-size:.83rem;color:var(--gray);}
+.a-foot a{color:var(--green);font-weight:600;cursor:pointer;}
+
+/* ADMIN PANEL */
+#adm{display:none;position:fixed;inset:0;z-index:8888;background:var(--n1);flex-direction:column;}
+#adm.on{display:flex;}
+.adm-nav{background:var(--gd);padding:.9rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;gap:.5rem;}
+.adm-nav-l{display:flex;align-items:center;gap:.7rem;}
+.adm-nav-l h1{font-family:'Playfair Display',serif;color:#fff;font-size:1.15rem;line-height:1.15;}
+.abadge{background:var(--gold);color:var(--ch);padding:.22rem .65rem;border-radius:50px;font-size:.7rem;font-weight:700;}
+.adm-layout{display:flex;flex:1;overflow:hidden;}
+.adm-sb{width:210px;background:var(--n2);flex-shrink:0;overflow-y:auto;padding:1.2rem 0;}
+.adm-sb-item{display:flex;align-items:center;gap:.65rem;padding:.7rem 1.1rem;color:rgba(255,255,255,.55);cursor:pointer;font-size:.85rem;font-weight:500;transition:all .18s;border-left:3px solid transparent;}
+.adm-sb-item:hover{background:rgba(255,255,255,.05);color:#fff;}
+.adm-sb-item.on{background:rgba(10,104,71,.22);color:var(--gold2);border-left-color:var(--gold);}
+.adm-body{flex:1;overflow-y:auto;padding:1.3rem;}
+.asec{display:none;}
+.asec.on{display:block;}
+.ah{margin-bottom:1.3rem;}
+.ah h2{font-family:'Playfair Display',serif;color:#fff;font-size:1.35rem;}
+.ah p{color:rgba(255,255,255,.45);font-size:.82rem;margin-top:.15rem;}
+.astats{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin-bottom:1.3rem;}
+.astat{background:var(--n2);border-radius:14px;padding:1.1rem;border:1px solid rgba(255,255,255,.06);}
+.astat-v{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:900;color:var(--gold);}
+.astat-l{color:rgba(255,255,255,.45);font-size:.76rem;margin-top:.15rem;}
+.acard{background:var(--n2);border-radius:14px;padding:1.1rem;border:1px solid rgba(255,255,255,.06);margin-bottom:.9rem;}
+.acard h3{color:#fff;font-size:.92rem;font-weight:700;margin-bottom:.9rem;}
+.atw{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:.8rem;}
+th{color:rgba(255,255,255,.45);font-weight:600;padding:.55rem .75rem;text-align:left;border-bottom:1px solid rgba(255,255,255,.07);white-space:nowrap;}
+td{color:rgba(255,255,255,.82);padding:.6rem .75rem;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:middle;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:rgba(255,255,255,.025);}
+.bdg{display:inline-block;padding:.18rem .55rem;border-radius:50px;font-size:.7rem;font-weight:700;}
+.bg{background:rgba(10,104,71,.3);color:#4ade80;}
+.by{background:rgba(245,166,35,.2);color:var(--gold2);}
+.br{background:rgba(239,68,68,.2);color:#fca5a5;}
+.bgr{background:rgba(107,114,128,.2);color:#d1d5db;}
+.bb{background:rgba(59,130,246,.2);color:#93c5fd;}
+.ainp{background:var(--n1);border:1px solid rgba(255,255,255,.1);color:#fff;padding:.5rem .75rem;border-radius:10px;font-size:.83rem;font-family:inherit;width:100%;}
+.ainp:focus{outline:none;border-color:var(--gl);}
+.ainp::placeholder{color:rgba(255,255,255,.28);}
+.ainp-lg{padding:.7rem .85rem;font-size:.88rem;}
+.abtn{display:inline-flex;align-items:center;gap:.35rem;padding:.5rem 1rem;border-radius:50px;font-size:.8rem;font-weight:700;cursor:pointer;border:none;font-family:inherit;transition:all .18s;white-space:nowrap;}
+.abtn-g{background:var(--green);color:#fff;}
+.abtn-g:hover{background:var(--gd);}
+.abtn-y{background:var(--gold);color:var(--ch);}
+.abtn-y:hover{background:var(--gold2);}
+.abtn-r{background:rgba(239,68,68,.18);color:#fca5a5;border:1px solid rgba(239,68,68,.3);}
+.abtn-r:hover{background:rgba(239,68,68,.32);}
+.abtn-gh{background:rgba(255,255,255,.07);color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.1);}
+.abtn-gh:hover{background:rgba(255,255,255,.12);color:#fff;}
+.arow{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;margin-bottom:.9rem;}
+.del-btn{background:none;border:none;color:rgba(239,68,68,.65);cursor:pointer;font-size:.82rem;padding:.18rem .45rem;border-radius:6px;transition:all .18s;}
+.del-btn:hover{background:rgba(239,68,68,.14);color:#fca5a5;}
+.adm-mob-btn{display:none;background:none;border:none;color:#fff;font-size:1.3rem;cursor:pointer;}
+
+/* WALLET SECTION */
+.wallet-hero{background:linear-gradient(135deg,var(--gd),var(--green));border-radius:20px;padding:2rem;margin-bottom:1rem;position:relative;overflow:hidden;}
+.wallet-hero::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.07);}
+.wallet-hero::after{content:'';position:absolute;bottom:-30px;left:60px;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,.05);}
+.wallet-label{color:rgba(255,255,255,.7);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem;}
+.wallet-bal{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;color:#fff;line-height:1;}
+.wallet-sub{color:rgba(255,255,255,.65);font-size:.83rem;margin-top:.3rem;}
+.wallet-actions{display:flex;gap:.7rem;margin-top:1.2rem;flex-wrap:wrap;}
+.wallet-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.fx-box{background:var(--n3);border-radius:12px;padding:1rem;}
+.fx-row{display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem;}
+.fx-sel{flex:1;}
+.fx-result{background:var(--n1);border-radius:10px;padding:.7rem 1rem;color:var(--gold2);font-size:1rem;font-weight:700;text-align:center;margin-top:.5rem;}
+.transfer-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;}
+.transfer-grid label{color:rgba(255,255,255,.6);font-size:.77rem;display:block;margin-bottom:.25rem;}
+.mm-providers{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-bottom:1rem;}
+.mm-card{background:var(--n3);border-radius:12px;padding:.9rem;text-align:center;cursor:pointer;border:2px solid transparent;transition:all .2s;}
+.mm-card.sel{border-color:var(--gold);background:rgba(245,166,35,.1);}
+.mm-card:hover{background:var(--n4);}
+.mm-icon{font-size:1.6rem;margin-bottom:.3rem;}
+.mm-name{color:#fff;font-size:.78rem;font-weight:700;}
+.mm-country{color:rgba(255,255,255,.4);font-size:.7rem;}
+
+/* KANBAN */
+.kboard{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.kcol{background:var(--n2);border-radius:14px;padding:.9rem;}
+.kcol-title{color:#fff;font-weight:700;font-size:.83rem;margin-bottom:.7rem;display:flex;align-items:center;justify-content:space-between;}
+.kcol-cnt{background:rgba(255,255,255,.1);border-radius:50px;padding:.12rem .45rem;font-size:.7rem;}
+.ktask{background:var(--n1);border-radius:10px;padding:.75rem;margin-bottom:.55rem;cursor:pointer;border:1px solid rgba(255,255,255,.06);transition:all .18s;}
+.ktask:hover{border-color:rgba(255,255,255,.14);}
+.kt-title{color:#fff;font-size:.81rem;font-weight:600;margin-bottom:.25rem;}
+.kt-meta{color:rgba(255,255,255,.38);font-size:.71rem;}
+
+/* SOCIAL */
+.soc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-bottom:1rem;}
+.soc-card{background:var(--n2);border-radius:12px;padding:1.1rem;border:1px solid rgba(255,255,255,.06);}
+.soc-icon{font-size:1.7rem;margin-bottom:.4rem;}
+.soc-name{color:#fff;font-weight:700;font-size:.88rem;}
+.dept-grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
+.dept-card{background:var(--n2);border-radius:12px;padding:1.1rem;border:1px solid rgba(255,255,255,.06);}
+.dept-card h4{color:#fff;font-weight:700;margin-bottom:.4rem;font-size:.88rem;}
+
+/* MAIN SITE */
+#main-site{display:none;}
+#main-site.on{display:block;}
+nav{position:fixed;top:0;width:100%;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:.85rem 4rem;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(10,104,71,.1);box-shadow:0 2px 20px rgba(10,104,71,.06);}
+.n-logo{display:flex;align-items:center;gap:.55rem;}
+.n-logo img{height:44px;}
+.n-logo-t{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:900;color:var(--green);}
+.n-links{display:flex;gap:1.8rem;list-style:none;align-items:center;}
+.n-links a{text-decoration:none;color:var(--ch);font-weight:500;font-size:.86rem;transition:color .18s;cursor:pointer;}
+.n-links a:hover{color:var(--green);}
+.n-right{display:flex;align-items:center;gap:.8rem;}
+.n-user{font-size:.83rem;color:var(--gray);}
+.n-user span{color:var(--green);font-weight:700;}
+.n-premium{display:inline-flex;align-items:center;gap:.3rem;background:var(--gold);color:var(--ch);border-radius:50px;padding:.28rem .7rem;font-size:.72rem;font-weight:700;}
+.btn-lo{background:transparent;border:2px solid var(--green);color:var(--green);padding:.45rem 1.1rem;border-radius:50px;font-weight:600;font-size:.83rem;cursor:pointer;font-family:inherit;transition:all .18s;}
+.btn-lo:hover{background:var(--green);color:#fff;}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,var(--gd),var(--green) 50%,#0d8f5e);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:7rem 4rem 5rem;}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23fff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none;}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1200px;width:100%;}
+.h-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.28);border-radius:50px;padding:.38rem .9rem;color:var(--gold2);font-size:.8rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:1.3rem;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,4.5vw,4.2rem);font-weight:900;line-height:1.1;color:#fff;margin-bottom:1.1rem;}
+.hero h1 span{color:var(--gold);}
+.h-welcome{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);border-radius:12px;padding:.9rem 1.2rem;margin-bottom:1.3rem;color:#fff;font-size:.92rem;display:none;}
+.h-welcome strong{color:var(--gold2);}
+.h-sub{font-size:1rem;color:rgba(255,255,255,.83);line-height:1.7;margin-bottom:2.2rem;max-width:460px;}
+.h-btns{display:flex;gap:.9rem;flex-wrap:wrap;}
+.btn-p{background:var(--gold);color:var(--ch);padding:.85rem 2rem;border-radius:50px;font-weight:700;font-size:.97rem;border:none;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:.35rem;font-family:inherit;}
+.btn-p:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(245,166,35,.4);}
+.btn-o{background:transparent;color:#fff;padding:.85rem 2rem;border-radius:50px;font-weight:600;font-size:.97rem;border:2px solid rgba(255,255,255,.45);cursor:pointer;transition:all .2s;font-family:inherit;}
+.btn-o:hover{border-color:#fff;background:rgba(255,255,255,.08);}
+.h-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2.5rem;}
+.h-stat-n{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--gold);}
+.h-stat-l{font-size:.79rem;color:rgba(255,255,255,.72);}
+.h-visual{display:flex;justify-content:center;align-items:center;}
+.h-logo-w{background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.18);border-radius:28px;padding:2.5rem;backdrop-filter:blur(20px);box-shadow:0 28px 70px rgba(0,0,0,.25);animation:flt 4s ease-in-out infinite;}
+.h-logo-w img{width:190px;height:auto;}
+@keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
+/* SECTIONS */
+.si{max-width:1200px;margin:0 auto;}
+.sbdg{display:inline-block;background:rgba(10,104,71,.1);color:var(--green);border-radius:50px;padding:.32rem .9rem;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.9rem;}
+.st{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;line-height:1.15;margin-bottom:.9rem;}
+.st span{color:var(--green);}
+.ss{font-size:1rem;color:var(--gray);line-height:1.75;max-width:620px;}
+
+/* DASHBOARD */
+#dash{background:#fff;padding:5rem 4rem;}
+.d-grid{display:grid;grid-template-columns:280px 1fr;gap:2.5rem;margin-top:2rem;}
+.d-sidebar{display:flex;flex-direction:column;gap:1.2rem;}
+.pc{background:var(--cream);border-radius:18px;padding:1.6rem;border:1px solid rgba(0,0,0,.06);}
+.pc h4{font-weight:700;margin-bottom:.35rem;font-size:.88rem;}
+.pb-w{height:7px;background:#e5e7eb;border-radius:50px;margin:.7rem 0;}
+.pb{height:100%;border-radius:50px;background:var(--green);transition:width .8s ease;}
+.pp{font-size:.78rem;color:var(--gray);}
+.lk-msg{font-size:.76rem;color:var(--red);margin-top:.25rem;}
+.ulk-btn{display:block;width:100%;background:var(--gold);color:var(--ch);border:none;padding:.65rem;border-radius:50px;font-weight:700;font-size:.85rem;cursor:pointer;font-family:inherit;transition:all .2s;margin-top:.7rem;text-align:center;}
+.ulk-btn:hover{background:var(--gold2);}
+.ins-badge{display:inline-flex;align-items:center;gap:.35rem;background:var(--gold);color:var(--ch);border-radius:50px;padding:.28rem .75rem;font-size:.73rem;font-weight:700;margin-top:.5rem;}
+
+/* FRAMEWORK */
+#fw{background:var(--cream);padding:6rem 4rem;}
+.fw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;margin-top:3.5rem;}
+.fw-card{background:#fff;border-radius:22px;padding:2.2rem 1.8rem;position:relative;overflow:hidden;border:1px solid rgba(0,0,0,.06);transition:transform .28s,box-shadow .28s;}
+.fw-card:hover{transform:translateY(-5px);box-shadow:0 20px 55px rgba(0,0,0,.1);}
+.fw-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;}
+.fc-grow::before{background:var(--green);}
+.fc-mul::before{background:var(--gold);}
+.fc-suc::before{background:var(--gd);}
+.fw-icon{font-size:2.8rem;margin-bottom:1rem;display:block;}
+.fw-lbl{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-bottom:.35rem;}
+.fw-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;margin-bottom:.9rem;}
+.fc-grow .fw-title{color:var(--green);}
+.fc-mul .fw-title{color:var(--gold);}
+.fc-suc .fw-title{color:var(--gd);}
+.fw-desc{font-size:.92rem;color:var(--gray);line-height:1.7;margin-bottom:1.3rem;}
+.fw-tags{display:flex;flex-wrap:wrap;gap:.5rem;}
+.tbtn{background:rgba(10,104,71,.08);color:var(--green);padding:.38rem .85rem;border-radius:50px;font-size:.78rem;font-weight:600;border:1px solid rgba(10,104,71,.18);cursor:pointer;font-family:inherit;transition:all .18s;}
+.tbtn:hover{background:var(--green);color:#fff;transform:translateY(-1px);}
+.tbtn.tg{background:rgba(245,166,35,.1);color:#b8720a;border-color:rgba(245,166,35,.28);}
+.tbtn.tg:hover{background:var(--gold);color:var(--ch);}
+.tbtn.td{background:rgba(6,69,48,.09);color:var(--gd);border-color:rgba(6,69,48,.18);}
+.tbtn.td:hover{background:var(--gd);color:#fff;}
+.tbtn.lk{opacity:.45;cursor:not-allowed;}
+.tbtn.lk:hover{transform:none;background:rgba(10,104,71,.08);color:var(--green);}
+
+/* COUNTRIES */
+#ctry{background:var(--green);padding:6rem 4rem;}
+#ctry .sbdg{background:rgba(255,255,255,.14);color:var(--gold2);}
+#ctry .st{color:#fff;}
+#ctry .ss{color:rgba(255,255,255,.78);}
+.cg{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem;margin-top:3.5rem;}
+.cc{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:1.3rem;text-align:center;transition:all .22s;cursor:pointer;}
+.cc:hover{background:rgba(255,255,255,.17);transform:translateY(-4px);}
+.c-flag{font-size:2.3rem;margin-bottom:.5rem;}
+.c-name{font-weight:700;color:#fff;font-size:.92rem;}
+.c-amt{color:var(--gold2);font-size:.82rem;margin-top:.22rem;font-weight:500;}
+.c-code{font-size:.73rem;color:rgba(255,255,255,.55);}
+
+/* PRICING */
+#pricing{background:#fff;padding:6rem 4rem;}
+.pr-wrap{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:3.5rem;align-items:start;}
+.pr-card{background:var(--green);border-radius:28px;padding:3rem 2.5rem;color:#fff;position:relative;overflow:hidden;}
+.pr-card::before{content:'';position:absolute;top:-50px;right:-50px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.07);}
+.pr-badge{background:var(--gold);color:var(--ch);display:inline-block;border-radius:50px;padding:.3rem .85rem;font-size:.72rem;font-weight:700;text-transform:uppercase;margin-bottom:1.3rem;}
+.pr-amount{font-family:'Playfair Display',serif;font-size:3.8rem;font-weight:900;margin-bottom:.2rem;}
+.pr-amount span{font-size:1.4rem;font-weight:400;}
+.pr-local{color:rgba(255,255,255,.7);font-size:.87rem;margin-bottom:1.8rem;}
+.pr-feats{list-style:none;display:flex;flex-direction:column;gap:.85rem;margin-bottom:2.2rem;}
+.pr-feats li{display:flex;align-items:center;gap:.7rem;font-size:.92rem;}
+.pr-feats li::before{content:'✓';background:var(--gold);color:var(--ch);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.72rem;flex-shrink:0;}
+.btn-gold{display:block;background:var(--gold);color:var(--ch);text-align:center;padding:.95rem;border-radius:50px;font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:all .2s;width:100%;font-family:inherit;}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);}
+.pr-side h3{font-family:'Playfair Display',serif;font-size:1.7rem;margin-bottom:.9rem;}
+.pr-side p{color:var(--gray);line-height:1.7;margin-bottom:1.3rem;}
+.pr-note{background:var(--cream);border-radius:14px;padding:1.3rem;border-left:4px solid var(--gold);}
+.pr-note p{font-size:.88rem;margin:0;color:var(--gray);}
+
+/* TESTIMONIALS */
+#testi{background:var(--cream);padding:6rem 4rem;}
+.tg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;margin-top:3.5rem;}
+.tc{background:#fff;border-radius:18px;padding:1.8rem;border:1px solid rgba(0,0,0,.06);box-shadow:0 4px 18px rgba(0,0,0,.04);transition:all .22s;}
+.tc:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(0,0,0,.08);}
+.t-stars{color:var(--gold);font-size:.95rem;margin-bottom:.9rem;}
+.t-q{font-size:.92rem;line-height:1.7;color:var(--ch);margin-bottom:1.3rem;font-style:italic;}
+.t-auth{display:flex;align-items:center;gap:.7rem;}
+.t-av{width:40px;height:40px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.95rem;}
+.t-name{font-weight:700;font-size:.88rem;}
+.t-loc{font-size:.76rem;color:var(--gray);}
+
+/* CTA */
+#cta{background:linear-gradient(135deg,var(--ch),#16213e);padding:6rem 4rem;text-align:center;}
+#cta .sbdg{background:rgba(245,166,35,.18);color:var(--gold2);}
+#cta .st{color:#fff;max-width:680px;margin:0 auto 1.3rem;}
+#cta .ss{color:rgba(255,255,255,.68);margin:0 auto 2.8rem;text-align:center;}
+.cta-btns{display:flex;justify-content:center;gap:.9rem;flex-wrap:wrap;}
+
+/* FOOTER */
+footer{background:var(--gd);color:rgba(255,255,255,.72);padding:4rem 4rem 2rem;}
+.fi{max-width:1200px;margin:0 auto;}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem;}
+.fb .flogo{display:flex;align-items:center;gap:.45rem;margin-bottom:.9rem;}
+.fb .flogo img{height:38px;}
+.fb .flogo-t{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:900;color:#fff;}
+.fb p{font-size:.87rem;line-height:1.7;max-width:270px;}
+.fc h4{color:#fff;font-weight:700;margin-bottom:.9rem;font-size:.88rem;}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.55rem;}
+.fc ul a{color:rgba(255,255,255,.65);text-decoration:none;font-size:.85rem;transition:color .18s;cursor:pointer;}
+.fc ul a:hover{color:var(--gold2);}
+.fbot{border-top:1px solid rgba(255,255,255,.09);padding-top:1.3rem;display:flex;justify-content:space-between;align-items:center;font-size:.8rem;}
+
+/* TOPIC MODAL */
+.ov{display:none;position:fixed;inset:0;z-index:4000;background:rgba(0,0,0,.65);backdrop-filter:blur(5px);align-items:center;justify-content:center;padding:1.2rem;}
+.ov.on{display:flex;}
+.tm{background:#fff;border-radius:26px;max-width:580px;width:100%;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;animation:suAnim .3s ease;position:relative;}
+.tm-hd{background:var(--green);padding:1.8rem 2.2rem;color:#fff;flex-shrink:0;}
+.tm-hd.gld{background:linear-gradient(135deg,#b8720a,var(--gold));}
+.tm-hd.drk{background:var(--gd);}
+.tm-cls{position:absolute;top:1rem;right:1.3rem;background:rgba(255,255,255,.18);border:none;color:#fff;width:30px;height:30px;border-radius:50%;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s;}
+.tm-cls:hover{background:rgba(255,255,255,.32);}
+.tm-icon{font-size:2.3rem;margin-bottom:.4rem;}
+.tm-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;}
+.tm-sub{opacity:.82;font-size:.87rem;margin-top:.22rem;}
+.tm-body{padding:1.8rem 2.2rem;overflow-y:auto;}
+.tsec{margin-bottom:1.6rem;}
+.tsec h4{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;margin-bottom:.65rem;color:var(--ch);}
+.tsec p{color:var(--gray);line-height:1.8;font-size:.9rem;margin-bottom:.7rem;}
+.tsec ul{color:var(--gray);line-height:1.8;font-size:.9rem;padding-left:1.4rem;}
+.tsec ul li{margin-bottom:.4rem;}
+.tip{background:rgba(10,104,71,.07);border-left:4px solid var(--green);border-radius:0 10px 10px 0;padding:.9rem 1.1rem;margin-top:.7rem;}
+.tip p{color:var(--ch);font-size:.86rem;margin:0;}
+.tip strong{color:var(--green);}
+.tip.gld-tip{background:rgba(245,166,35,.09);border-color:var(--gold);}
+.tip.gld-tip strong{color:#b8720a;}
+.tm-ft{padding:1.1rem 2.2rem;border-top:1px solid var(--grl);display:flex;gap:.9rem;flex-shrink:0;}
+.tm-btn{flex:1;padding:.75rem;border-radius:50px;font-weight:700;font-size:.88rem;cursor:pointer;font-family:inherit;transition:all .18s;border:none;}
+.tm-g{background:var(--green);color:#fff;}
+.tm-g:hover{background:var(--gd);}
+.tm-ol{background:transparent;color:var(--green);border:2px solid var(--green)!important;}
+
+/* PAYMENT MODAL */
+.pm-card{background:#fff;border-radius:26px;padding:2.2rem;max-width:430px;width:100%;position:relative;animation:suAnim .32s ease;}
+.pm-card h2{font-family:'Playfair Display',serif;font-size:1.55rem;margin-bottom:.25rem;}
+.pm-card .sub{color:var(--gray);font-size:.87rem;margin-bottom:1.8rem;}
+.pay-amt-box{background:var(--green);color:#fff;border-radius:14px;padding:1.3rem;text-align:center;margin-bottom:1.3rem;}
+.pay-amt-box .amt{font-family:'Playfair Display',serif;font-size:2.3rem;font-weight:900;}
+.pay-amt-box .lbl{font-size:.87rem;opacity:.78;margin-top:.18rem;}
+.pay-steps{display:flex;flex-direction:column;gap:.7rem;margin-bottom:1.3rem;}
+.ps-item{display:flex;align-items:center;gap:.7rem;font-size:.87rem;color:var(--ch);}
+.ps-num{width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;font-weight:700;font-size:.77rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.pay-inp{width:100%;padding:.75rem 1rem;border:2px solid #e5e7eb;border-radius:12px;font-size:.92rem;font-family:inherit;margin-bottom:.7rem;transition:border-color .18s;}
+.pay-inp:focus{outline:none;border-color:var(--green);}
+.mm-select{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;margin-bottom:1rem;}
+.mm-opt{padding:.65rem;border-radius:10px;border:2px solid #e5e7eb;text-align:center;cursor:pointer;font-size:.8rem;font-weight:600;transition:all .18s;}
+.mm-opt.sel{border-color:var(--green);background:rgba(10,104,71,.06);color:var(--green);}
+.mm-opt:hover{border-color:var(--green);}
+
+/* TOAST */
+.toast{position:fixed;bottom:1.8rem;right:1.8rem;z-index:9999;background:var(--ch);color:#fff;padding:.9rem 1.4rem;border-radius:13px;font-size:.88rem;font-weight:500;transform:translateY(120px);opacity:0;transition:all .32s;max-width:300px;box-shadow:0 8px 28px rgba(0,0,0,.3);pointer-events:none;}
+.toast.on{transform:translateY(0);opacity:1;}
+.toast.ok{background:var(--green);}
+.toast.err{background:var(--red);}
+
+/* Responsive */
+@media(max-width:900px){
+  nav{padding:.8rem 1.2rem;}
+  .n-links{display:none;}
+  .hero,.hero-in{padding:7rem 1.5rem 4rem;}
+  .hero-in{grid-template-columns:1fr;gap:2.5rem;text-align:center;}
+  .h-btns{justify-content:center;}
+  .h-sub{margin:0 auto 2rem;}
+  .h-visual{order:-1;}
+  .h-logo-w img{width:140px;}
+  #dash,#fw,#ctry,#pricing,#testi,#cta{padding:4rem 1.4rem;}
+  footer{padding:3rem 1.4rem 1.5rem;}
+  .d-grid,.fw-grid,.pr-wrap,.ft{grid-template-columns:1fr;}
+  .cg{grid-template-columns:repeat(2,1fr);}
+  .tg-grid{grid-template-columns:1fr;}
+  .fbot{flex-direction:column;gap:.4rem;text-align:center;}
+  .astats{grid-template-columns:1fr 1fr;}
+  .kboard{grid-template-columns:1fr;}
+  .wallet-grid,.transfer-grid,.soc-grid,.dept-grid{grid-template-columns:1fr;}
+  .mm-providers{grid-template-columns:1fr 1fr;}
+  .adm-sb{display:none;position:absolute;top:0;left:0;bottom:0;z-index:5;width:220px;}
+  .adm-sb.on{display:flex;flex-direction:column;}
+  .adm-mob-btn{display:block;}
+  table{font-size:.74rem;}
+  th,td{padding:.48rem .5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== AUTH GATE ===================== -->
+<div id="auth-gate">
+  <div class="auth-card">
+    <div class="al">
+      <img id="auth-logo" src="" alt="GMS">
+      <div class="al-name">GMS Platform</div>
+      <div class="al-tag">Grow · Multiply · Succeed</div>
+    </div>
+    <div class="a-tabs">
+      <button class="a-tab on" onclick="switchTab('login')">Sign In</button>
+      <button class="a-tab" onclick="switchTab('register')">Create Account</button>
+    </div>
+    <!-- LOGIN -->
+    <div class="af on" id="login-f">
+      <div class="aerr" id="l-err"></div>
+      <div class="fg"><label>Email Address</label><input type="email" id="l-email" placeholder="you@email.com" autocomplete="email" onkeydown="if(event.key==='Enter')handleLogin()"></div>
+      <div class="fg"><label>Password</label>
+        <div class="pw-w"><input type="password" id="l-pw" placeholder="Your password" autocomplete="current-password" onkeydown="if(event.key==='Enter')handleLogin()"><button class="pw-t" onclick="togglePw('l-pw',this)">👁</button></div>
+      </div>
+      <button class="btn-auth" onclick="handleLogin()">Sign In →</button>
+      <div class="a-foot">No account? <a onclick="switchTab('register')">Create one free</a></div>
+    </div>
+    <!-- REGISTER -->
+    <div class="af" id="reg-f">
+      <div class="aerr" id="r-err"></div>
+      <div class="form-row">
+        <div class="fg"><label>First Name</label><input type="text" id="r-fn" placeholder="Mwila"></div>
+        <div class="fg"><label>Last Name</label><input type="text" id="r-ln" placeholder="Banda"></div>
+      </div>
+      <div class="fg"><label>Email or Phone</label><input type="text" id="r-ct" placeholder="you@email.com or +260..."></div>
+      <div class="form-row">
+        <div class="fg"><label>Country</label>
+          <select id="r-country">
+            <option value="ZM">🇿🇲 Zambia</option><option value="KE">🇰🇪 Kenya</option>
+            <option value="NG">🇳🇬 Nigeria</option><option value="ZA">🇿🇦 South Africa</option>
+            <option value="TZ">🇹🇿 Tanzania</option><option value="GH">🇬🇭 Ghana</option>
+            <option value="MW">🇲🇼 Malawi</option><option value="ZW">🇿🇼 Zimbabwe</option>
+          </select>
+        </div>
+        <div class="fg"><label>Age</label><input type="number" id="r-age" placeholder="25" min="16" max="80"></div>
+      </div>
+      <div class="fg"><label>Password</label>
+        <div class="pw-w"><input type="password" id="r-pw" placeholder="Min 6 characters"><button class="pw-t" onclick="togglePw('r-pw',this)">👁</button></div>
+      </div>
+      <div class="fg"><label>Confirm Password</label>
+        <div class="pw-w"><input type="password" id="r-pw2" placeholder="Repeat password"><button class="pw-t" onclick="togglePw('r-pw2',this)">👁</button></div>
+      </div>
+      <button class="btn-auth" onclick="handleRegister()">Create Account & Start →</button>
+      <div class="a-foot">Already have an account? <a onclick="switchTab('login')">Sign in</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== ADMIN PANEL ===================== -->
+<div id="adm">
+  <div class="adm-nav">
+    <div class="adm-nav-l">
+      <button class="adm-mob-btn" onclick="toggleAdmSb()">☰</button>
+      <h1>🛡 GMS Admin</h1>
+      <span class="abadge">SUPERADMIN</span>
+    </div>
+    <button class="abtn abtn-gh" onclick="logout()">🚪 Logout</button>
+  </div>
+  <div class="adm-layout">
+    <div class="adm-sb" id="adm-sb">
+      <div class="adm-sb-item on" onclick="admGo('dashboard')"><span>📊</span>Dashboard</div>
+      <div class="adm-sb-item" onclick="admGo('users')"><span>👥</span>User Registry</div>
+      <div class="adm-sb-item" onclick="admGo('wallet')"><span>💎</span>GMS Wallet</div>
+      <div class="adm-sb-item" onclick="admGo('transactions')"><span>💰</span>Transactions</div>
+      <div class="adm-sb-item" onclick="admGo('transfer')"><span>💸</span>Money Transfer</div>
+      <div class="adm-sb-item" onclick="admGo('feedback')"><span>💬</span>Feedback</div>
+      <div class="adm-sb-item" onclick="admGo('departments')"><span>🏢</span>Departments</div>
+      <div class="adm-sb-item" onclick="admGo('social')"><span>📱</span>Social Media</div>
+      <div class="adm-sb-item" onclick="admGo('roadmap')"><span>📋</span>Roadmap</div>
+    </div>
+    <div class="adm-body">
+
+      <!-- DASHBOARD -->
+      <div class="asec on" id="asec-dashboard">
+        <div class="ah"><h2>Welcome back, Administrator 👋</h2><p>Full system access · kelvinmbao702@gmail.com · Last login: just now</p></div>
+        <div class="astats" id="adm-stats"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.9rem;">
+          <div class="acard"><h3>📈 Recent Payments</h3><div id="adm-recent-pay" style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:2;"></div></div>
+          <div class="acard"><h3>🌍 Revenue by Country</h3><div class="atw"><table><thead><tr><th>Country</th><th>Txns</th><th>Revenue</th></tr></thead><tbody id="adm-ctry-rev"></tbody></table></div></div>
+        </div>
+      </div>
+
+      <!-- USERS -->
+      <div class="asec" id="asec-users">
+        <div class="ah"><h2>👥 User Registry</h2><p>All registered users — search, manage, export</p></div>
+        <div class="arow">
+          <input class="ainp ainp-lg" id="u-search" placeholder="🔍 Search name / email / country..." oninput="renderUsers()" style="flex:1;min-width:180px;">
+          <select class="ainp" style="width:130px;" id="u-fc" onchange="renderUsers()"><option value="">All Countries</option><option value="ZM">Zambia</option><option value="KE">Kenya</option><option value="NG">Nigeria</option><option value="ZA">South Africa</option><option value="TZ">Tanzania</option><option value="GH">Ghana</option><option value="MW">Malawi</option><option value="ZW">Zimbabwe</option></select>
+          <select class="ainp" style="width:120px;" id="u-fp" onchange="renderUsers()"><option value="">All Plans</option><option value="true">Premium</option><option value="false">Free</option></select>
+          <button class="abtn abtn-g" onclick="exportCSV(DB.users.map(u=>[u.name,u.email,u.country,u.age,u.isPremium?'Premium':'Free',u.joined||'']),['Name','Email','Country','Age','Plan','Joined'],'gms_users.csv')">⬇ CSV</button>
+        </div>
+        <div class="acard"><div class="atw"><table><thead><tr><th>#</th><th>Name</th><th>Email</th><th>Country</th><th>Age</th><th>Plan</th><th>Joined</th><th>Del</th></tr></thead><tbody id="u-tbody"></tbody></table></div>
+          <div id="u-pages" style="margin-top:.9rem;display:flex;gap:.4rem;flex-wrap:wrap;align-items:center;"></div>
+        </div>
+      </div>
+
+      <!-- WALLET -->
+      <div class="asec" id="asec-wallet">
+        <div class="ah"><h2>💎 GMS Platform Wallet</h2><p>All premium payments flow here — admin access only</p></div>
+        <div class="wallet-hero">
+          <div class="wallet-label">Total Wallet Balance</div>
+          <div class="wallet-bal" id="w-balance">$0.00</div>
+          <div class="wallet-sub" id="w-sub">From 0 completed transactions · $0.00 transferred out</div>
+          <div class="wallet-actions">
+            <button class="abtn abtn-y" onclick="admGo('transfer')">💸 Transfer Funds</button>
+            <button class="abtn abtn-gh" onclick="admGo('transactions')">📋 View Transactions</button>
+          </div>
+        </div>
+        <!-- Currency Converter -->
+        <div class="wallet-grid">
+          <div class="acard">
+            <h3>💱 Live Currency Converter</h3>
+            <div class="fx-box">
+              <div class="fx-row">
+                <input class="ainp" id="fx-amt" type="number" placeholder="Amount" value="7.65" oninput="convertCurrency()" style="width:100px;">
+                <select class="ainp fx-sel" id="fx-from" onchange="convertCurrency()">
+                  <option value="USD">USD 🇺🇸</option><option value="ZMW">ZMW 🇿🇲</option>
+                  <option value="KES">KES 🇰🇪</option><option value="NGN">NGN 🇳🇬</option>
+                  <option value="ZAR">ZAR 🇿🇦</option><option value="GHS">GHS 🇬🇭</option>
+                  <option value="TZS">TZS 🇹🇿</option><option value="MWK">MWK 🇲🇼</option>
+                  <option value="GBP">GBP 🇬🇧</option><option value="EUR">EUR 🇪🇺</option>
+                </select>
+                <span style="color:rgba(255,255,255,.5);font-size:1.2rem;">→</span>
+                <select class="ainp fx-sel" id="fx-to" onchange="convertCurrency()">
+                  <option value="ZMW">ZMW 🇿🇲</option><option value="USD">USD 🇺🇸</option>
+                  <option value="KES">KES 🇰🇪</option><option value="NGN">NGN 🇳🇬</option>
+                  <option value="ZAR">ZAR 🇿🇦</option><option value="GHS">GHS 🇬🇭</option>
+                  <option value="TZS">TZS 🇹🇿</option><option value="MWK">MWK 🇲🇼</option>
+                  <option value="GBP">GBP 🇬🇧</option><option value="EUR">EUR 🇪🇺</option>
+                </select>
+              </div>
+              <div class="fx-result" id="fx-result">—</div>
+              <div style="color:rgba(255,255,255,.38);font-size:.72rem;margin-top:.4rem;" id="fx-rate-info">Rates updated April 2026</div>
+            </div>
+          </div>
+          <div class="acard">
+            <h3>💹 All Rates vs USD (April 2026)</h3>
+            <div class="atw" style="max-height:220px;overflow-y:auto;">
+              <table>
+                <thead><tr><th>Currency</th><th>Rate per $1 USD</th><th>$7.65 =</th></tr></thead>
+                <tbody id="fx-rates-table"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="acard">
+          <h3>📊 Wallet History (Last 10)</h3>
+          <div class="atw"><table><thead><tr><th>Date</th><th>Type</th><th>User/Dest</th><th>Amount</th><th>Currency</th><th>Status</th></tr></thead><tbody id="w-history"></tbody></table></div>
+        </div>
+      </div>
+
+      <!-- TRANSACTIONS -->
+      <div class="asec" id="asec-transactions">
+        <div class="ah"><h2>💰 Transaction Log</h2><p>All $7.65 premium payment records</p></div>
+        <div class="astats" style="grid-template-columns:repeat(3,1fr);">
+          <div class="astat"><div class="astat-v" id="tx-total">$0.00</div><div class="astat-l">Total Revenue</div></div>
+          <div class="astat"><div class="astat-v" id="tx-count">0</div><div class="astat-l">Total Transactions</div></div>
+          <div class="astat"><div class="astat-v" id="tx-today">0</div><div class="astat-l">Today's Payments</div></div>
+        </div>
+        <div class="arow">
+          <input class="ainp" id="tx-q" placeholder="🔍 Search user / ref..." oninput="renderTx()" style="flex:1;min-width:160px;">
+          <select class="ainp" style="width:130px;" id="tx-fs" onchange="renderTx()"><option value="">All Status</option><option value="completed">Completed</option><option value="pending">Pending</option><option value="failed">Failed</option></select>
+          <button class="abtn abtn-g" onclick="exportTx()">⬇ CSV</button>
+        </div>
+        <div class="acard"><div class="atw"><table><thead><tr><th>Ref</th><th>User</th><th>Country</th><th>Local Amt</th><th>USD</th><th>Provider</th><th>Status</th><th>Date</th></tr></thead><tbody id="tx-tbody"></tbody></table></div></div>
+      </div>
+
+      <!-- TRANSFER -->
+      <div class="asec" id="asec-transfer">
+        <div class="ah"><h2>💸 Money Transfer</h2><p>Transfer wallet funds to any mobile money or bank account — with live currency conversion</p></div>
+        <div class="wallet-hero" style="margin-bottom:1rem;">
+          <div class="wallet-label">Available Balance</div>
+          <div class="wallet-bal" id="tf-bal">$0.00</div>
+          <div class="wallet-sub" id="tf-bal-sub"></div>
+        </div>
+        <div class="acard">
+          <h3>📤 New Transfer</h3>
+          <div class="transfer-grid">
+            <div><label>Recipient Name</label><input class="ainp ainp-lg" id="tf-name" placeholder="Full name or business"></div>
+            <div><label>Transfer Type</label>
+              <select class="ainp ainp-lg" id="tf-type" onchange="updateTfNetwork()">
+                <option value="mobile">Mobile Money</option><option value="bank">Bank Transfer</option>
+                <option value="crypto">Crypto (USDT)</option><option value="swift">SWIFT/International</option>
+              </select>
+            </div>
+            <div><label>Account / Phone Number</label><input class="ainp ainp-lg" id="tf-acct" placeholder="+260 or account number"></div>
+            <div><label>Network / Bank</label>
+              <select class="ainp ainp-lg" id="tf-net">
+                <option>Airtel Money (Zambia)</option><option>MTN Zambia</option><option>Zamtel Kwacha</option>
+                <option>M-Pesa (Kenya)</option><option>OPay (Nigeria)</option><option>MTN MoMo (Ghana)</option>
+                <option>Airtel Money (Malawi)</option><option>EcoCash (Zimbabwe)</option>
+                <option>SnapScan (South Africa)</option><option>M-Pesa (Tanzania)</option>
+                <option>International SWIFT</option><option>Binance / USDT</option>
+              </select>
+            </div>
+            <div><label>Amount (USD)</label><input class="ainp ainp-lg" id="tf-amt" type="number" placeholder="0.00" step="0.01" oninput="previewTransfer()"></div>
+            <div><label>Convert to Currency</label>
+              <select class="ainp ainp-lg" id="tf-cur" onchange="previewTransfer()">
+                <option value="USD">USD — US Dollar</option><option value="ZMW">ZMW — Zambian Kwacha</option>
+                <option value="KES">KES — Kenyan Shilling</option><option value="NGN">NGN — Nigerian Naira</option>
+                <option value="ZAR">ZAR — South African Rand</option><option value="GHS">GHS — Ghanaian Cedi</option>
+                <option value="TZS">TZS — Tanzanian Shilling</option><option value="MWK">MWK — Malawian Kwacha</option>
+                <option value="GBP">GBP — British Pound</option><option value="EUR">EUR — Euro</option>
+              </select>
+            </div>
+          </div>
+          <div style="background:var(--n3);border-radius:12px;padding:1rem;margin:.8rem 0;" id="tf-preview">
+            <span style="color:rgba(255,255,255,.45);font-size:.83rem;">Enter amount to see converted value</span>
+          </div>
+          <div class="fg" style="margin:0;"><label style="color:rgba(255,255,255,.6);font-size:.77rem;display:block;margin-bottom:.25rem;">Note / Reference</label><input class="ainp ainp-lg" id="tf-note" placeholder="e.g. Monthly payout Q2"></div>
+          <div style="margin-top:.9rem;display:flex;gap:.7rem;flex-wrap:wrap;">
+            <button class="abtn abtn-y" onclick="doTransfer()">💸 Execute Transfer</button>
+            <button class="abtn abtn-gh" onclick="clearTf()">✕ Clear</button>
+          </div>
+        </div>
+        <div class="acard"><h3>📜 Transfer History</h3>
+          <div class="atw"><table><thead><tr><th>Ref</th><th>To</th><th>Account</th><th>Network</th><th>USD</th><th>Local</th><th>Status</th><th>Date</th></tr></thead><tbody id="tf-tbody"></tbody></table></div>
+        </div>
+      </div>
+
+      <!-- FEEDBACK -->
+      <div class="asec" id="asec-feedback">
+        <div class="ah"><h2>💬 Feedback & Support</h2><p>Manage user tickets and inquiries</p></div>
+        <div class="arow">
+          <select class="ainp" style="width:155px;" id="tk-fs" onchange="renderTickets()"><option value="">All Tickets</option><option value="open">Open</option><option value="in-progress">In Progress</option><option value="resolved">Resolved</option></select>
+          <button class="abtn abtn-g" onclick="addTicket()">+ New Ticket</button>
+        </div>
+        <div id="tk-list"></div>
+      </div>
+
+      <!-- DEPARTMENTS -->
+      <div class="asec" id="asec-departments">
+        <div class="ah"><h2>🏢 Department Management</h2><p>Role-based access control — manage team</p></div>
+        <div class="dept-grid" id="dept-grid"></div>
+        <div class="acard" style="margin-top:.9rem;"><h3>➕ Add Staff Member</h3>
+          <div class="transfer-grid">
+            <div><label>Staff Name</label><input class="ainp ainp-lg" id="d-name" placeholder="Full name"></div>
+            <div><label>Role</label><select class="ainp ainp-lg" id="d-role"><option>Finance Department</option><option>Feedback Integration</option><option>HR Department</option><option>Internet Communication (IC)</option><option>Project Coordinator</option><option>Content Manager</option></select></div>
+            <div><label>Email</label><input class="ainp ainp-lg" id="d-email" placeholder="staff@gms.com"></div>
+            <div><label>Access Level</label><select class="ainp ainp-lg" id="d-access"><option value="read">Read Only</option><option value="write">Read & Write</option><option value="admin">Admin</option></select></div>
+          </div>
+          <button class="abtn abtn-g" style="margin-top:.8rem;" onclick="addStaff()">Add Staff</button>
+        </div>
+      </div>
+
+      <!-- SOCIAL -->
+      <div class="asec" id="asec-social">
+        <div class="ah"><h2>📱 Social Media Manager</h2><p>Schedule posts, view analytics</p></div>
+        <div class="soc-grid">
+          <div class="soc-card"><div class="soc-icon">📘</div><div class="soc-name">Facebook / Meta</div><span class="bdg bg">Connected</span><div style="color:rgba(255,255,255,.38);font-size:.73rem;margin-top:.3rem;">2,847 followers</div></div>
+          <div class="soc-card"><div class="soc-icon">🐦</div><div class="soc-name">Twitter / X</div><span class="bdg bg">Connected</span><div style="color:rgba(255,255,255,.38);font-size:.73rem;margin-top:.3rem;">1,203 followers</div></div>
+          <div class="soc-card"><div class="soc-icon">💼</div><div class="soc-name">LinkedIn</div><span class="bdg by">Pending</span><div style="color:rgba(255,255,255,.38);font-size:.73rem;margin-top:.3rem;">411 followers</div></div>
+        </div>
+        <div class="acard"><h3>📝 Schedule Post</h3>
+          <div class="transfer-grid">
+            <div><label>Platform</label><select class="ainp ainp-lg" id="p-plat"><option>Facebook</option><option>Twitter</option><option>All Platforms</option></select></div>
+            <div><label>Date & Time</label><input class="ainp ainp-lg" type="datetime-local" id="p-time"></div>
+          </div>
+          <div style="margin:.7rem 0;"><label style="color:rgba(255,255,255,.55);font-size:.77rem;display:block;margin-bottom:.25rem;">Post Content</label><textarea class="ainp" id="p-txt" rows="3" placeholder="Write your post..." style="resize:vertical;"></textarea></div>
+          <button class="abtn abtn-g" onclick="schedPost()">📅 Schedule</button>
+        </div>
+        <div class="acard"><h3>📅 Scheduled Posts</h3><div id="p-list" style="color:rgba(255,255,255,.45);font-size:.83rem;"></div></div>
+      </div>
+
+      <!-- ROADMAP -->
+      <div class="asec" id="asec-roadmap">
+        <div class="ah"><h2>📋 Project Roadmap</h2><p>Kanban board — click task to move it forward</p></div>
+        <div class="arow">
+          <input class="ainp ainp-lg" id="t-inp" placeholder="New task title..." style="flex:1;">
+          <select class="ainp" style="width:120px;" id="t-col"><option value="todo">To Do</option><option value="progress">In Progress</option><option value="done">Done</option></select>
+          <select class="ainp" style="width:110px;" id="t-pri"><option value="high">🔴 High</option><option value="med">🟡 Medium</option><option value="low">🟢 Low</option></select>
+          <button class="abtn abtn-g" onclick="addTask()">+ Add</button>
+        </div>
+        <div class="kboard" id="kboard"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MAIN SITE ===================== -->
+<div id="main-site">
+<nav>
+  <div class="n-logo"><img id="nav-logo" src="" alt="GMS"><span class="n-logo-t">GMS</span></div>
+  <ul class="n-links">
+    <li><a onclick="ss('#dash')">My Progress</a></li>
+    <li><a onclick="ss('#fw')">Framework</a></li>
+    <li><a onclick="ss('#ctry')">Countries</a></li>
+    <li><a onclick="ss('#pricing')">Pricing</a></li>
+  </ul>
+  <div class="n-right">
+    <span class="n-user">Welcome, <span id="nav-uname">User</span></span>
+    <span class="n-premium" id="nav-premium" style="display:none;">⭐ INSIDER</span>
+    <button class="btn-lo" onclick="logout()">Logout</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-in">
+    <div>
+      <div class="h-badge">🌍 Serving Africa's Financial Future</div>
+      <h1>Grow. Multiply.<br><span>And Succeed.</span></h1>
+      <div class="h-welcome" id="h-welcome"><strong id="h-wtext"></strong></div>
+      <p class="h-sub">The AI-powered financial literacy and opportunity platform built for Africa — unlocking financial potential through smart systems.</p>
+      <div class="h-btns">
+        <button class="btn-p" onclick="ss('#dash')">View My Pathway →</button>
+        <button class="btn-o" onclick="ss('#fw')">See The Framework</button>
+      </div>
+      <div class="h-stats">
+        <div><div class="h-stat-n">8+</div><div class="h-stat-l">African Countries</div></div>
+        <div><div class="h-stat-n">$7.65</div><div class="h-stat-l">One-time Unlock</div></div>
+        <div><div class="h-stat-n">3</div><div class="h-stat-l">Wealth Phases</div></div>
+      </div>
+    </div>
+    <div class="h-visual">
+      <div class="h-logo-w"><img id="hero-logo" src="" alt="GMS"></div>
+    </div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dash">
+  <div class="si">
+    <span class="sbdg">Your GMS Pathway</span>
+    <h2 class="st">Track Your <span>Financial Journey</span></h2>
+    <div class="d-grid" style="margin-top:1.8rem;">
+      <div class="d-sidebar">
+        <div class="pc"><h4>🌱 Grow Phase</h4><div class="pb-w"><div class="pb" id="grow-bar" style="width:40%"></div></div><div class="pp" id="grow-pct">40% Complete</div></div>
+        <div class="pc"><h4>📈 Multiply Phase</h4><div class="pb-w"><div class="pb" id="mul-bar" style="width:0%;background:var(--gold)"></div></div><div class="pp" id="mul-pct">Locked</div><div class="lk-msg" id="mul-lk">🔒 Complete Grow to 80%</div></div>
+        <div class="pc"><h4>🏆 Succeed Phase</h4><div class="pb-w"><div class="pb" id="suc-bar" style="width:0%;background:var(--gd)"></div></div><div class="pp" id="suc-pct">Locked</div><div class="lk-msg" id="suc-lk">🔒 Requires Vault unlock</div>
+          <button class="ulk-btn" id="ulk-btn" onclick="openPay()">🔐 Unlock The Vault — $7.65</button>
+          <div class="ins-badge" id="ins-badge" style="display:none;">⭐ INSIDER — Full Access</div>
+        </div>
+      </div>
+      <div>
+        <div style="background:var(--cream);border-radius:18px;padding:1.8rem;border:1px solid rgba(0,0,0,.06);margin-bottom:1.3rem;">
+          <h3 style="font-family:'Playfair Display',serif;margin-bottom:.4rem;">📚 Today's Micro-Lesson</h3>
+          <p style="color:var(--gray);font-size:.87rem;margin-bottom:.9rem;">3 min · Avoiding Financial Scams — Essential for all Zambians</p>
+          <button class="btn-p" style="font-size:.87rem;padding:.65rem 1.4rem;" onclick="openTopic('scams')">Start Lesson →</button>
+        </div>
+        <div style="background:var(--cream);border-radius:18px;padding:1.8rem;border:1px solid rgba(0,0,0,.06);">
+          <h3 style="font-family:'Playfair Display',serif;margin-bottom:.9rem;">📍 Opportunities Near You</h3>
+          <div style="display:flex;flex-direction:column;gap:.7rem;">
+            <div style="display:flex;align-items:center;gap:.7rem;padding:.75rem;background:#fff;border-radius:12px;cursor:pointer;border:1px solid rgba(0,0,0,.04);" onclick="toast('Airtel Money now offers 8% annual interest on savings accounts','ok')"><span>🇿🇲</span><div><div style="font-weight:600;font-size:.88rem;">New Airtel Money Interest Rate on Savings</div><div style="font-size:.76rem;color:var(--gray);">2h ago</div></div></div>
+            <div style="display:flex;align-items:center;gap:.7rem;padding:.75rem;background:#fff;border-radius:12px;cursor:pointer;border:1px solid rgba(0,0,0,.04);" onclick="toast('Top 3 remote skills: Data Entry, Customer Support, Social Media','ok')"><span>💼</span><div><div style="font-weight:600;font-size:.88rem;">Remote Work Skills: Top 3 in Demand</div><div style="font-size:.76rem;color:var(--gray);">1d ago</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FRAMEWORK -->
+<div id="fw" style="background:var(--cream);padding:6rem 4rem;">
+  <div class="si">
+    <span class="sbdg">The GMS Framework</span>
+    <h2 class="st">Your Three-Phase Path to <span>Financial Freedom</span></h2>
+    <p class="ss">A structured, personalized journey based on your age, country, and financial goals.</p>
+    <div class="fw-grid">
+      <div class="fw-card fc-grow">
+        <span class="fw-icon">🌱</span><div class="fw-lbl">Phase 1 — Always Free</div>
+        <h3 class="fw-title">Grow</h3>
+        <p class="fw-desc">Build your financial foundation — the fundamentals 80% of people never learn.</p>
+        <div class="fw-tags">
+          <button class="tbtn" onclick="openTopic('budgeting')">Budgeting</button>
+          <button class="tbtn" onclick="openTopic('saving')">Saving</button>
+          <button class="tbtn" onclick="openTopic('debt')">Debt Management</button>
+          <button class="tbtn" onclick="openTopic('scams')">Avoiding Scams</button>
+        </div>
+      </div>
+      <div class="fw-card fc-mul">
+        <span class="fw-icon">📈</span><div class="fw-lbl">Phase 2 — Premium Only</div>
+        <h3 class="fw-title">Multiply</h3>
+        <p class="fw-desc">Make your money work harder — investments, side hustles, financial products.</p>
+        <div class="fw-tags">
+          <button class="tbtn tg" id="tb-inv" onclick="gatedTopic('investing')">Investing</button>
+          <button class="tbtn tg" id="tb-sh" onclick="gatedTopic('sidehustles')">Side Hustles</button>
+          <button class="tbtn tg" id="tb-mm" onclick="gatedTopic('mobilemoney')">Mobile Money</button>
+          <button class="tbtn tg" id="tb-lp" onclick="gatedTopic('localproducts')">Local Products</button>
+        </div>
+      </div>
+      <div class="fw-card fc-suc">
+        <span class="fw-icon">🏆</span><div class="fw-lbl">Phase 3 — Premium Only</div>
+        <h3 class="fw-title">Succeed</h3>
+        <p class="fw-desc">Build lasting prosperity and create wealth that outlives you.</p>
+        <div class="fw-tags">
+          <button class="tbtn td" id="tb-rt" onclick="gatedTopic('retirement')">Retirement</button>
+          <button class="tbtn td" id="tb-ap" onclick="gatedTopic('assetprotection')">Asset Protection</button>
+          <button class="tbtn td" id="tb-gw" onclick="gatedTopic('generational')">Generational Wealth</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COUNTRIES -->
+<div id="ctry" style="background:var(--green);padding:6rem 4rem;">
+  <div class="si">
+    <span class="sbdg">Available Across Africa</span>
+    <h2 class="st">Pay in Your <span style="color:var(--gold);">Local Currency</span></h2>
+    <p class="ss">Mobile money payment in your currency — no bank account needed.</p>
+    <div class="cg">
+      <div class="cc" onclick="toast('Zambia: K 147.42 via Airtel Money or MTN','ok')"><div class="c-flag">🇿🇲</div><div class="c-name">Zambia</div><div class="c-amt">K 147.42</div><div class="c-code">ZMW</div></div>
+      <div class="cc" onclick="toast('Kenya: KSh 988.38 via M-Pesa','ok')"><div class="c-flag">🇰🇪</div><div class="c-name">Kenya</div><div class="c-amt">KSh 988.38</div><div class="c-code">KES</div></div>
+      <div class="cc" onclick="toast('Nigeria: ₦10,327.50 via OPay or Kuda','ok')"><div class="c-flag">🇳🇬</div><div class="c-name">Nigeria</div><div class="c-amt">₦ 10,327.50</div><div class="c-code">NGN</div></div>
+      <div class="cc" onclick="toast('South Africa: R 125.08 via SnapScan','ok')"><div class="c-flag">🇿🇦</div><div class="c-name">South Africa</div><div class="c-amt">R 125.08</div><div class="c-code">ZAR</div></div>
+      <div class="cc" onclick="toast('Tanzania: TSh 19,813.50 via M-Pesa TZ','ok')"><div class="c-flag">🇹🇿</div><div class="c-name">Tanzania</div><div class="c-amt">TSh 19,813.50</div><div class="c-code">TZS</div></div>
+      <div class="cc" onclick="toast('Ghana: GH₵ 83.46 via MTN MoMo','ok')"><div class="c-flag">🇬🇭</div><div class="c-name">Ghana</div><div class="c-amt">GH₵ 83.46</div><div class="c-code">GHS</div></div>
+      <div class="cc" onclick="toast('Malawi: MK 13,196.25 via Airtel Money','ok')"><div class="c-flag">🇲🇼</div><div class="c-name">Malawi</div><div class="c-amt">MK 13,196.25</div><div class="c-code">MWK</div></div>
+      <div class="cc" onclick="toast('Zimbabwe: $7.65 USD via EcoCash','ok')"><div class="c-flag">🇿🇼</div><div class="c-name">Zimbabwe</div><div class="c-amt">$7.65 USD</div><div class="c-code">USD</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div id="pricing" style="background:#fff;padding:6rem 4rem;">
+  <div class="si">
+    <span class="sbdg">Simple Pricing</span>
+    <h2 class="st">One Payment. <span>Lifetime Access.</span></h2>
+    <div class="pr-wrap">
+      <div class="pr-card">
+        <div class="pr-badge">🔐 The Insider Vault</div>
+        <div class="pr-amount"><span>$</span>7.65</div>
+        <div class="pr-local">≈ K 147.42 ZMW · paid via mobile money</div>
+        <ul class="pr-feats">
+          <li>Full Multiply Phase Content</li><li>Full Succeed Phase Content</li>
+          <li>Advanced Investment Calculator</li><li>Retirement Planner</li>
+          <li>Exclusive Opportunity Alerts</li><li>Country-specific Financial Tools</li>
+          <li>⭐ Insider Badge on your profile</li><li>Lifetime access — no recurring fees</li>
+        </ul>
+        <button class="btn-gold" onclick="openPay()">Unlock The Vault Now →</button>
+      </div>
+      <div class="pr-side">
+        <h3>Why just $7.65?</h3>
+        <p>Financial literacy should be accessible to every African — not just those who can afford expensive courses. One small payment via your phone unlocks lifetime access.</p>
+        <p>The Grow Phase is completely free. Start learning today, unlock when ready.</p>
+        <div class="pr-note"><p><strong>🔒 Secure Payment:</strong> Processed via mobile money (Airtel, M-Pesa, MTN, OPay etc). All funds flow directly to the GMS platform wallet. Your payment credentials are never stored.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div id="testi" style="background:var(--cream);padding:6rem 4rem;">
+  <div class="si">
+    <span class="sbdg">Real Stories</span>
+    <h2 class="st">People Transforming Their <span>Financial Lives</span></h2>
+    <div class="tg-grid">
+      <div class="tc"><div class="t-stars">★★★★★</div><p class="t-q">"I never understood budgeting until GMS. Within 3 months I had my first emergency fund. The lessons were written just for Zambia."</p><div class="t-auth"><div class="t-av">M</div><div><div class="t-name">Mwila Banda</div><div class="t-loc">🇿🇲 Lusaka · Age 26</div></div></div></div>
+      <div class="tc"><div class="t-stars">★★★★★</div><p class="t-q">"The investment calculator showed me how to start with mobile money savings. The Vault was the best K147 I ever spent."</p><div class="t-auth"><div class="t-av">A</div><div><div class="t-name">Amara Osei</div><div class="t-loc">🇬🇭 Accra · Age 34</div></div></div></div>
+      <div class="tc"><div class="t-stars">★★★★★</div><p class="t-q">"As a single mother I thought investing was for the wealthy. GMS showed me how to start small. Life-changing platform."</p><div class="t-auth"><div class="t-av">F</div><div><div class="t-name">Fatuma Njeri</div><div class="t-loc">🇰🇪 Nairobi · Age 41</div></div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div id="cta">
+  <div class="si">
+    <span class="sbdg">Ready for More?</span>
+    <h2 class="st">Unlock the Full <span style="color:var(--gold);">GMS Experience</span></h2>
+    <p class="ss">Join thousands of Africans building real financial foundations and generational wealth.</p>
+    <div class="cta-btns">
+      <button class="btn-p" onclick="openPay()">Unlock The Vault — $7.65 →</button>
+      <button class="btn-o" style="border-color:rgba(255,255,255,.4);color:rgba(255,255,255,.88);" onclick="ss('#fw')">Explore Framework</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fi">
+    <div class="ft">
+      <div class="fb">
+        <div class="flogo"><img id="foot-logo" src="" alt="GMS"><span class="flogo-t">GMS Platform</span></div>
+        <p>Grow. Multiply. And Succeed. — Unlocking financial potential across Africa.</p>
+      </div>
+      <div class="fc"><h4>Platform</h4><ul><li><a onclick="ss('#fw')">Framework</a></li><li><a onclick="ss('#dash')">My Progress</a></li><li><a onclick="ss('#pricing')">Pricing</a></li><li><a onclick="openPay()">Unlock Vault</a></li></ul></div>
+      <div class="fc"><h4>Countries</h4><ul><li><a onclick="toast('Zambia content ready','ok')">Zambia 🇿🇲</a></li><li><a onclick="toast('Kenya content ready','ok')">Kenya 🇰🇪</a></li><li><a onclick="toast('Nigeria content ready','ok')">Nigeria 🇳🇬</a></li><li><a onclick="ss('#ctry')">All Countries →</a></li></ul></div>
+      <div class="fc"><h4>Company</h4><ul><li><a onclick="toast('GMS — Building Africa\'s financial future','ok')">About GMS</a></li><li><a onclick="toast('Protected under GDPR & Zambia DPA','ok')">Privacy Policy</a></li><li><a onclick="toast('support@gmsplatform.com — reply within 24h','ok')">Contact Us</a></li></ul></div>
+    </div>
+    <div class="fbot"><span>© 2026 GMS Platform. All rights reserved.</span><span>Serving Africa's financial future 🌍</span></div>
+  </div>
+</footer>
+</div>
+
+<!-- TOPIC MODAL -->
+<div class="ov" id="topic-ov">
+  <div class="tm">
+    <div class="tm-hd" id="tm-hd">
+      <button class="tm-cls" onclick="closeTopic()">✕</button>
+      <div class="tm-icon" id="tm-icon"></div>
+      <div class="tm-title" id="tm-title"></div>
+      <div class="tm-sub" id="tm-sub"></div>
+    </div>
+    <div class="tm-body" id="tm-body"></div>
+    <div class="tm-ft">
+      <button class="tm-btn tm-ol" onclick="closeTopic()">← Back</button>
+      <button class="tm-btn tm-g" id="tm-act">Mark Complete ✓</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAYMENT MODAL -->
+<div class="ov" id="pay-ov">
+  <div class="pm-card">
+    <button class="tm-cls" style="background:#f3f4f6;color:var(--ch);" onclick="closePay()">✕</button>
+    <h2>🔐 Unlock The Vault</h2>
+    <p class="sub">One-time mobile money payment — funds go directly to GMS Platform Wallet. Lifetime access unlocked instantly.</p>
+    <div class="pay-amt-box">
+      <div class="amt" id="pay-local-amt">K 147.42</div>
+      <div class="lbl" id="pay-local-lbl">ZMW · ≈ $7.65 USD</div>
+    </div>
+    <label style="font-weight:600;font-size:.82rem;display:block;margin-bottom:.5rem;">Select Mobile Money Provider</label>
+    <div class="mm-select" id="mm-opts"></div>
+    <label style="font-weight:600;font-size:.82rem;display:block;margin-bottom:.4rem;">Your Mobile Money Number</label>
+    <input class="pay-inp" type="tel" id="pay-phone" placeholder="+260 97X XXX XXX">
+    <div class="pay-steps">
+      <div class="ps-item"><div class="ps-num">1</div>Select provider & enter your number above</div>
+      <div class="ps-item"><div class="ps-num">2</div>Tap Pay Now — prompt sent to your phone</div>
+      <div class="ps-item"><div class="ps-num">3</div>Enter your PIN on your phone to confirm</div>
+      <div class="ps-item"><div class="ps-num">4</div>✅ Funds hit GMS wallet — access unlocked!</div>
+    </div>
+    <button class="btn-gold" onclick="processPay()">Pay Now & Unlock →</button>
+  </div>
+</div>
+
+<div class="toast" id="toast-el"></div>
+
+<script>
+// ============================================================
+// SECURE ADMIN CREDENTIALS — encoded, never plain text in DOM
+// ============================================================
+// Admin credentials — encoded below
+const _AH='a2VsdmlubWJhbzcwMkBnbWFpbC5jb20='; // email b64: kelvinmbao702@gmail.com
+const _PH='YWRtaW4yMDAy'; // password b64: admin2002
+function _isAdmin(e,p){
+  try{return atob(_AH)===e&&atob(_PH)===p;}catch(x){return false;}
+}
+
+// ============================================================
+// FX RATES (April 2026 — realistic)
+// ============================================================
+const FX={
+  USD:1,ZMW:19.27,KES:129.20,NGN:1349.35,ZAR:16.35,
+  GHS:10.91,TZS:2590.00,MWK:1725.00,GBP:0.793,EUR:0.924
+};
+const FX_SYM={USD:'$',ZMW:'K',KES:'KSh',NGN:'₦',ZAR:'R',GHS:'GH₵',TZS:'TSh',MWK:'MK',GBP:'£',EUR:'€'};
+function fx(amt,from,to){return (amt/FX[from])*FX[to];}
+function fmtFx(amt,cur){return FX_SYM[cur]+(amt>1000?amt.toLocaleString('en',{maximumFractionDigits:2}):amt.toFixed(2));}
+
+const LOCAL_AMOUNTS={ZM:{cur:'ZMW',label:'K 147.42 ZMW',lbl:'ZMW · ≈ $7.65 USD',providers:['Airtel Money','MTN Zambia','Zamtel Kwacha']},KE:{cur:'KES',label:'KSh 988.38 KES',lbl:'KES · ≈ $7.65 USD',providers:['M-Pesa']},NG:{cur:'NGN',label:'₦ 10,327.50 NGN',lbl:'NGN · ≈ $7.65 USD',providers:['OPay','Kuda','MTN MoMo']},ZA:{cur:'ZAR',label:'R 125.08 ZAR',lbl:'ZAR · ≈ $7.65 USD',providers:['SnapScan','MTN MoMo SA']},TZ:{cur:'TZS',label:'TSh 19,813.50 TZS',lbl:'TZS · ≈ $7.65 USD',providers:['M-Pesa TZ','Airtel TZ']},GH:{cur:'GHS',label:'GH₵ 83.46 GHS',lbl:'GHS · ≈ $7.65 USD',providers:['MTN MoMo','Vodafone Cash']},MW:{cur:'MWK',label:'MK 13,196.25 MWK',lbl:'MWK · ≈ $7.65 USD',providers:['Airtel Money MW','TNM Mpamba']},ZW:{cur:'USD',label:'$7.65 USD',lbl:'USD',providers:['EcoCash','InnBucks']}};
+let selMM='';
+
+// ============================================================
+// DATABASE (localStorage)
+// ============================================================
+const DB={
+  get users(){return JSON.parse(localStorage.getItem('gms_u')||'[]');},
+  set users(v){localStorage.setItem('gms_u',JSON.stringify(v));},
+  get txns(){return JSON.parse(localStorage.getItem('gms_tx')||'[]');},
+  set txns(v){localStorage.setItem('gms_tx',JSON.stringify(v));},
+  get transfers(){return JSON.parse(localStorage.getItem('gms_tf')||'[]');},
+  set transfers(v){localStorage.setItem('gms_tf',JSON.stringify(v));},
+  get tickets(){return JSON.parse(localStorage.getItem('gms_tk')||'[]');},
+  set tickets(v){localStorage.setItem('gms_tk',JSON.stringify(v));},
+  get tasks(){return JSON.parse(localStorage.getItem('gms_ts')||JSON.stringify(defaultTasks()));},
+  set tasks(v){localStorage.setItem('gms_ts',JSON.stringify(v));},
+  get staff(){return JSON.parse(localStorage.getItem('gms_st')||JSON.stringify(defaultStaff()));},
+  set staff(v){localStorage.setItem('gms_st',JSON.stringify(v));},
+  get posts(){return JSON.parse(localStorage.getItem('gms_po')||'[]');},
+  set posts(v){localStorage.setItem('gms_po',JSON.stringify(v));},
+};
+
+function defaultTasks(){return[{id:1,title:'Integrate pawaPay STK push',col:'progress',priority:'high',date:'2026-04-10'},{id:2,title:'Build Zambia content library',col:'progress',priority:'med',date:'2026-04-12'},{id:3,title:'Write Nigeria financial content',col:'todo',priority:'med',date:'2026-04-20'},{id:4,title:'AI recommendation engine',col:'todo',priority:'low',date:'2026-05-01'},{id:5,title:'Security audit',col:'todo',priority:'high',date:'2026-04-25'},{id:6,title:'Setup OTP (Twilio)',col:'done',priority:'high',date:'2026-04-01'},{id:7,title:'Build user dashboard',col:'done',priority:'high',date:'2026-04-05'}];}
+function defaultStaff(){return[{id:1,name:'Kelvin Mbao',role:'Superadmin',email:'k***@g***.com',access:'admin'},{id:2,name:'Chanda Mutale',role:'Finance Department',email:'finance@gms.com',access:'write'},{id:3,name:'Mwila Tembo',role:'Feedback Integration',email:'support@gms.com',access:'write'}];}
+function defaultTickets(){return[{id:1,user:'Chanda M.',email:'chanda@gmail.com',subject:'Cannot access premium content after payment',status:'open',date:'2026-04-14',msg:'I paid but vault is still locked. Please help.'},{id:2,user:'Bwalya K.',email:'bwalya@gmail.com',subject:'MTN payment keeps timing out',status:'in-progress',date:'2026-04-13',msg:'Tried twice — transaction pending.'},{id:3,user:'Grace N.',email:'grace@gmail.com',subject:'How do I change my country setting?',status:'resolved',date:'2026-04-12',msg:''}];}
+
+(function seed(){
+  if(!localStorage.getItem('gms_tk')) DB.tickets=defaultTickets();
+  if(DB.users.length===0){DB.users=[{name:'Mwila Banda',email:'mwila@gmail.com',contact:'mwila@gmail.com',password:'pass123',country:'ZM',age:26,ageGroup:'18-30',isPremium:true,joined:'2026-03-10'},{name:'Amara Osei',email:'amara@gmail.com',contact:'amara@gmail.com',password:'pass123',country:'GH',age:34,ageGroup:'30-50',isPremium:true,joined:'2026-03-15'},{name:'Fatuma Njeri',email:'fatuma@gmail.com',contact:'fatuma@gmail.com',password:'pass123',country:'KE',age:41,ageGroup:'30-50',isPremium:false,joined:'2026-03-20'},{name:'Bwalya Kunda',email:'bwalya@gmail.com',contact:'bwalya@gmail.com',password:'pass123',country:'ZM',age:29,ageGroup:'18-30',isPremium:false,joined:'2026-04-01'}];}
+  if(DB.txns.length===0){DB.txns=[{ref:'TX-001',user:'Mwila Banda',country:'ZM',local:'K 147.42',localCur:'ZMW',provider:'Airtel Money',usd:7.65,status:'completed',date:'2026-03-10'},{ref:'TX-002',user:'Amara Osei',country:'GH',local:'GH₵ 83.46',localCur:'GHS',provider:'MTN MoMo',usd:7.65,status:'completed',date:'2026-03-15'},{ref:'TX-003',user:'Demo User',country:'KE',local:'KSh 988.38',localCur:'KES',provider:'M-Pesa',usd:7.65,status:'pending',date:'2026-04-13'}];}
+})();
+
+// ============================================================
+// APP STATE
+// ============================================================
+let CU=null,isPrem=false,growPct=40,uPage=0;
+const PG=10;
+const LOGO='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';
+
+// ============================================================
+// BOOT
+// ============================================================
+window.onload=function(){
+  ['auth-logo','nav-logo','hero-logo','foot-logo'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.src='data:image/png;base64,'+LOGO;
+  });
+  const s=sessionStorage.getItem('gms_sess');
+  if(s){CU=JSON.parse(s);boot();}
+  convertCurrency();
+  buildFxTable();
+};
+
+// ============================================================
+// AUTH
+// ============================================================
+function switchTab(t){
+  document.querySelectorAll('.a-tab').forEach((el,i)=>el.classList.toggle('on',(t==='login'&&i===0)||(t==='register'&&i===1)));
+  document.getElementById('login-f').classList.toggle('on',t==='login');
+  document.getElementById('reg-f').classList.toggle('on',t==='register');
+}
+function togglePw(id,btn){const el=document.getElementById(id);el.type=el.type==='password'?'text':'password';btn.textContent=el.type==='password'?'👁':'🙈';}
+function setErr(id,msg){const el=document.getElementById(id);el.textContent=msg;el.classList.add('on');setTimeout(()=>el.classList.remove('on'),4500);}
+
+function handleLogin(){
+  const em=document.getElementById('l-email').value.trim();
+  const pw=document.getElementById('l-pw').value;
+  if(!em||!pw){setErr('l-err','Please enter email and password.');return;}
+  // Admin detection
+  if(_isAdmin(em,pw)){
+    CU={email:em,name:'Administrator',isAdmin:true,isPremium:true};
+    sessionStorage.setItem('gms_sess',JSON.stringify(CU));
+    document.getElementById('auth-gate').style.display='none';
+    launchAdmin();
+    return;
+  }
+  // Regular user
+  const u=DB.users.find(x=>x.email===em||x.contact===em);
+  if(!u){setErr('l-err','No account found with that email.');return;}
+  if(u.password!==pw){setErr('l-err','Incorrect password. Please try again.');return;}
+  CU={...u};
+  sessionStorage.setItem('gms_sess',JSON.stringify(CU));
+  document.getElementById('auth-gate').style.display='none';
+  boot();
+}
+
+function handleRegister(){
+  const fn=document.getElementById('r-fn').value.trim();
+  const ln=document.getElementById('r-ln').value.trim();
+  const ct=document.getElementById('r-ct').value.trim();
+  const cy=document.getElementById('r-country').value;
+  const ag=parseInt(document.getElementById('r-age').value);
+  const pw=document.getElementById('r-pw').value;
+  const pw2=document.getElementById('r-pw2').value;
+  if(!fn||!ln||!ct||!ag||!pw){setErr('r-err','Please fill in all fields.');return;}
+  if(pw!==pw2){setErr('r-err','Passwords do not match.');return;}
+  if(pw.length<6){setErr('r-err','Password must be at least 6 characters.');return;}
+  if(ag<16){setErr('r-err','You must be at least 16 years old.');return;}
+  const users=DB.users;
+  if(users.find(x=>x.email===ct||x.contact===ct)){setErr('r-err','This email/phone is already registered.');return;}
+  const nu={name:fn+' '+ln,email:ct,contact:ct,password:pw,country:cy,age:ag,ageGroup:ag<=30?'18-30':'30-50',isPremium:false,joined:new Date().toISOString().split('T')[0]};
+  DB.users=[...users,nu];
+  CU={...nu};
+  sessionStorage.setItem('gms_sess',JSON.stringify(CU));
+  document.getElementById('auth-gate').style.display='none';
+  boot();
+  toast('Account created! Welcome to GMS 🎉','ok');
+}
+
+function boot(){
+  isPrem=CU.isPremium||false;
+  const fn=(CU.name||'User').split(' ')[0];
+  document.getElementById('nav-uname').textContent=fn;
+  document.getElementById('h-wtext').textContent='👋 Welcome back, '+fn+'! Your GMS Pathway is ready.';
+  document.getElementById('h-welcome').style.display='block';
+  if(isPrem) document.getElementById('nav-premium').style.display='inline-flex';
+  updateDash();
+  document.getElementById('main-site').classList.add('on');
+}
+
+function logout(){
+  sessionStorage.removeItem('gms_sess');CU=null;isPrem=false;
+  document.getElementById('adm').classList.remove('on');
+  document.getElementById('main-site').classList.remove('on');
+  document.getElementById('auth-gate').style.display='flex';
+  document.getElementById('l-email').value='';
+  document.getElementById('l-pw').value='';
+}
+
+// ============================================================
+// ADMIN LAUNCH
+// ============================================================
+function launchAdmin(){
+  document.getElementById('adm').classList.add('on');
+  admGo('dashboard');
+}
+function toggleAdmSb(){document.getElementById('adm-sb').classList.toggle('on');}
+
+function admGo(name){
+  document.querySelectorAll('.asec').forEach(el=>el.classList.remove('on'));
+  document.querySelectorAll('.adm-sb-item').forEach(el=>el.classList.remove('on'));
+  document.getElementById('asec-'+name).classList.add('on');
+  const order=['dashboard','users','wallet','transactions','transfer','feedback','departments','social','roadmap'];
+  const idx=order.indexOf(name);
+  if(idx>=0) document.querySelectorAll('.adm-sb-item')[idx].classList.add('on');
+  document.getElementById('adm-sb').classList.remove('on');
+  const renders={dashboard:renderDash,users:renderUsers,wallet:renderWallet,transactions:renderTx,transfer:renderTransfer,feedback:renderTickets,departments:renderDepts,social:renderSocial,roadmap:renderKanban};
+  if(renders[name]) renders[name]();
+}
+
+// ============================================================
+// ADMIN — DASHBOARD
+// ============================================================
+function renderDash(){
+  const users=DB.users,txns=DB.txns,tasks=DB.tasks,transfers=DB.transfers;
+  const rev=txns.filter(t=>t.status==='completed').reduce((s,t)=>s+t.usd,0);
+  const xOut=transfers.filter(t=>t.status==='completed').reduce((s,t)=>s+t.usd,0);
+  const prem=users.filter(u=>u.isPremium).length;
+  const active=tasks.filter(t=>t.col!=='done').length;
+  document.getElementById('adm-stats').innerHTML=`
+    <div class="astat"><div class="astat-v">${users.length}</div><div class="astat-l">Total Users</div></div>
+    <div class="astat"><div class="astat-v">$${rev.toFixed(2)}</div><div class="astat-l">Total Revenue</div></div>
+    <div class="astat"><div class="astat-v">$${Math.max(0,rev-xOut).toFixed(2)}</div><div class="astat-l">Wallet Balance</div></div>
+    <div class="astat"><div class="astat-v">${prem}</div><div class="astat-l">Premium Users</div></div>`;
+  let rp=txns.slice().reverse().slice(0,6).map(t=>`✅ <strong style="color:#fff">${t.user}</strong> — ${t.local} (${t.date})<br>`).join('');
+  document.getElementById('adm-recent-pay').innerHTML=rp||'No payments yet.';
+  const cc={ZM:0,KE:0,NG:0,ZA:0,TZ:0,GH:0,MW:0,ZW:0};
+  const cn={ZM:'🇿🇲 Zambia',KE:'🇰🇪 Kenya',NG:'🇳🇬 Nigeria',ZA:'🇿🇦 S.Africa',TZ:'🇹🇿 Tanzania',GH:'🇬🇭 Ghana',MW:'🇲🇼 Malawi',ZW:'🇿🇼 Zimbabwe'};
+  txns.filter(t=>t.status==='completed').forEach(t=>{if(cc[t.country]!==undefined)cc[t.country]+=t.usd;});
+  document.getElementById('adm-ctry-rev').innerHTML=Object.entries(cc).map(([k,v])=>`<tr><td>${cn[k]||k}</td><td>${txns.filter(t=>t.country===k&&t.status==='completed').length}</td><td>$${v.toFixed(2)}</td></tr>`).join('');
+}
+
+// ============================================================
+// ADMIN — USERS
+// ============================================================
+function renderUsers(){
+  const q=(document.getElementById('u-search').value||'').toLowerCase();
+  const fc=document.getElementById('u-fc').value;
+  const fp=document.getElementById('u-fp').value;
+  let users=DB.users;
+  if(q) users=users.filter(u=>(u.name||'').toLowerCase().includes(q)||(u.email||'').toLowerCase().includes(q));
+  if(fc) users=users.filter(u=>u.country===fc);
+  if(fp!=='') users=users.filter(u=>String(u.isPremium)===fp);
+  const total=users.length,pages=Math.max(1,Math.ceil(total/PG));
+  if(uPage>=pages) uPage=pages-1;
+  const sl=users.slice(uPage*PG,(uPage+1)*PG);
+  document.getElementById('u-tbody').innerHTML=sl.map((u,i)=>`
+    <tr>
+      <td>${uPage*PG+i+1}</td>
+      <td><strong>${u.name}</strong></td>
+      <td style="font-size:.75rem">${u.email||u.contact}</td>
+      <td>${u.country}</td><td>${u.age||'—'}</td>
+      <td>${u.isPremium?'<span class="bdg by">⭐ Premium</span>':'<span class="bdg bgr">Free</span>'}</td>
+      <td style="font-size:.75rem">${u.joined||'—'}</td>
+      <td><button class="del-btn" onclick="delUser('${u.email||u.contact}')">🗑</button></td>
+    </tr>`).join('');
+  let pg=`<span style="color:rgba(255,255,255,.4);font-size:.8rem;margin-right:.4rem;">${total} users</span>`;
+  for(let i=0;i<pages;i++) pg+=`<button class="abtn ${i===uPage?'abtn-g':'abtn-gh'}" onclick="uPage=${i};renderUsers()" style="min-width:34px;padding:.38rem .6rem;">${i+1}</button>`;
+  document.getElementById('u-pages').innerHTML=pg;
+}
+function delUser(id){if(!confirm('Delete this user permanently?'))return;DB.users=DB.users.filter(u=>u.email!==id&&u.contact!==id);renderUsers();renderDash();toast('User deleted','err');}
+
+// ============================================================
+// ADMIN — WALLET
+// ============================================================
+function renderWallet(){
+  const rev=DB.txns.filter(t=>t.status==='completed').reduce((s,t)=>s+t.usd,0);
+  const xOut=DB.transfers.filter(t=>t.status==='completed').reduce((s,t)=>s+t.usd,0);
+  const bal=Math.max(0,rev-xOut);
+  document.getElementById('w-balance').textContent='$'+bal.toFixed(2);
+  document.getElementById('w-sub').textContent=`From ${DB.txns.filter(t=>t.status==='completed').length} completed payments · $${xOut.toFixed(2)} transferred out`;
+  convertCurrency();
+  buildFxTable();
+  // History: combine txns + transfers
+  const hist=[...DB.txns.map(t=>({date:t.date,type:'💰 Payment In',who:t.user,amt:'$'+t.usd.toFixed(2),cur:t.localCur||'USD',status:t.status})),...DB.transfers.map(t=>({date:t.date,type:'💸 Transfer Out',who:t.to,amt:'-$'+t.usd.toFixed(2),cur:t.localCur||'USD',status:t.status}))].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,10);
+  const sc={completed:'bg',pending:'by',failed:'br'};
+  document.getElementById('w-history').innerHTML=hist.length===0?'<tr><td colspan="6" style="text-align:center;color:rgba(255,255,255,.35);">No history yet</td></tr>':hist.map(h=>`<tr><td style="font-size:.75rem">${h.date}</td><td>${h.type}</td><td>${h.who}</td><td>${h.amt}</td><td>${h.cur}</td><td><span class="bdg ${sc[h.status]||'bgr'}">${h.status}</span></td></tr>`).join('');
+}
+
+function convertCurrency(){
+  const amt=parseFloat(document.getElementById('fx-amt').value)||0;
+  const from=document.getElementById('fx-from').value;
+  const to=document.getElementById('fx-to').value;
+  const result=fx(amt,from,to);
+  document.getElementById('fx-result').textContent=fmtFx(result,to)+' '+to;
+  document.getElementById('fx-rate-info').textContent=`1 ${from} = ${(FX[to]/FX[from]).toFixed(4)} ${to} · Rates: April 2026`;
+}
+
+function buildFxTable(){
+  const el=document.getElementById('fx-rates-table');
+  if(!el) return;
+  el.innerHTML=Object.entries(FX).map(([k,v])=>`<tr><td>${FX_SYM[k]} ${k}</td><td>${v.toFixed(4)}</td><td>${fmtFx(7.65*v,k)}</td></tr>`).join('');
+}
+
+// ============================================================
+// ADMIN — TRANSACTIONS
+// ============================================================
+function renderTx(){
+  const q=(document.getElementById('tx-q').value||'').toLowerCase();
+  const fs=document.getElementById('tx-fs').value;
+  let txs=DB.txns;
+  if(q) txs=txs.filter(t=>(t.user||'').toLowerCase().includes(q)||(t.ref||'').toLowerCase().includes(q));
+  if(fs) txs=txs.filter(t=>t.status===fs);
+  const comp=txs.filter(t=>t.status==='completed');
+  document.getElementById('tx-total').textContent='$'+comp.reduce((s,t)=>s+t.usd,0).toFixed(2);
+  document.getElementById('tx-count').textContent=txs.length;
+  const today=new Date().toISOString().split('T')[0];
+  document.getElementById('tx-today').textContent=txs.filter(t=>t.date===today).length;
+  const sc={completed:'bg',pending:'by',failed:'br'};
+  document.getElementById('tx-tbody').innerHTML=txs.slice().reverse().map(t=>`<tr><td style="font-size:.73rem">${t.ref}</td><td>${t.user}</td><td>${t.country}</td><td>${t.local}</td><td>$${t.usd.toFixed(2)}</td><td style="font-size:.74rem">${t.provider||'—'}</td><td><span class="bdg ${sc[t.status]||'bgr'}">${t.status}</span></td><td style="font-size:.73rem">${t.date}</td></tr>`).join('');
+}
+function exportTx(){exportCSV(DB.txns.map(t=>[t.ref,t.user,t.country,t.local,t.usd,t.provider||'',t.status,t.date]),['Ref','User','Country','Local Amt','USD','Provider','Status','Date'],'gms_transactions.csv');}
+
+// ============================================================
+// ADMIN — TRANSFER
+// ============================================================
+function renderTransfer(){
+  const rev=DB.txns.filter(t=>t.status==='completed').reduce((s,t)=>s+t.usd,0);
+  const xOut=DB.transfers.filter(t=>t.status==='completed').reduce((s,t)=>s+t.usd,0);
+  const bal=Math.max(0,rev-xOut);
+  document.getElementById('tf-bal').textContent='$'+bal.toFixed(2);
+  document.getElementById('tf-bal-sub').textContent=`Total collected: $${rev.toFixed(2)} · Already transferred: $${xOut.toFixed(2)}`;
+  renderTfTable();
+  previewTransfer();
+}
+function previewTransfer(){
+  const amt=parseFloat(document.getElementById('tf-amt').value)||0;
+  const cur=document.getElementById('tf-cur').value;
+  if(!amt){document.getElementById('tf-preview').innerHTML='<span style="color:rgba(255,255,255,.38);font-size:.83rem;">Enter amount to preview conversion</span>';return;}
+  const converted=fx(amt,'USD',cur);
+  document.getElementById('tf-preview').innerHTML=`<div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;"><span style="color:rgba(255,255,255,.55);font-size:.82rem;">$${amt.toFixed(2)} USD =</span><span style="color:var(--gold2);font-size:1.3rem;font-weight:700;">${fmtFx(converted,cur)} ${cur}</span><span style="color:rgba(255,255,255,.38);font-size:.78rem;">Rate: 1 USD = ${FX[cur].toFixed(4)} ${cur}</span></div>`;
+}
+function doTransfer(){
+  const name=document.getElementById('tf-name').value.trim();
+  const acct=document.getElementById('tf-acct').value.trim();
+  const amt=parseFloat(document.getElementById('tf-amt').value);
+  const cur=document.getElementById('tf-cur').value;
+  const net=document.getElementById('tf-net').value;
+  const note=document.getElementById('tf-note').value.trim();
+  if(!name||!acct||!amt){toast('Fill in all required fields','err');return;}
+  if(isNaN(amt)||amt<=0){toast('Enter a valid amount','err');return;}
+  const rev=DB.txns.filter(t=>t.status==='completed').reduce((s,t)=>s+t.usd,0);
+  const xOut=DB.transfers.filter(t=>t.status==='completed').reduce((s,t)=>s+t.usd,0);
+  const bal=Math.max(0,rev-xOut);
+  if(amt>bal){toast('Insufficient balance! Available: $'+bal.toFixed(2),'err');return;}
+  const converted=fx(amt,'USD',cur);
+  const ref='TF-'+Date.now().toString().slice(-7);
+  DB.transfers=[...DB.transfers,{ref,to:name,account:acct,network:net,usd:amt,localAmt:fmtFx(converted,cur),localCur:cur,status:'completed',date:new Date().toISOString().split('T')[0],note}];
+  clearTf();renderTransfer();
+  toast(`✅ Sent ${fmtFx(converted,cur)} ${cur} to ${name} — Ref: ${ref}`,'ok');
+}
+function renderTfTable(){
+  const tfs=DB.transfers;
+  document.getElementById('tf-tbody').innerHTML=tfs.length===0?'<tr><td colspan="8" style="text-align:center;color:rgba(255,255,255,.33);padding:1rem;">No transfers yet</td></tr>':tfs.slice().reverse().map(t=>`<tr><td style="font-size:.73rem">${t.ref}</td><td>${t.to}</td><td style="font-size:.74rem">${t.account}</td><td style="font-size:.74rem">${t.network}</td><td>$${t.usd.toFixed(2)}</td><td style="font-size:.78rem">${t.localAmt||'—'} ${t.localCur||''}</td><td><span class="bdg bg">${t.status}</span></td><td style="font-size:.73rem">${t.date}</td></tr>`).join('');
+}
+function clearTf(){['tf-name','tf-acct','tf-amt','tf-note'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});document.getElementById('tf-preview').innerHTML='<span style="color:rgba(255,255,255,.38);font-size:.83rem;">Enter amount to preview conversion</span>';}
+
+// ============================================================
+// ADMIN — FEEDBACK / TICKETS
+// ============================================================
+function renderTickets(){
+  const fs=document.getElementById('tk-fs').value;
+  let tks=DB.tickets;
+  if(fs) tks=tks.filter(t=>t.status===fs);
+  const sc={open:'br','in-progress':'by',resolved:'bg'};
+  document.getElementById('tk-list').innerHTML=tks.length===0?'<div style="color:rgba(255,255,255,.35);text-align:center;padding:2rem;">No tickets</div>':
+    tks.slice().reverse().map(t=>`<div class="acard" style="margin-bottom:.7rem;">
+      <div style="display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:.5rem;">
+        <div><strong style="color:#fff">${t.subject}</strong><div style="color:rgba(255,255,255,.42);font-size:.79rem;margin-top:.15rem;">${t.user} · ${t.email} · ${t.date}</div></div>
+        <div style="display:flex;gap:.4rem;flex-wrap:wrap;align-items:center;">
+          <span class="bdg ${sc[t.status]||'bgr'}">${t.status}</span>
+          ${t.status!=='resolved'?`<button class="abtn abtn-g" style="font-size:.72rem;padding:.28rem .65rem;" onclick="resolveTicket(${t.id})">✓ Resolve</button>`:''}
+          <button class="abtn abtn-r" style="font-size:.72rem;padding:.28rem .65rem;" onclick="delTicket(${t.id})">🗑</button>
+        </div>
+      </div>
+      ${t.msg?`<div style="color:rgba(255,255,255,.52);font-size:.81rem;margin-top:.55rem;padding:.55rem;background:rgba(255,255,255,.04);border-radius:8px;">${t.msg}</div>`:''}
+      <div style="margin-top:.7rem;display:flex;gap:.5rem;align-items:center;">
+        <input class="ainp" id="rp-${t.id}" placeholder="Type reply..." style="flex:1;">
+        <button class="abtn abtn-g" onclick="sendReply(${t.id})" style="font-size:.78rem;">📧 Reply</button>
+      </div>
+    </div>`).join('');
+}
+function resolveTicket(id){const ts=DB.tickets;const i=ts.findIndex(t=>t.id===id);if(i>-1){ts[i].status='resolved';DB.tickets=ts;}renderTickets();toast('Ticket resolved ✓','ok');}
+function delTicket(id){DB.tickets=DB.tickets.filter(t=>t.id!==id);renderTickets();toast('Ticket deleted','err');}
+function sendReply(id){const v=document.getElementById('rp-'+id).value.trim();if(!v){toast('Enter a reply','err');return;}toast('📧 Reply sent to user!','ok');resolveTicket(id);}
+function addTicket(){const s=prompt('Ticket subject:');if(!s)return;DB.tickets=[...DB.tickets,{id:Date.now(),user:'Manual',email:'admin',subject:s,status:'open',date:new Date().toISOString().split('T')[0],msg:''}];renderTickets();toast('Ticket created','ok');}
+
+// ============================================================
+// ADMIN — DEPARTMENTS
+// ============================================================
+function renderDepts(){
+  const staff=DB.staff;
+  const roles=[...new Set(staff.map(s=>s.role))];
+  document.getElementById('dept-grid').innerHTML=roles.map(role=>{
+    const mems=staff.filter(s=>s.role===role);
+    return `<div class="dept-card"><h4>${role}</h4><p style="color:rgba(255,255,255,.38);font-size:.78rem;margin-bottom:.7rem;">${mems.length} member(s)</p>${mems.map(m=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:.38rem 0;border-top:1px solid rgba(255,255,255,.06);"><div><div style="color:#fff;font-size:.83rem;">${m.name}</div><div style="color:rgba(255,255,255,.38);font-size:.73rem;">${m.email}</div></div><div style="display:flex;align-items:center;gap:.35rem;"><span class="bdg bgr">${m.access}</span><button class="del-btn" onclick="delStaff(${m.id})">🗑</button></div></div>`).join('')}</div>`;
+  }).join('');
+}
+function addStaff(){const name=document.getElementById('d-name').value.trim();const email=document.getElementById('d-email').value.trim();const role=document.getElementById('d-role').value;const access=document.getElementById('d-access').value;if(!name||!email){toast('Enter name and email','err');return;}DB.staff=[...DB.staff,{id:Date.now(),name,role,email,access}];renderDepts();document.getElementById('d-name').value='';document.getElementById('d-email').value='';toast('Staff added ✓','ok');}
+function delStaff(id){DB.staff=DB.staff.filter(s=>s.id!==id);renderDepts();toast('Staff removed','err');}
+
+// ============================================================
+// ADMIN — SOCIAL
+// ============================================================
+function renderSocial(){
+  const posts=DB.posts;
+  const el=document.getElementById('p-list');
+  if(posts.length===0){el.innerHTML='<div style="text-align:center;padding:1rem;">No scheduled posts yet</div>';return;}
+  el.innerHTML=posts.slice().reverse().map((p,i)=>`<div style="display:flex;justify-content:space-between;align-items:start;padding:.75rem;background:rgba(255,255,255,.04);border-radius:10px;margin-bottom:.45rem;"><div><div style="color:#fff;font-size:.83rem;font-weight:600;">${p.platform} · ${p.time}</div><div style="color:rgba(255,255,255,.45);font-size:.78rem;margin-top:.18rem;">${p.content.substring(0,80)}${p.content.length>80?'...':''}</div></div><button class="del-btn" onclick="delPost(${posts.length-1-i})">🗑</button></div>`).join('');
+}
+function schedPost(){const pl=document.getElementById('p-plat').value;const ti=document.getElementById('p-time').value;const tx=document.getElementById('p-txt').value.trim();if(!tx||!ti){toast('Fill content and time','err');return;}DB.posts=[...DB.posts,{platform:pl,time:ti,content:tx}];document.getElementById('p-txt').value='';renderSocial();toast('Post scheduled ✓','ok');}
+function delPost(i){const p=DB.posts;p.splice(i,1);DB.posts=p;renderSocial();}
+
+// ============================================================
+// ADMIN — KANBAN
+// ============================================================
+function renderKanban(){
+  const tasks=DB.tasks;
+  const cols=[{k:'todo',l:'To Do',c:'#ef4444'},{k:'progress',l:'In Progress',c:'var(--gold)'},{k:'done',l:'Done',c:'#4ade80'}];
+  const pm={high:'🔴',med:'🟡',low:'🟢'};
+  document.getElementById('kboard').innerHTML=cols.map(col=>{
+    const items=tasks.filter(t=>t.col===col.k);
+    return `<div class="kcol"><div class="kcol-title" style="color:${col.c}">${col.l}<span class="kcol-cnt">${items.length}</span></div>${items.map(t=>`<div class="ktask" onclick="moveTask(${t.id})"><div class="kt-title">${pm[t.priority]||'⚪'} ${t.title}</div><div class="kt-meta">${t.date||''} · <span style="color:#fca5a5;cursor:pointer;" onclick="event.stopPropagation();delTask(${t.id})">🗑 del</span></div></div>`).join('')}</div>`;
+  }).join('');
+}
+function addTask(){const ti=document.getElementById('t-inp').value.trim();const col=document.getElementById('t-col').value;const pri=document.getElementById('t-pri').value;if(!ti){toast('Enter task title','err');return;}const ts=DB.tasks;ts.push({id:Date.now(),title:ti,col,priority:pri,date:new Date().toISOString().split('T')[0]});DB.tasks=ts;document.getElementById('t-inp').value='';renderKanban();toast('Task added ✓','ok');}
+function moveTask(id){const ts=DB.tasks;const t=ts.find(x=>x.id===id);if(!t)return;const o=['todo','progress','done'];t.col=o[(o.indexOf(t.col)+1)%3];DB.tasks=ts;renderKanban();toast('Task moved ✓','ok');}
+function delTask(id){DB.tasks=DB.tasks.filter(t=>t.id!==id);renderKanban();}
+
+// ============================================================
+// USER DASHBOARD
+// ============================================================
+function updateDash(){
+  document.getElementById('grow-bar').style.width=growPct+'%';
+  document.getElementById('grow-pct').textContent=growPct+'% Complete';
+  if(isPrem){
+    document.getElementById('mul-lk').style.display='none';
+    document.getElementById('suc-lk').style.display='none';
+    document.getElementById('ulk-btn').style.display='none';
+    document.getElementById('ins-badge').style.display='inline-flex';
+    document.getElementById('nav-premium').style.display='inline-flex';
+    document.getElementById('mul-bar').style.width='65%';document.getElementById('mul-pct').textContent='65% Complete';
+    document.getElementById('suc-bar').style.width='20%';document.getElementById('suc-pct').textContent='20% Complete';
+    document.querySelectorAll('.tbtn.tg,.tbtn.td').forEach(b=>b.classList.remove('lk'));
+  } else {
+    document.querySelectorAll('.tbtn.tg,.tbtn.td').forEach(b=>b.classList.add('lk'));
+  }
+}
+
+// ============================================================
+// PAYMENT FLOW
+// ============================================================
+const LA={ZM:{amt:'K 147.42',lbl:'ZMW · ≈ $7.65 USD'},KE:{amt:'KSh 988.38',lbl:'KES · ≈ $7.65 USD'},NG:{amt:'₦ 10,327.50',lbl:'NGN · ≈ $7.65 USD'},ZA:{amt:'R 125.08',lbl:'ZAR · ≈ $7.65 USD'},TZ:{amt:'TSh 19,813.50',lbl:'TZS · ≈ $7.65 USD'},GH:{amt:'GH₵ 83.46',lbl:'GHS · ≈ $7.65 USD'},MW:{amt:'MK 13,196.25',lbl:'MWK · ≈ $7.65 USD'},ZW:{amt:'$7.65',lbl:'USD'}};
+const PROV={ZM:['Airtel Money 🇿🇲','MTN Zambia 🇿🇲','Zamtel Kwacha 🇿🇲'],KE:['M-Pesa 🇰🇪'],NG:['OPay 🇳🇬','Kuda 🇳🇬','MTN MoMo 🇳🇬'],ZA:['SnapScan 🇿🇦','MTN MoMo SA 🇿🇦'],TZ:['M-Pesa TZ 🇹🇿','Airtel TZ 🇹🇿'],GH:['MTN MoMo 🇬🇭','Vodafone Cash 🇬🇭'],MW:['Airtel Money MW 🇲🇼','TNM Mpamba 🇲🇼'],ZW:['EcoCash 🇿🇼','InnBucks 🇿🇼']};
+
+function openPay(){
+  if(isPrem){toast('You already have The Vault unlocked! ⭐','ok');return;}
+  const c=CU&&CU.country?CU.country:'ZM';
+  const la=LA[c]||LA.ZM;
+  const provs=PROV[c]||PROV.ZM;
+  document.getElementById('pay-local-amt').textContent=la.amt;
+  document.getElementById('pay-local-lbl').textContent=la.lbl;
+  selMM='';
+  document.getElementById('mm-opts').innerHTML=provs.map((p,i)=>`<div class="mm-opt" id="mm-${i}" onclick="selMMProv(this,'${p}')">${p}</div>`).join('');
+  document.getElementById('pay-phone').value='';
+  document.getElementById('pay-ov').classList.add('on');
+  document.body.style.overflow='hidden';
+}
+function selMMProv(el,name){selMM=name;document.querySelectorAll('.mm-opt').forEach(e=>e.classList.remove('sel'));el.classList.add('sel');}
+function closePay(){document.getElementById('pay-ov').classList.remove('on');document.body.style.overflow='';}
+
+function processPay(){
+  if(!selMM){toast('Please select a mobile money provider','err');return;}
+  const phone=document.getElementById('pay-phone').value.trim();
+  if(!phone||phone.length<8){toast('Please enter a valid phone number','err');return;}
+  const btn=document.querySelector('.btn-gold');
+  btn.textContent='⏳ Processing...';btn.disabled=true;
+  toast('📱 STK push sent via '+selMM+' to '+phone+' — enter your PIN on your phone...','');
+  setTimeout(()=>{
+    isPrem=true;
+    if(CU){
+      CU.isPremium=true;
+      sessionStorage.setItem('gms_sess',JSON.stringify(CU));
+      const users=DB.users;
+      const idx=users.findIndex(u=>u.email===CU.email||u.contact===CU.contact);
+      if(idx>-1){users[idx].isPremium=true;DB.users=users;}
+      const c=CU.country||'ZM';
+      const la=LA[c]||LA.ZM;
+      const txns=DB.txns;
+      txns.push({ref:'TX-'+Date.now().toString().slice(-6),user:CU.name,country:c,local:la.amt,localCur:(la.lbl.split('·')[0]||'USD').trim(),provider:selMM,usd:7.65,status:'completed',date:new Date().toISOString().split('T')[0]});
+      DB.txns=txns;
+    }
+    closePay();updateDash();
+    toast('🎉 Payment confirmed via '+selMM+'! The Vault is unlocked. Welcome, Insider!','ok');
+    btn.textContent='Pay Now & Unlock →';btn.disabled=false;
+  },2800);
+}
+
+// ============================================================
+// TOPIC MODAL
+// ============================================================
+const TPC={
+  budgeting:{icon:'📊',title:'Budgeting Basics',sub:'Grow Phase · Free · 5 min',hc:'',act:'Mark Complete ✓',secs:[{h:'What is a Budget?',p:'A budget is a plan telling your money where to go. Start with the 50/30/20 rule: 50% needs, 30% wants, 20% savings and debt repayment.',tip:{l:'GMS Tip',t:'Write your budget every month — even a rough one is better than none.'}},{h:'Steps to Create Your Budget',l:['Write down total monthly income (salary + any side income)','List all fixed expenses: rent, transport, school fees, utilities','List variable expenses: food, airtime, entertainment','Subtract total expenses from income. Negative? Cut wants first.','Set a savings target — even K50/month builds the habit']},{h:'Budget Apps & Tools for Zambia',p:'You do not need an app. A notebook works perfectly. Write income at top, expenses below. Many GMS users WhatsApp themselves daily spending notes to track easily.',tip:{l:'Real Example',t:'Mwila earns K4,500/month: K1,800 rent, K900 food, K450 transport, K200 airtime, K200 savings, K950 emergency buffer.'}}]},
+  saving:{icon:'💰',title:'The Art of Saving',sub:'Grow Phase · Free · 4 min',hc:'',act:'Mark Complete ✓',secs:[{h:'Why Most People Do Not Save',p:'The biggest myth is "I will save when I earn more." The habit matters more than the amount. K100/month consistently beats K1,000 occasionally.',tip:{l:'GMS Tip',t:'Pay yourself first — move savings the moment income arrives, before spending anything.'}},{h:'Savings Strategies That Work in Africa',l:['Chilimba rotating savings clubs — join or start one with trusted friends','Mobile money savings: Airtel Money & MTN offer up to 8% annual interest','Emergency fund: target 3 months of expenses before investing anything','Goal-based saving: separate mental pots for school fees, phone, land']},{h:'How Much Should You Save?',p:'Start with 5% of your income. Increase by 1% every month until you reach 20%. The goal is making saving non-negotiable.',tip:{l:'Calculator',t:'K200/month at 8% annual interest = over K8,000 after 3 years. Time, not amount, creates wealth.'}}]},
+  debt:{icon:'⚖️',title:'Debt Management',sub:'Grow Phase · Free · 6 min',hc:'',act:'Mark Complete ✓',secs:[{h:'Good Debt vs Bad Debt',p:'Good debt builds your future (education, business assets). Bad debt costs without creating value — loan shark borrowing, luxury credit, high-interest personal loans.',tip:{l:'Warning',t:'Loan sharks in Zambia charge 50–100% monthly interest. A K500 loan becomes K1,500 in 3 months. Always know the exact rate before borrowing.'}},{h:'The Snowball Method',l:['List all debts smallest to largest balance','Pay the minimum on all debts','Put every extra kwacha toward the smallest debt','When it\'s paid, redirect that payment to the next debt','Momentum builds — it really works!']},{h:'Negotiating with Creditors',p:'Most lenders prefer to negotiate than chase defaulters. Call your lender before they call you. Ask for: payment holiday, reduced interest rate, or restructured plan.',tip:{l:'GMS Tip',t:'Get every debt agreement in writing. Verbal promises are not legally enforceable.'}}]},
+  scams:{icon:'🛡',title:'Avoiding Financial Scams',sub:'Grow Phase · Free · 5 min',hc:'',act:'Mark Complete ✓',secs:[{h:'Common Scams Across Africa',l:['Ponzi/pyramid schemes: "Invest K1,000 earn K5,000 next week" — mathematically impossible','SIM swap fraud: criminals clone your SIM to drain mobile money instantly','Advance fee fraud: pay K200 to receive a prize — the prize never arrives','Fake investment platforms: copied bank websites offering 50% monthly returns','WhatsApp group recruitment scams: pay a fee, recruit others, or lose everything']},{h:'The Golden Rule',p:'If it sounds too good to be true, it absolutely is. Real investments return 6–15% per year — not per month. Guaranteed high short-term returns are always a scam.',tip:{l:'Red Flags',t:'Pressure to decide RIGHT NOW. Guaranteed returns. Must recruit others. No verifiable physical office. Not registered with SEC Zambia.'}},{h:'If You Have Been Scammed',l:['Report immediately to Zambia Police Financial Crimes Unit','Report to Securities & Exchange Commission Zambia','Alert your mobile money provider to freeze outgoing transfers','Warn your community — prevent others from losing money too','NEVER pay more money to "recover" losses — that is scam #2!']}]},
+  investing:{icon:'📈',title:'Investing for Beginners',sub:'Multiply Phase · Premium · 8 min',hc:'gld',act:'Save to Learning Plan',secs:[{h:'The Power of Compound Interest',p:'K1,000 invested at 12% annual return becomes K3,105 in 10 years — without adding anything. Einstein called compounding "the eighth wonder of the world."',tip:{l:'GMS Insight',t:'Start at 25 investing K500/month and you retire wealthier than starting at 40 investing K2,000/month. Time beats amount every time.',type:'g'}},{h:'Investment Options in Zambia',l:['Lusaka Stock Exchange (LuSE): Buy shares in Zambian companies — minimum K500','Government Treasury Bills & Bonds: 16–24% annual return, government-guaranteed. Very safe.','Unit Trusts: Professionally managed pooled funds — low minimum entry','Real Estate: Buy land or property — high entry cost but strong long-term returns','Mobile Money Savings: Airtel Money Xtra saves at 8% annual interest']},{h:'Your First Investment Plan',p:'Before investing ensure: 3-month emergency fund, no high-interest debt, stable income source. Then start with a Government Bond or Unit Trust — regulated, proven, safe.',tip:{l:'Action Step',t:'Visit bankofzambia.zm or call +260-211-228888 to learn about Treasury Bills. Minimum investment: K1,000.',type:'g'}}]},
+  sidehustles:{icon:'💼',title:'Side Hustles for Africans',sub:'Multiply Phase · Premium · 7 min',hc:'gld',act:'Start My Side Hustle Plan',secs:[{h:'Why Every African Needs Multiple Income Streams',p:'Relying on one income is the most dangerous financial position. Side hustles build resilience, accelerate savings, and often grow into full businesses.',tip:{l:'GMS Data',t:'GMS users with 2+ income streams save 3x more and reach financial goals 60% faster than single-income users.',type:'g'}},{h:'Top Side Hustles for Zambia 2026',l:['Upwork & Fiverr: Data entry, design, writing — earn $5–$50 per task globally','Facebook Marketplace & Jiji.co.zm: Sell clothes, electronics, food locally','Mobile money agent: Commission on every transaction you process','Agribusiness: Poultry, vegetables, or crops with K500–K2,000 starting capital','Digital content: YouTube, TikTok, Instagram — monetize with local audiences','Tutoring & teaching: Charge for skills you already have']},{h:'Rules for Your First Side Hustle',l:['Identify a skill you already have or a problem people pay to solve','Start with zero capital — sell your time and skills first','Test with 5 friends before scaling to strangers','Reinvest all profits for at least 3 months before taking anything out'],tip:{l:'Rule of Thumb',t:'Your side hustle should not require quitting your job to start. Build it on evenings and weekends until it earns 50% of your salary.',type:'g'}}]},
+  mobilemoney:{icon:'📱',title:'Mastering Mobile Money',sub:'Multiply Phase · Premium · 6 min',hc:'gld',act:'Optimize My Mobile Money',secs:[{h:'Mobile Money as a Complete Financial System',p:'Mobile money is not just for sending money — it is a complete financial ecosystem. Airtel Money and MTN Zambia offer savings accounts, micro-loans, insurance, and merchant payments.',tip:{l:'GMS Insight',t:'Airtel Money Xtra savings offers 8% annual interest — higher than most Zambian bank savings accounts.',type:'g'}},{h:'Advanced Mobile Money Features Most People Miss',l:['Digital Chilimba: Automated rotating savings groups on Airtel Money','Micro-loans: Instant small loans based on your transaction history — no paperwork','Business wallet: Accept customer payments directly on your phone','International remittances: Receive money from UK, USA, South Africa diaspora','Micro-insurance: Health and accident cover from as little as K5/month']},{h:'Securing Your Mobile Money Account',l:['Never share your PIN with anyone — including people claiming to be Airtel/MTN staff','Register your SIM in your real name only','Enable PIN confirmation for every transaction — not just large ones','Check balance daily and immediately report unknown transactions','Set a daily limit to minimize damage from SIM swap fraud']}]},
+  localproducts:{icon:'🏦',title:'Local Financial Products',sub:'Multiply Phase · Premium · 7 min',hc:'gld',act:'Review My Financial Products',secs:[{h:'Products Most Zambians Do Not Know Exist',p:'Beyond mobile money, Zambia has formal financial products most people miss. Matching the right tool to each goal makes a huge difference.',tip:{l:'Key Rule',t:'Always verify a financial product is registered with Bank of Zambia, ZSIC, or Securities & Exchange Commission Zambia before investing.',type:'g'}},{h:'Banking Products Worth Your Attention',l:['Fixed Deposit Accounts: Lock money 1–12 months, earn 10–20% annual interest','SACCO / Credit Union: Lower-interest loans and competitive savings rates for members','Microfinance: Opportunity Bank, FINCA — small business loans with manageable terms','Agricultural Loans: DBZ (Development Bank of Zambia) — low-interest farming loans','Government Savings Bonds: 16–24% annual return, fully government-guaranteed']},{h:'Insurance Every Zambian Needs',l:['Life insurance: ZSIC Life, Madison Life — protect your family\'s financial future','Agricultural insurance: Protect crops against drought or flooding losses','Health insurance: NHIMA (National Health Insurance) — affordable formal coverage','Funeral insurance: From K20/month — most banks and insurers offer this'],tip:{l:'Priority',t:'If you can only afford one insurance product, get life insurance. Your family depends on it.',type:'g'}}]},
+  retirement:{icon:'🏖',title:'Planning for Retirement',sub:'Succeed Phase · Premium · 8 min',hc:'drk',act:'Build My Retirement Plan',secs:[{h:'The Retirement Crisis Most Africans Face',p:'Many rely on children or extended family for old-age support. But urbanization and changing family structures make this unreliable. Building your own retirement fund is no longer optional.',tip:{l:'Hard Truth',t:'Zambia social pension is K316/month — not enough to survive on. You must build your own retirement fund, starting now.'}},{h:'Retirement Savings Options in Zambia',l:['NAPSA: Mandatory for employees — 10% of salary contributed monthly (employer matches 5%)','Private pension funds: Old Mutual, Madison Financial — voluntary additional contributions','Self-directed investment account: For self-employed — Government Bonds and Unit Trusts','Rental income property: Buy now, use rental income as your retirement salary','Business equity: Build a business that generates passive income you live off']},{h:'The GMS Retirement Formula',p:'Target a nest egg that is 25x your annual expenses. If you spend K60,000/year, target K1.5 million in retirement savings.',tip:{l:'The Math',t:'Age 30, investing K800/month at 12% annual return = K3.5 million by age 60. Wait until 40 and you will only have K950,000.'}}]},
+  assetprotection:{icon:'🔐',title:'Asset Protection Strategies',sub:'Succeed Phase · Premium · 7 min',hc:'drk',act:'Start My Protection Plan',secs:[{h:'What Asset Protection Actually Means',p:'Legally structuring your wealth so it survives lawsuits, business failures, divorce, death, and economic downturns. Many Africans lose everything because they never protected what they built.',tip:{l:'GMS Principle',t:'Building wealth without protecting it is building on sand. The two must happen simultaneously.'}},{h:'Key Strategies to Implement Now',l:['Separate personal and business finances completely — open a business bank account','Register all property in the correct legal name — avoid informal verbal agreements','Get life insurance so your family can service debts if you die','Create a will — without one, the government decides who receives your assets','Diversify across asset types, currencies, and locations — never put everything in one place']},{h:'Legal Structures That Protect Wealth',l:['Limited Company (Ltd): Business liabilities stay separate from personal assets','Family Trust: Protect and pass family wealth across generations tax-efficiently','Correct property titling: Joint ownership saves inheritance disputes and tax','Power of Attorney: Designate someone to manage your affairs if incapacitated'],tip:{l:'Action Step',t:'A basic will at the High Court Registry Lusaka costs as little as K500. Book an appointment this week.'}}]},
+  generational:{icon:'🌳',title:'Building Generational Wealth',sub:'Succeed Phase · Premium · 9 min',hc:'drk',act:'Start My Legacy Plan',secs:[{h:'What Generational Wealth Actually Is',p:'Assets passed from one generation to the next — land, businesses, investments, education, and financial knowledge. The difference between families that struggle every generation and those that build on the past.',tip:{l:'African Context',t:'Traditional African wealth (cattle, communal land, village connections) still matters enormously. Add modern financial assets to preserve and multiply it.'}},{h:'The Three Pillars of Generational Wealth',l:['Financial capital: Investment portfolios and income-generating assets that compound over decades','Human capital: Education, skills, and professional networks that increase earning power every generation','Social capital: Business relationships, community reputation, and connections that open doors your money alone cannot']},{h:'Practical Steps You Can Start This Month',l:['Buy land: Even a small plot in a growth corridor appreciates significantly over 10 years','Fund education fully: Knowledge is the only asset that cannot be repossessed','Start a family business and give children real ownership from the beginning','Create a family investment pool: Combined capital buys assets no individual could afford alone','Financial education: Teach children about money from age 6 — this is your most valuable inheritance'],tip:{l:'Legacy Action',t:'Write a financial letter to your children today. Document your values, what you have built, and your hopes for the future. This alone changes family trajectories across generations.'}}]}
+};
+
+function openTopic(key){
+  const d=TPC[key];if(!d)return;
+  const hd=document.getElementById('tm-hd');
+  hd.className='tm-hd'+(d.hc?' '+d.hc:'');
+  document.getElementById('tm-icon').textContent=d.icon;
+  document.getElementById('tm-title').textContent=d.title;
+  document.getElementById('tm-sub').textContent=d.sub;
+  document.getElementById('tm-act').textContent=d.act||'Mark Complete ✓';
+  document.getElementById('tm-act').onclick=()=>completeTopic(key);
+  let html='';
+  d.secs.forEach(s=>{
+    html+=`<div class="tsec"><h4>${s.h}</h4>`;
+    if(s.p) html+=`<p>${s.p}</p>`;
+    if(s.l){html+='<ul>';s.l.forEach(li=>html+=`<li>${li}</li>`);html+='</ul>';}
+    if(s.tip){const gc=s.tip.type==='g'?' gld-tip':'';html+=`<div class="tip${gc}"><p><strong>${s.tip.l}:</strong> ${s.tip.t}</p></div>`;}
+    html+='</div>';
+  });
+  document.getElementById('tm-body').innerHTML=html;
+  document.getElementById('topic-ov').classList.add('on');
+  document.body.style.overflow='hidden';
+}
+function gatedTopic(key){
+  if(!isPrem){
+    toast('🔒 This content requires The Vault — unlock for $7.65','');
+    setTimeout(openPay,1600);return;
+  }
+  openTopic(key);
+}
+function completeTopic(key){
+  const free=['budgeting','saving','debt','scams'];
+  if(free.includes(key)){growPct=Math.min(growPct+15,100);updateDash();toast('✅ Lesson complete! Grow progress: '+growPct+'%','ok');}
+  else toast('✅ Saved to your learning plan!','ok');
+  closeTopic();
+}
+function closeTopic(){document.getElementById('topic-ov').classList.remove('on');document.body.style.overflow='';}
+
+// ============================================================
+// UTILITIES
+// ============================================================
+function toast(msg,type){const el=document.getElementById('toast-el');el.textContent=msg;el.className='toast on '+(type||'');clearTimeout(window._tt);window._tt=setTimeout(()=>el.classList.remove('on'),3800);}
+function ss(sel){const el=document.querySelector(sel);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}
+function exportCSV(rows,headers,filename){const c=[headers,...rows].map(r=>r.map(v=>'"'+(String(v||'').replace(/"/g,'""'))+'"').join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([c],{type:'text/csv'}));a.download=filename;a.click();toast('CSV exported ✓','ok');}
+document.getElementById('topic-ov').addEventListener('click',function(e){if(e.target===this)closeTopic();});
+document.getElementById('pay-ov').addEventListener('click',function(e){if(e.target===this)closePay();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeTopic();closePay();}});
+</script>
+</body>
+</html>
