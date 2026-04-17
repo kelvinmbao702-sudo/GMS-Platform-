@@ -348,6 +348,150 @@ footer{background:var(--gd);color:rgba(255,255,255,.72);padding:4rem 4rem 2rem;}
 .toast.ok{background:var(--green);}
 .toast.err{background:var(--red);}
 
+/* FEEDBACK PAGE */
+#feedback-page{display:none;position:fixed;inset:0;z-index:5000;background:linear-gradient(135deg,var(--gd),var(--green) 55%,#0d8f5e);overflow-y:auto;padding:2rem;}
+#feedback-page.on{display:block;}
+.fb-card{background:#fff;border-radius:28px;padding:2.5rem 2.2rem;max-width:560px;margin:0 auto;box-shadow:0 40px 100px rgba(0,0,0,.3);}
+.fb-card h2{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--green);margin-bottom:.3rem;}
+.fb-card .sub{color:var(--gray);font-size:.88rem;margin-bottom:1.8rem;}
+.fb-tabs{display:flex;border-radius:12px;overflow:hidden;border:2px solid var(--grl);margin-bottom:1.6rem;}
+.fb-tab{flex:1;padding:.65rem;text-align:center;font-weight:600;font-size:.85rem;cursor:pointer;border:none;background:transparent;color:var(--gray);transition:all .2s;font-family:inherit;}
+.fb-tab.on{background:var(--green);color:#fff;}
+.fb-form{display:none;}
+.fb-form.on{display:block;}
+.mentor-info{background:rgba(10,104,71,.07);border-left:4px solid var(--green);border-radius:0 12px 12px 0;padding:1rem 1.2rem;margin-bottom:1.3rem;}
+.mentor-info p{font-size:.86rem;color:var(--ch);line-height:1.7;}
+.mentor-info strong{color:var(--green);}
+/* PHASE DASHBOARDS */
+.phase-page{display:none;position:fixed;inset:0;z-index:4500;overflow-y:auto;}
+.phase-page.on{display:block;}
+.ph-grow{background:linear-gradient(160deg,#064530 0%,#0A6847 50%,#0d8f5e 100%);}
+.ph-multiply{background:linear-gradient(160deg,#7a4a00 0%,#b8720a 50%,#c87f0a 100%);}
+.ph-succeed{background:linear-gradient(160deg,#0a0f1e 0%,#1A1A2E 50%,#253347 100%);}
+.ph-legacy{background:linear-gradient(160deg,#1a0a2e 0%,#3b1f5e 50%,#6b3fa0 100%);}
+.ph-nav{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 2rem;background:rgba(0,0,0,.2);backdrop-filter:blur(10px);position:sticky;top:0;z-index:10;}
+.ph-nav-title{font-family:'Playfair Display',serif;color:#fff;font-size:1.2rem;font-weight:900;}
+.ph-close{background:rgba(255,255,255,.15);border:none;color:#fff;padding:.45rem 1rem;border-radius:50px;cursor:pointer;font-family:inherit;font-weight:600;font-size:.83rem;transition:all .2s;}
+.ph-close:hover{background:rgba(255,255,255,.28);}
+.ph-body{max-width:900px;margin:0 auto;padding:2.5rem 2rem;}
+.ph-hero{text-align:center;margin-bottom:3rem;}
+.ph-badge{display:inline-block;padding:.35rem 1rem;border-radius:50px;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem;}
+.ph-badge-free{background:rgba(255,255,255,.2);color:#fff;}
+.ph-badge-paid{background:var(--gold);color:var(--ch);}
+.ph-hero h1{font-family:'Playfair Display',serif;font-size:3rem;color:#fff;font-weight:900;margin-bottom:.9rem;line-height:1.15;}
+.ph-hero p{color:rgba(255,255,255,.8);font-size:1.05rem;line-height:1.8;max-width:650px;margin:0 auto 2rem;}
+.ph-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:3rem;}
+.ph-stat{background:rgba(255,255,255,.1);border-radius:16px;padding:1.3rem;text-align:center;border:1px solid rgba(255,255,255,.15);}
+.ph-stat-n{font-family:'Playfair Display',serif;font-size:2rem;color:#fff;font-weight:900;}
+.ph-stat-l{color:rgba(255,255,255,.65);font-size:.78rem;margin-top:.3rem;}
+.ph-section{background:rgba(255,255,255,.07);border-radius:20px;padding:2rem;margin-bottom:1.5rem;border:1px solid rgba(255,255,255,.12);}
+.ph-section h2{font-family:'Playfair Display',serif;color:#fff;font-size:1.4rem;margin-bottom:1rem;}
+.ph-section p{color:rgba(255,255,255,.82);line-height:1.85;font-size:.95rem;margin-bottom:.9rem;}
+.ph-section ul{color:rgba(255,255,255,.78);line-height:1.85;font-size:.93rem;padding-left:1.4rem;}
+.ph-section ul li{margin-bottom:.55rem;}
+.ph-tip{background:rgba(255,255,255,.12);border-left:4px solid var(--gold);border-radius:0 12px 12px 0;padding:1rem 1.2rem;margin:1rem 0;}
+.ph-tip p{color:#fff;font-size:.88rem;margin:0;line-height:1.7;}
+.ph-tip strong{color:var(--gold2);}
+.ph-topics{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;}
+.ph-topic-btn{background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.2);border-radius:14px;padding:1.1rem;cursor:pointer;text-align:left;transition:all .2s;font-family:inherit;width:100%;}
+.ph-topic-btn:hover{background:rgba(255,255,255,.18);transform:translateY(-2px);}
+.ph-topic-icon{font-size:1.5rem;margin-bottom:.4rem;}
+.ph-topic-name{color:#fff;font-weight:700;font-size:.9rem;}
+.ph-topic-time{color:rgba(255,255,255,.5);font-size:.75rem;margin-top:.2rem;}
+.ph-locked-overlay{background:rgba(0,0,0,.5);border-radius:14px;padding:2.5rem;text-align:center;border:2px dashed rgba(255,255,255,.2);}
+.ph-locked-overlay h3{color:#fff;font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:.7rem;}
+.ph-locked-overlay p{color:rgba(255,255,255,.7);margin-bottom:1.5rem;font-size:.92rem;line-height:1.7;}
+.books-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem;}
+.book-card{background:rgba(255,255,255,.1);border-radius:14px;padding:1.2rem;border:1px solid rgba(255,255,255,.15);transition:all .2s;}
+.book-card:hover{background:rgba(255,255,255,.16);transform:translateY(-3px);}
+.book-cover{font-size:2.8rem;margin-bottom:.7rem;display:block;}
+.book-title{color:#fff;font-weight:700;font-size:.88rem;margin-bottom:.3rem;line-height:1.3;}
+.book-author{color:rgba(255,255,255,.55);font-size:.77rem;margin-bottom:.6rem;}
+.book-why{color:rgba(255,255,255,.72);font-size:.78rem;line-height:1.6;}
+/* WALLET ACCOUNT */
+.wallet-acct-box{background:linear-gradient(135deg,var(--gd),var(--green));border-radius:16px;padding:1.4rem;margin:1.1rem 0;border:2px solid rgba(255,255,255,.15);}
+.wallet-acct-label{color:rgba(255,255,255,.75);font-size:.73rem;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.5rem;}
+.wallet-acct-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:#fff;letter-spacing:3px;margin-bottom:.5rem;}
+.wallet-acct-name{color:rgba(255,255,255,.82);font-size:.83rem;margin-bottom:.9rem;}
+.copy-btn{display:inline-flex;align-items:center;gap:.4rem;background:var(--gold);color:var(--ch);border:none;padding:.5rem 1.1rem;border-radius:50px;font-weight:700;font-size:.8rem;cursor:pointer;font-family:inherit;transition:all .2s;}
+.copy-btn:hover{background:var(--gold2);}
+.pay-confirm-box{background:#f0fdf4;border:2px solid #86efac;border-radius:12px;padding:1.1rem;margin-top:.9rem;display:none;}
+.pay-confirm-box.on{display:block;}
+.pay-confirm-box p{color:#166534;font-size:.87rem;line-height:1.6;}
+.pay-ref-input{width:100%;padding:.7rem 1rem;border:2px solid #e5e7eb;border-radius:10px;font-size:.88rem;font-family:inherit;margin:.6rem 0;transition:border-color .2s;}
+.pay-ref-input:focus{outline:none;border-color:var(--green);}
+
+
+/* FEEDBACK WIDGET (inline on pages) */
+.fb-widget{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:2rem;margin-top:2rem;}
+.fb-widget h2{font-family:'Playfair Display',serif;color:#fff;font-size:1.3rem;margin-bottom:.3rem;}
+.fb-widget .sub{color:rgba(255,255,255,.65);font-size:.85rem;margin-bottom:1.2rem;}
+.fb-widget .fb-tabs{border-color:rgba(255,255,255,.2);}
+.fb-widget .fb-tab{color:rgba(255,255,255,.6);}
+.fb-widget .fb-tab.on{background:rgba(255,255,255,.2);color:#fff;}
+.fb-widget .fg label{color:rgba(255,255,255,.8);}
+.fb-widget .fg input,.fb-widget .fg select,.fb-widget textarea{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;}
+.fb-widget .fg input::placeholder,.fb-widget textarea::placeholder{color:rgba(255,255,255,.35);}
+.fb-widget .fg input:focus,.fb-widget textarea:focus{border-color:var(--gold);outline:none;}
+.fb-widget .aerr{background:rgba(239,68,68,.15);border-color:rgba(239,68,68,.3);}
+.fb-widget .asuc{background:rgba(74,222,128,.12);border-color:rgba(74,222,128,.3);color:#4ade80;}
+.fb-widget .mentor-info{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.25);}
+.fb-widget .mentor-info p{color:rgba(255,255,255,.8);}
+/* HOME FEEDBACK SECTION */
+#home-feedback{background:var(--cream);padding:5rem 4rem;}
+.hfb-card{background:#fff;border-radius:22px;padding:2.5rem;border:1px solid rgba(0,0,0,.07);max-width:640px;margin:2rem auto 0;}
+/* BOOK READER MODAL */
+#book-reader{display:none;position:fixed;inset:0;z-index:6000;background:rgba(0,0,0,.92);overflow-y:auto;}
+#book-reader.on{display:flex;flex-direction:column;}
+.br-nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:#1e293b;position:sticky;top:0;z-index:2;flex-shrink:0;}
+.br-title{color:#fff;font-family:'Playfair Display',serif;font-size:1.1rem;}
+.br-close{background:rgba(255,255,255,.12);border:none;color:#fff;padding:.45rem 1.1rem;border-radius:50px;cursor:pointer;font-family:inherit;font-weight:600;font-size:.83rem;}
+.br-body{max-width:760px;margin:0 auto;padding:3rem 2rem;flex:1;}
+.br-cover{text-align:center;margin-bottom:3rem;}
+.br-cover-emoji{font-size:5rem;display:block;margin-bottom:1rem;}
+.br-cover h1{font-family:'Playfair Display',serif;color:#fff;font-size:2.5rem;margin-bottom:.5rem;}
+.br-cover .br-author{color:rgba(255,255,255,.55);font-size:1rem;margin-bottom:1rem;}
+.br-cover .br-badge{display:inline-block;background:var(--green);color:#fff;padding:.3rem .9rem;border-radius:50px;font-size:.75rem;font-weight:700;}
+.br-chapter{margin-bottom:3rem;}
+.br-chapter h2{font-family:'Playfair Display',serif;color:var(--gold2);font-size:1.4rem;margin-bottom:1.2rem;padding-bottom:.7rem;border-bottom:1px solid rgba(255,255,255,.1);}
+.br-chapter h3{color:#fff;font-size:1.05rem;font-weight:700;margin:1.5rem 0 .7rem;}
+.br-chapter p{color:rgba(255,255,255,.82);line-height:1.9;font-size:.97rem;margin-bottom:1rem;}
+.br-chapter ul{color:rgba(255,255,255,.78);line-height:1.9;font-size:.95rem;padding-left:1.5rem;margin-bottom:1rem;}
+.br-chapter ul li{margin-bottom:.5rem;}
+.br-quote{background:rgba(255,255,255,.06);border-left:4px solid var(--gold);padding:1.2rem 1.5rem;margin:1.5rem 0;border-radius:0 12px 12px 0;}
+.br-quote p{color:var(--gold2);font-style:italic;font-size:1rem;margin:0;line-height:1.8;}
+.br-locked{text-align:center;padding:4rem 2rem;background:rgba(0,0,0,.5);border-radius:20px;border:2px dashed rgba(255,255,255,.2);margin:2rem 0;}
+.br-locked h2{font-family:'Playfair Display',serif;color:#fff;font-size:1.8rem;margin-bottom:.8rem;}
+.br-locked p{color:rgba(255,255,255,.65);font-size:.95rem;line-height:1.7;margin-bottom:1.8rem;}
+/* BOOK CARDS — clickable */
+.book-card{cursor:pointer;}
+.book-card:hover .book-title{color:var(--gold2);}
+/* PAYMENT DETECTOR */
+.pay-detector{background:#f8fafc;border:2px solid #e2e8f0;border-radius:14px;padding:1.1rem 1.3rem;margin:.9rem 0;}
+.pay-detector-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gray);margin-bottom:.8rem;display:flex;align-items:center;gap:.4rem;}
+.det-row{display:flex;align-items:center;gap:.8rem;font-size:.83rem;padding:.35rem 0;border-bottom:1px solid #f1f5f9;}
+.det-row:last-child{border-bottom:none;}
+.det-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+.det-dot-ok{background:#22c55e;}
+.det-dot-warn{background:#f59e0b;}
+.det-dot-err{background:#ef4444;}
+.det-dot-idle{background:#cbd5e1;}
+.det-lbl{color:#64748b;width:130px;flex-shrink:0;font-size:.78rem;}
+.det-val{color:#1e293b;font-weight:600;flex:1;}
+/* ADMIN — PAYMENT CONFIRMATIONS */
+.pay-pend-card{background:var(--n2);border-radius:14px;padding:1.1rem 1.3rem;margin-bottom:.8rem;border:1px solid rgba(255,255,255,.06);}
+.pay-pend-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;margin-bottom:.6rem;}
+.pay-pend-ref{color:rgba(255,255,255,.4);font-size:.75rem;margin-top:.15rem;}
+.pay-pend-btns{display:flex;gap:.5rem;flex-wrap:wrap;}
+/* RESPONSIVE additions */
+@media(max-width:900px){
+  #home-feedback{padding:3.5rem 1.4rem;}
+  .books-grid{grid-template-columns:1fr 1fr;}
+  .ph-stats{grid-template-columns:1fr 1fr;}
+  .br-body{padding:2rem 1.2rem;}
+  .br-cover h1{font-size:1.8rem;}
+}
+
 /* Responsive */
 @media(max-width:900px){
   nav{padding:.8rem 1.2rem;}
@@ -449,6 +593,7 @@ footer{background:var(--gd);color:rgba(255,255,255,.72);padding:4rem 4rem 2rem;}
       <div class="adm-sb-item" onclick="admGo('transactions')"><span>💰</span>Transactions</div>
       <div class="adm-sb-item" onclick="admGo('transfer')"><span>💸</span>Money Transfer</div>
       <div class="adm-sb-item" onclick="admGo('feedback')"><span>💬</span>Feedback</div>
+      <div class="adm-sb-item" onclick="admGo('payconfirm')"><span>✅</span>Pay Confirmations</div>
       <div class="adm-sb-item" onclick="admGo('departments')"><span>🏢</span>Departments</div>
       <div class="adm-sb-item" onclick="admGo('social')"><span>📱</span>Social Media</div>
       <div class="adm-sb-item" onclick="admGo('roadmap')"><span>📋</span>Roadmap</div>
@@ -613,6 +758,27 @@ footer{background:var(--gd);color:rgba(255,255,255,.72);padding:4rem 4rem 2rem;}
         <div id="tk-list"></div>
       </div>
 
+
+      <!-- PAYMENT CONFIRMATIONS -->
+      <div class="asec" id="asec-payconfirm">
+        <div class="ah"><h2>✅ Payment Confirmations</h2><p>Review pending payments — unlock or reject user access</p></div>
+        <div class="astats" style="grid-template-columns:repeat(3,1fr);">
+          <div class="astat"><div class="astat-v" id="pc-pending-count">0</div><div class="astat-l">Pending Review</div></div>
+          <div class="astat"><div class="astat-v" id="pc-unlocked-count">0</div><div class="astat-l">Unlocked Today</div></div>
+          <div class="astat"><div class="astat-v" id="pc-rejected-count">0</div><div class="astat-l">Rejected</div></div>
+        </div>
+        <div class="arow">
+          <select class="ainp" style="width:175px;" id="pc-fs" onchange="renderPayConfirm()">
+            <option value="">All Payments</option>
+            <option value="pending_admin">⏳ Pending Review</option>
+            <option value="completed">✅ Unlocked</option>
+            <option value="rejected">❌ Rejected</option>
+          </select>
+          <button class="abtn abtn-g" onclick="renderPayConfirm()">🔄 Refresh</button>
+        </div>
+        <div id="pc-list"></div>
+      </div>
+
       <!-- DEPARTMENTS -->
       <div class="asec" id="asec-departments">
         <div class="ah"><h2>🏢 Department Management</h2><p>Role-based access control — manage team</p></div>
@@ -672,6 +838,7 @@ footer{background:var(--gd);color:rgba(255,255,255,.72);padding:4rem 4rem 2rem;}
     <li><a onclick="ss('#fw')">Framework</a></li>
     <li><a onclick="ss('#ctry')">Countries</a></li>
     <li><a onclick="ss('#pricing')">Pricing</a></li>
+    <li><a onclick="openFeedback()">Feedback</a></li>
   </ul>
   <div class="n-right">
     <span class="n-user">Welcome, <span id="nav-uname">User</span></span>
@@ -695,7 +862,7 @@ footer{background:var(--gd);color:rgba(255,255,255,.72);padding:4rem 4rem 2rem;}
       <div class="h-stats">
         <div><div class="h-stat-n">8+</div><div class="h-stat-l">African Countries</div></div>
         <div><div class="h-stat-n">$7.65</div><div class="h-stat-l">One-time Unlock</div></div>
-        <div><div class="h-stat-n">3</div><div class="h-stat-l">Wealth Phases</div></div>
+        <div><div class="h-stat-n">4</div><div class="h-stat-l">Wealth Phases</div></div>
       </div>
     </div>
     <div class="h-visual">
@@ -711,12 +878,14 @@ footer{background:var(--gd);color:rgba(255,255,255,.72);padding:4rem 4rem 2rem;}
     <h2 class="st">Track Your <span>Financial Journey</span></h2>
     <div class="d-grid" style="margin-top:1.8rem;">
       <div class="d-sidebar">
-        <div class="pc"><h4>🌱 Grow Phase</h4><div class="pb-w"><div class="pb" id="grow-bar" style="width:40%"></div></div><div class="pp" id="grow-pct">40% Complete</div></div>
-        <div class="pc"><h4>📈 Multiply Phase</h4><div class="pb-w"><div class="pb" id="mul-bar" style="width:0%;background:var(--gold)"></div></div><div class="pp" id="mul-pct">Locked</div><div class="lk-msg" id="mul-lk">🔒 Complete Grow to 80%</div></div>
+        <div class="pc"><h4>🌱 Grow Phase</h4><div class="pb-w"><div class="pb" id="grow-bar" style="width:40%"></div></div><div class="pp" id="grow-pct">40% Complete</div><button onclick="openPhase('grow')" style="display:block;width:100%;margin-top:.7rem;background:var(--green);color:#fff;border:none;padding:.55rem;border-radius:50px;font-weight:700;font-size:.82rem;cursor:pointer;font-family:inherit;">📖 View Phase Dashboard →</button></div>
+        <div class="pc"><h4>📈 Multiply Phase</h4><div class="pb-w"><div class="pb" id="mul-bar" style="width:0%;background:var(--gold)"></div></div><div class="pp" id="mul-pct">Locked</div><div class="lk-msg" id="mul-lk">🔒 Complete Grow to 80%</div><button onclick="openPhase('multiply')" style="display:block;width:100%;margin-top:.7rem;background:var(--gold);color:var(--ch);border:none;padding:.55rem;border-radius:50px;font-weight:700;font-size:.82rem;cursor:pointer;font-family:inherit;">📖 View Phase Dashboard →</button></div>
         <div class="pc"><h4>🏆 Succeed Phase</h4><div class="pb-w"><div class="pb" id="suc-bar" style="width:0%;background:var(--gd)"></div></div><div class="pp" id="suc-pct">Locked</div><div class="lk-msg" id="suc-lk">🔒 Requires Vault unlock</div>
+          <button onclick="openPhase('succeed')" style="display:block;width:100%;margin-top:.7rem;background:var(--gd);color:#fff;border:none;padding:.55rem;border-radius:50px;font-weight:700;font-size:.82rem;cursor:pointer;font-family:inherit;">📖 View Phase Dashboard →</button>
           <button class="ulk-btn" id="ulk-btn" onclick="openPay()">🔐 Unlock The Vault — $7.65</button>
           <div class="ins-badge" id="ins-badge" style="display:none;">⭐ INSIDER — Full Access</div>
         </div>
+        <div class="pc"><h4>🌳 Legacy Phase</h4><div class="pb-w"><div class="pb" id="leg-bar" style="width:0%;background:linear-gradient(90deg,#6b3fa0,#9b59b6)"></div></div><div class="pp" id="leg-pct">Locked</div><div class="lk-msg">🔒 Requires Vault unlock</div><button onclick="openPhase('legacy')" style="display:block;width:100%;margin-top:.7rem;background:linear-gradient(135deg,#3b1f5e,#6b3fa0);color:#fff;border:none;padding:.55rem;border-radius:50px;font-weight:700;font-size:.82rem;cursor:pointer;font-family:inherit;">📖 View Phase Dashboard →</button></div>
       </div>
       <div>
         <div style="background:var(--cream);border-radius:18px;padding:1.8rem;border:1px solid rgba(0,0,0,.06);margin-bottom:1.3rem;">
@@ -773,6 +942,15 @@ footer{background:var(--gd);color:rgba(255,255,255,.72);padding:4rem 4rem 2rem;}
           <button class="tbtn td" id="tb-rt" onclick="gatedTopic('retirement')">Retirement</button>
           <button class="tbtn td" id="tb-ap" onclick="gatedTopic('assetprotection')">Asset Protection</button>
           <button class="tbtn td" id="tb-gw" onclick="gatedTopic('generational')">Generational Wealth</button>
+        </div>
+      </div>
+      <div class="fw-card" style="background:#fff;border:1px solid rgba(0,0,0,.06);position:relative;overflow:hidden;border-radius:22px;padding:2.2rem 1.8rem;transition:transform .28s,box-shadow .28s;"><div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#6b3fa0,#9b59b6);"></div>
+        <span class="fw-icon">🌳</span><div class="fw-lbl" style="color:var(--gray);">Phase 4 — Premium Only</div>
+        <h3 class="fw-title" style="color:#6b3fa0;">Legacy</h3>
+        <p class="fw-desc">Build generational wealth and a family name that outlives you by centuries.</p>
+        <div class="fw-tags">
+          <button class="tbtn" style="background:rgba(107,63,160,.1);color:#6b3fa0;border-color:rgba(107,63,160,.28);" onclick="gatedTopic('generational')">Generational Wealth</button>
+          <button class="tbtn" style="background:rgba(107,63,160,.1);color:#6b3fa0;border-color:rgba(107,63,160,.28);" onclick="openPhase('legacy')">Legacy Dashboard</button>
         </div>
       </div>
     </div>
@@ -852,6 +1030,48 @@ footer{background:var(--gd);color:rgba(255,255,255,.72);padding:4rem 4rem 2rem;}
   </div>
 </div>
 
+
+<!-- HOME FEEDBACK SECTION -->
+<div id="home-feedback">
+  <div class="si">
+    <span class="sbdg">We Listen</span>
+    <h2 class="st">Share Your Thoughts or <span>Book a Mentor</span></h2>
+    <p class="ss">Your feedback shapes GMS. Our mentors are here to guide your personal financial journey.</p>
+    <div class="hfb-card">
+      <div class="fb-tabs a-tabs" style="margin-bottom:1.4rem;">
+        <button class="a-tab on" onclick="switchHomeFbTab('feedback')" id="hfbt-feedback">📝 Send Feedback</button>
+        <button class="a-tab" onclick="switchHomeFbTab('mentor')" id="hfbt-mentor">🎓 Request Mentor</button>
+      </div>
+      <div id="hfb-feedback" class="af on">
+        <div class="aerr" id="hfb-err"></div>
+        <div class="asuc" id="hfb-suc"></div>
+        <div class="fg"><label>Full Name</label><input type="text" id="hfb-name" placeholder="Your full name"></div>
+        <div class="fg"><label>Email Address</label><input type="email" id="hfb-email" placeholder="you@email.com"></div>
+        <div class="fg"><label>Your Feedback</label><textarea id="hfb-msg" rows="4" style="width:100%;padding:.75rem 1rem;border:2px solid #e5e7eb;border-radius:12px;font-size:.93rem;font-family:inherit;resize:vertical;" placeholder="Tell us what you think about GMS Platform..."></textarea></div>
+        <button class="btn-auth" onclick="submitHomeFeedback()">Send Feedback →</button>
+      </div>
+      <div id="hfb-mentor" class="af">
+        <div class="mentor-info"><p><strong>🎓 One-on-One Mentorship</strong><br>GMS certified mentors with 5+ years in African finance. Tailored sessions on budgeting, investing, debt, and wealth building.</p></div>
+        <div class="aerr" id="hmt-err"></div>
+        <div class="asuc" id="hmt-suc"></div>
+        <div class="form-row">
+          <div class="fg"><label>Full Name</label><input type="text" id="hmt-name" placeholder="Your name"></div>
+          <div class="fg"><label>Email</label><input type="email" id="hmt-email" placeholder="you@email.com"></div>
+        </div>
+        <div class="fg"><label>What do you need help with?</label>
+          <select id="hmt-topic" style="width:100%;padding:.75rem 1rem;border:2px solid #e5e7eb;border-radius:12px;font-size:.93rem;font-family:inherit;">
+            <option>Getting out of debt</option><option>Starting to invest</option>
+            <option>Building a budget that works</option><option>Starting a side hustle or business</option>
+            <option>Planning for retirement</option><option>Building generational wealth</option>
+          </select>
+        </div>
+        <div class="fg"><label>Tell us about your situation</label><textarea id="hmt-msg" rows="3" style="width:100%;padding:.75rem 1rem;border:2px solid #e5e7eb;border-radius:12px;font-size:.93rem;font-family:inherit;resize:vertical;" placeholder="Your current situation and goals..."></textarea></div>
+        <button class="btn-auth" onclick="submitHomeMentor()">Request Mentorship Session →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="fi">
@@ -898,16 +1118,454 @@ footer{background:var(--gd);color:rgba(255,255,255,.72);padding:4rem 4rem 2rem;}
     </div>
     <label style="font-weight:600;font-size:.82rem;display:block;margin-bottom:.5rem;">Select Mobile Money Provider</label>
     <div class="mm-select" id="mm-opts"></div>
-    <label style="font-weight:600;font-size:.82rem;display:block;margin-bottom:.4rem;">Your Mobile Money Number</label>
-    <input class="pay-inp" type="tel" id="pay-phone" placeholder="+260 97X XXX XXX">
-    <div class="pay-steps">
-      <div class="ps-item"><div class="ps-num">1</div>Select provider & enter your number above</div>
-      <div class="ps-item"><div class="ps-num">2</div>Tap Pay Now — prompt sent to your phone</div>
-      <div class="ps-item"><div class="ps-num">3</div>Enter your PIN on your phone to confirm</div>
-      <div class="ps-item"><div class="ps-num">4</div>✅ Funds hit GMS wallet — access unlocked!</div>
+    <div class="wallet-acct-box" id="wallet-acct-box" style="display:none;">
+      <div class="wallet-acct-label">💳 GMS Platform Wallet — Deposit To:</div>
+      <div class="wallet-acct-num" id="pay-acct-num">GMS-2026-0047</div>
+      <div class="wallet-acct-name" id="pay-acct-name">GMS Platform · Airtel Money · +260 97 123 4567</div>
+      <button class="copy-btn" onclick="copyAcct()">📋 Copy Account Number</button>
     </div>
-    <button class="btn-gold" onclick="processPay()">Pay Now & Unlock →</button>
+    <div class="pay-steps" id="pay-steps-box" style="display:none;">
+      <div class="ps-item"><div class="ps-num">1</div>Copy the wallet account number above</div>
+      <div class="ps-item"><div class="ps-num">2</div>Go to any mobile money agent or app</div>
+      <div class="ps-item"><div class="ps-num">3</div>Send the exact amount to the account number</div>
+      <div class="ps-item"><div class="ps-num">4</div>Enter your payment reference below and confirm</div>
+    </div>
+    <div id="pay-confirm-section" style="display:none;">
+      <label style="font-weight:600;font-size:.82rem;display:block;margin-bottom:.35rem;">Your Name (as sender)</label>
+      <input class="pay-ref-input" type="text" id="pay-sender-name" placeholder="Full name used when sending" oninput="liveDetect()">
+      <label style="font-weight:600;font-size:.82rem;display:block;margin-bottom:.35rem;margin-top:.4rem;">Transaction / Receipt Reference</label>
+      <input class="pay-ref-input" type="text" id="pay-ref" placeholder="e.g. AIRTL20260417XXXXX" oninput="liveDetect()">
+      <!-- PAYMENT DETECTOR -->
+      <div class="pay-detector" id="pay-detector" style="display:none;">
+        <div class="pay-detector-title">🔍 Payment Detector</div>
+        <div class="det-row"><div class="det-dot det-dot-idle" id="det-prov-dot"></div><span class="det-lbl">Provider Selected</span><span class="det-val" id="det-prov-val">—</span></div>
+        <div class="det-row"><div class="det-dot det-dot-idle" id="det-acct-dot"></div><span class="det-lbl">Account Number</span><span class="det-val" id="det-acct-val">—</span></div>
+        <div class="det-row"><div class="det-dot det-dot-idle" id="det-name-dot"></div><span class="det-lbl">Sender Name</span><span class="det-val" id="det-name-val">—</span></div>
+        <div class="det-row"><div class="det-dot det-dot-idle" id="det-ref-dot"></div><span class="det-lbl">Reference #</span><span class="det-val" id="det-ref-val">—</span></div>
+        <div class="det-row"><div class="det-dot det-dot-idle" id="det-status-dot"></div><span class="det-lbl">Status</span><span class="det-val" id="det-status-val">Waiting for details...</span></div>
+      </div>
+      <button class="btn-gold" onclick="confirmPayment()">✅ I Have Sent the Money — Submit for Confirmation →</button>
+    </div>
+    <div class="pay-confirm-box" id="pay-success-box">
+      <p>🎉 <strong>Payment confirmed!</strong> Your GMS Insider access has been activated. Welcome to the Vault! Refreshing your dashboard...</p>
+    </div>
   </div>
+</div>
+
+
+<!-- ===================== FEEDBACK PAGE ===================== -->
+<div id="feedback-page">
+  <div style="max-width:560px;margin:0 auto;padding-top:1rem;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;">
+      <div style="font-family:'Playfair Display',serif;color:#fff;font-size:1.4rem;font-weight:900;">GMS Platform</div>
+      <button class="ph-close" onclick="closeFeedback()">← Back</button>
+    </div>
+    <div class="fb-card">
+      <h2>💬 Get in Touch</h2>
+      <p class="sub">Send feedback or request a one-on-one finance mentoring session with a GMS expert.</p>
+      <div class="fb-tabs">
+        <button class="fb-tab on" onclick="switchFbTab('feedback')">📝 Send Feedback</button>
+        <button class="fb-tab" onclick="switchFbTab('mentor')">🎓 Request Mentorship</button>
+      </div>
+      <!-- FEEDBACK FORM -->
+      <div class="fb-form on" id="fbf-feedback">
+        <div class="aerr" id="fb-err"></div>
+        <div class="asuc" id="fb-suc"></div>
+        <div class="fg"><label>Full Name</label><input type="text" id="fb-name" placeholder="Your full name"></div>
+        <div class="fg"><label>Email Address</label><input type="email" id="fb-email" placeholder="you@email.com"></div>
+        <div class="fg"><label>Your Feedback</label><textarea id="fb-msg" rows="5" style="width:100%;padding:.75rem 1rem;border:2px solid #e5e7eb;border-radius:12px;font-size:.93rem;font-family:inherit;resize:vertical;transition:border-color .2s;" placeholder="Tell us what you think about GMS Platform — what's working, what could be better, or any ideas you have..."></textarea></div>
+        <button class="btn-auth" onclick="submitFeedback()">Send Feedback →</button>
+      </div>
+      <!-- MENTOR REQUEST FORM -->
+      <div class="fb-form" id="fbf-mentor">
+        <div class="mentor-info">
+          <p><strong>🎓 One-on-One Financial Mentorship</strong><br>Our GMS certified finance mentors are real professionals with 5+ years experience in African markets. Sessions cover budgeting, investing, debt elimination, business planning, and wealth building — tailored to your specific situation and country.</p>
+        </div>
+        <div class="aerr" id="mt-err"></div>
+        <div class="asuc" id="mt-suc"></div>
+        <div class="fg"><label>Full Name</label><input type="text" id="mt-name" placeholder="Your full name"></div>
+        <div class="fg"><label>Email Address</label><input type="email" id="mt-email" placeholder="you@email.com"></div>
+        <div class="fg"><label>Country</label>
+          <select id="mt-country" style="width:100%;padding:.75rem 1rem;border:2px solid #e5e7eb;border-radius:12px;font-size:.93rem;font-family:inherit;">
+            <option value="ZM">🇿🇲 Zambia</option><option value="KE">🇰🇪 Kenya</option>
+            <option value="NG">🇳🇬 Nigeria</option><option value="ZA">🇿🇦 South Africa</option>
+            <option value="TZ">🇹🇿 Tanzania</option><option value="GH">🇬🇭 Ghana</option>
+            <option value="MW">🇲🇼 Malawi</option><option value="ZW">🇿🇼 Zimbabwe</option>
+          </select>
+        </div>
+        <div class="fg"><label>What do you need help with?</label>
+          <select id="mt-topic" style="width:100%;padding:.75rem 1rem;border:2px solid #e5e7eb;border-radius:12px;font-size:.93rem;font-family:inherit;">
+            <option>Getting out of debt</option>
+            <option>Starting to invest</option>
+            <option>Building a budget that works</option>
+            <option>Starting a side hustle or business</option>
+            <option>Planning for retirement</option>
+            <option>Building generational wealth</option>
+            <option>General financial planning</option>
+          </select>
+        </div>
+        <div class="fg"><label>Tell us more about your situation</label><textarea id="mt-msg" rows="4" style="width:100%;padding:.75rem 1rem;border:2px solid #e5e7eb;border-radius:12px;font-size:.93rem;font-family:inherit;resize:vertical;" placeholder="Share your current financial situation, your goals, and any specific challenges you're facing..."></textarea></div>
+        <button class="btn-auth" onclick="submitMentor()">Request Mentorship Session →</button>
+        <div style="margin-top:.9rem;font-size:.8rem;color:var(--gray);text-align:center;">A GMS mentor will contact you within 24–48 hours via email.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PHASE 1: GROW DASHBOARD ===================== -->
+<div id="phase-grow" class="phase-page ph-grow">
+  <div class="ph-nav">
+    <div class="ph-nav-title">🌱 Phase 1 — Grow</div>
+    <button class="ph-close" onclick="closePhase('grow')">← Back to Dashboard</button>
+  </div>
+  <div class="ph-body">
+    <div class="ph-hero">
+      <span class="ph-badge ph-badge-free">✅ Phase 1 — Always Free</span>
+      <h1>The Grow Phase</h1>
+      <p>Most people earn money their whole lives and never escape financial stress — not because they don't earn enough, but because nobody ever taught them the fundamentals. The Grow Phase fixes that forever. This is the foundation everything else is built on. Do not skip it.</p>
+      <button class="btn-gold" onclick="closePhase('grow');ss('#fw')">Start Learning Now →</button>
+    </div>
+    <div class="ph-stats">
+      <div class="ph-stat"><div class="ph-stat-n">4</div><div class="ph-stat-l">Core Lessons</div></div>
+      <div class="ph-stat"><div class="ph-stat-n">Free</div><div class="ph-stat-l">Forever</div></div>
+      <div class="ph-stat"><div class="ph-stat-n">18 min</div><div class="ph-stat-l">Total Read Time</div></div>
+    </div>
+    <div class="ph-section">
+      <h2>💡 Why The Grow Phase Changes Everything</h2>
+      <p>Here is a truth that will shock you: 78% of people who earn a salary — including doctors, lawyers, and engineers — live paycheck to paycheck. It is not because they do not earn enough. It is because they were never taught how money actually works.</p>
+      <p>The Grow Phase is built on one belief: <strong style="color:var(--gold2);">financial education is the highest-return investment you will ever make.</strong> Every kwacha, shilling, or naira you earn will be worth more after you understand the principles in this phase.</p>
+      <div class="ph-tip"><p><strong>The GMS Promise:</strong> Complete the Grow Phase fully and you will spend less, save more, and eliminate debt faster — within 90 days. Thousands of GMS users across Africa have done exactly this.</p></div>
+    </div>
+    <div class="ph-section">
+      <h2>📚 What You Will Learn</h2>
+      <p>Four life-changing modules, each written specifically for the African financial context:</p>
+      <div class="ph-topics">
+        <button class="ph-topic-btn" onclick="closePhase('grow');openTopic('budgeting')"><div class="ph-topic-icon">📊</div><div class="ph-topic-name">Budgeting Basics</div><div class="ph-topic-time">5 min · Build your money plan</div></button>
+        <button class="ph-topic-btn" onclick="closePhase('grow');openTopic('saving')"><div class="ph-topic-icon">💰</div><div class="ph-topic-name">The Art of Saving</div><div class="ph-topic-time">4 min · Build the saving habit</div></button>
+        <button class="ph-topic-btn" onclick="closePhase('grow');openTopic('debt')"><div class="ph-topic-icon">⚖️</div><div class="ph-topic-name">Debt Management</div><div class="ph-topic-time">6 min · Escape the debt trap</div></button>
+        <button class="ph-topic-btn" onclick="closePhase('grow');openTopic('scams')"><div class="ph-topic-icon">🛡️</div><div class="ph-topic-name">Avoiding Scams</div><div class="ph-topic-time">5 min · Protect your money</div></button>
+      </div>
+    </div>
+    <div class="ph-section">
+      <h2>🌍 The African Money Reality</h2>
+      <p>Financial advice written for Americans or Europeans does not work for us. Our banking systems, our mobile money infrastructure, our family obligations, and our economic cycles are fundamentally different. The Grow Phase is built for Zambia, Kenya, Nigeria, Ghana, Tanzania, Malawi, Zimbabwe, and South Africa — with real numbers, real institutions, and real strategies that work here.</p>
+      <ul>
+        <li>Budgeting around irregular income — market days, contract work, seasonal farming</li>
+        <li>Saving with mobile money when you do not have a bank account</li>
+        <li>Managing family financial pressure — supporting relatives without destroying yourself</li>
+        <li>Identifying loan sharks before they trap you in a 200% interest cycle</li>
+        <li>Using Chilimba and other African savings traditions as modern financial tools</li>
+      </ul>
+      <div class="ph-tip"><p><strong>Real Numbers:</strong> A GMS user in Lusaka earning K4,500/month used the budgeting module to find K800 in monthly waste. In 8 months she built a K6,400 emergency fund — her first ever — while still supporting her parents.</p></div>
+    </div>
+    <div class="ph-section">
+      <h2>📖 Recommended Books — Grow Phase</h2>
+      <p>These three books will rewire how you think about money. Tap any book to read it now — free with your GMS account:</p>
+      <div class="books-grid">
+        <div class="book-card" onclick="openBook('rich_dad')"><span class="book-cover">📗</span><div class="book-title">Rich Dad Poor Dad</div><div class="book-author">Robert Kiyosaki</div><div class="book-why">The single most important book about how rich and poor people think differently about money. Changes your mindset permanently.</div><div style="margin-top:.6rem;font-size:.76rem;color:var(--gold2);font-weight:700;">👆 Tap to Read →</div></div>
+        <div class="book-card" onclick="openBook('richest_babylon')"><span class="book-cover">📘</span><div class="book-title">The Richest Man in Babylon</div><div class="book-author">George S. Clason</div><div class="book-why">Ancient principles told as stories — paying yourself first, controlling expenses, making money work for you. Timeless and simple.</div><div style="margin-top:.6rem;font-size:.76rem;color:var(--gold2);font-weight:700;">👆 Tap to Read →</div></div>
+        <div class="book-card" onclick="openBook('i_will_teach')"><span class="book-cover">📙</span><div class="book-title">I Will Teach You To Be Rich</div><div class="book-author">Ramit Sethi</div><div class="book-why">Practical, no-nonsense guide to automating your finances, eliminating bad debt, and building wealth from scratch.</div><div style="margin-top:.6rem;font-size:.76rem;color:var(--gold2);font-weight:700;">👆 Tap to Read →</div></div>
+      </div>
+    </div>
+    <div class="fb-widget">
+      <h2>💬 Feedback & Mentorship</h2>
+      <p class="sub">Share your thoughts on the Grow Phase or request a personal mentor session.</p>
+      <div class="fb-tabs a-tabs" style="margin-bottom:1.2rem;">
+        <button class="a-tab on" style="background:rgba(255,255,255,.2);color:#fff;" onclick="switchPhaseFbTab('grow','feedback')">📝 Feedback</button>
+        <button class="a-tab" style="color:rgba(255,255,255,.6);" onclick="switchPhaseFbTab('grow','mentor')">🎓 Mentor</button>
+      </div>
+      <div id="pfb-grow-feedback" class="af on">
+        <div class="aerr" id="pfb-grow-err"></div>
+        <div class="asuc" id="pfb-grow-suc"></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.8);">Full Name</label><input type="text" id="pfb-grow-name" placeholder="Your name" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;width:100%;padding:.7rem 1rem;border:2px solid;border-radius:12px;font-family:inherit;font-size:.9rem;"></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.8);">Email</label><input type="email" id="pfb-grow-email" placeholder="you@email.com" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;width:100%;padding:.7rem 1rem;border:2px solid;border-radius:12px;font-family:inherit;font-size:.9rem;"></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.8);">Your Feedback</label><textarea id="pfb-grow-msg" rows="3" style="width:100%;padding:.7rem 1rem;border:2px solid rgba(255,255,255,.2);border-radius:12px;font-size:.9rem;font-family:inherit;resize:vertical;background:rgba(255,255,255,.1);color:#fff;" placeholder="What do you think about this phase?"></textarea></div>
+        <button class="btn-auth" style="background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.35);" onclick="submitPhaseFeedback('grow')">Send Feedback →</button>
+      </div>
+      <div id="pfb-grow-mentor" class="af" style="display:none;">
+        <div class="aerr" id="pmt-grow-err"></div>
+        <div class="asuc" id="pmt-grow-suc"></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.8);">Full Name</label><input type="text" id="pmt-grow-name" placeholder="Your name" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;width:100%;padding:.7rem 1rem;border:2px solid;border-radius:12px;font-family:inherit;font-size:.9rem;"></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.8);">Email</label><input type="email" id="pmt-grow-email" placeholder="you@email.com" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;width:100%;padding:.7rem 1rem;border:2px solid;border-radius:12px;font-family:inherit;font-size:.9rem;"></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.8);">What help do you need?</label><textarea id="pmt-grow-msg" rows="3" style="width:100%;padding:.7rem 1rem;border:2px solid rgba(255,255,255,.2);border-radius:12px;font-size:.9rem;font-family:inherit;resize:vertical;background:rgba(255,255,255,.1);color:#fff;" placeholder="Your situation and goals..."></textarea></div>
+        <button class="btn-auth" style="background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.35);" onclick="submitPhaseMentor('grow')">Request Mentor →</button>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:2.5rem;padding:2rem;background:rgba(255,255,255,.08);border-radius:20px;">
+      <div style="font-family:'Playfair Display',serif;color:#fff;font-size:1.5rem;margin-bottom:.7rem;">Ready to unlock the next level?</div>
+      <p style="color:rgba(255,255,255,.7);margin-bottom:1.5rem;">When you complete the Grow Phase, the Multiply Phase opens — and this is where your money starts working for you instead of the other way around.</p>
+      <button class="btn-gold" onclick="closePhase('grow');openPay()">Unlock Multiply + Succeed — $7.65 →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PHASE 2: MULTIPLY DASHBOARD ===================== -->
+<div id="phase-multiply" class="phase-page ph-multiply">
+  <div class="ph-nav">
+    <div class="ph-nav-title">📈 Phase 2 — Multiply</div>
+    <button class="ph-close" onclick="closePhase('multiply')">← Back to Dashboard</button>
+  </div>
+  <div class="ph-body">
+    <div class="ph-hero">
+      <span class="ph-badge ph-badge-paid">🔐 Premium — Unlock for $7.65</span>
+      <h1>The Multiply Phase</h1>
+      <p>You have built your foundation. Now it is time for the most exciting shift in personal finance: making your money earn money while you sleep. The Multiply Phase is where ordinary Africans become financially free — not by earning more, but by investing smarter.</p>
+      <button class="btn-gold" id="ph-mul-btn" onclick="isPrem?closePhase('multiply'):openPay()">Unlock Full Access — $7.65 →</button>
+    </div>
+    <div class="ph-stats">
+      <div class="ph-stat"><div class="ph-stat-n">4</div><div class="ph-stat-l">Premium Lessons</div></div>
+      <div class="ph-stat"><div class="ph-stat-n">$7.65</div><div class="ph-stat-l">One-time Unlock</div></div>
+      <div class="ph-stat"><div class="ph-stat-n">28 min</div><div class="ph-stat-l">Total Read Time</div></div>
+    </div>
+    <div class="ph-section">
+      <h2>🚀 The Wealth-Building Shift</h2>
+      <p>There is a moment that changes everything — the moment you realise your money can work harder than you do. A K10,000 investment at 18% annual return becomes K47,000 in 10 years — without a single extra kwacha added. That is the power the Multiply Phase unlocks for you.</p>
+      <p>Most people never reach this stage because they spend years trapped in the "earn more, spend more" cycle. The Grow Phase breaks that cycle. The Multiply Phase builds the engine that generates wealth on autopilot.</p>
+      <div class="ph-tip"><p><strong>The GMS Multiply Guarantee:</strong> Every strategy in this phase has been verified to work in African markets in 2026. No theoretical Wall Street advice. Real investments available to you today, in your country, with your currency.</p></div>
+    </div>
+    <div class="ph-section">
+      <h2>📚 What is Inside the Multiply Phase</h2>
+      <p>Four powerful modules that most financial courses charge thousands for:</p>
+      <div id="ph-mul-topics"></div>
+    </div>
+    <div class="ph-section">
+      <h2>💰 The Compound Interest Secret Nobody Tells You</h2>
+      <p>Here is the most important financial fact you were never taught in school: <strong style="color:var(--gold2);">starting 10 years earlier is worth more than doubling your investment amount.</strong></p>
+      <ul>
+        <li>Start at age 25, invest K500/month at 12%: You retire with K3.2 million</li>
+        <li>Start at age 35, invest K1,000/month at 12%: You retire with K1.8 million</li>
+        <li>The person who started earlier invested LESS total money and ended up with 78% MORE</li>
+        <li>This is why the best time to start was yesterday. The second best time is right now.</li>
+      </ul>
+      <div class="ph-tip"><p><strong>Zambia Opportunity:</strong> Government Treasury Bills currently yield 16–24% annually — that is higher than most investments on the planet, fully government-backed, and available to any Zambian with K1,000.</p></div>
+    </div>
+    <div class="ph-section">
+      <h2>📖 Recommended Books — Multiply Phase</h2>
+      <p>Premium books — unlock The Vault to read these in full:</p>
+      <div class="books-grid">
+        <div class="book-card" onclick="openBook('intelligent_investor')"><span class="book-cover">📕</span><div class="book-title">The Intelligent Investor</div><div class="book-author">Benjamin Graham</div><div class="book-why">Warren Buffett's bible. Teaches value investing — buying assets for less than they're worth and holding. Principles apply everywhere including Africa.</div><div style="margin-top:.6rem;font-size:.76rem;color:var(--gold2);font-weight:700;">👆 Tap to Read →</div></div>
+        <div class="book-card" onclick="openBook('psychology_money')"><span class="book-cover">📗</span><div class="book-title">Psychology of Money</div><div class="book-author">Morgan Housel</div><div class="book-why">19 timeless lessons on how people think about money. Explains why smart people make terrible financial decisions and how to avoid it.</div><div style="margin-top:.6rem;font-size:.76rem;color:var(--gold2);font-weight:700;">👆 Tap to Read →</div></div>
+        <div class="book-card" onclick="openBook('millionaire_next_door')"><span class="book-cover">📘</span><div class="book-title">The Millionaire Next Door</div><div class="book-author">Thomas Stanley</div><div class="book-why">Reveals the surprising habits of wealthy people — they live below their means, invest consistently, and avoid status spending. Deeply applicable to Africa.</div><div style="margin-top:.6rem;font-size:.76rem;color:var(--gold2);font-weight:700;">👆 Tap to Read →</div></div>
+      </div>
+    </div>
+    <div class="fb-widget">
+      <h2>💬 Feedback & Mentorship</h2>
+      <p class="sub">Share your thoughts on the Multiply Phase or request a personal mentor session.</p>
+      <div class="fb-tabs a-tabs" style="margin-bottom:1.2rem;">
+        <button class="a-tab on" style="background:rgba(255,255,255,.2);color:#fff;" onclick="switchPhaseFbTab('multiply','feedback')">📝 Feedback</button>
+        <button class="a-tab" style="color:rgba(255,255,255,.6);" onclick="switchPhaseFbTab('multiply','mentor')">🎓 Mentor</button>
+      </div>
+      <div id="pfb-multiply-feedback" class="af on">
+        <div class="aerr" id="pfb-multiply-err"></div>
+        <div class="asuc" id="pfb-multiply-suc"></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.8);">Full Name</label><input type="text" id="pfb-multiply-name" placeholder="Your name" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;width:100%;padding:.7rem 1rem;border:2px solid;border-radius:12px;font-family:inherit;font-size:.9rem;"></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.8);">Email</label><input type="email" id="pfb-multiply-email" placeholder="you@email.com" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;width:100%;padding:.7rem 1rem;border:2px solid;border-radius:12px;font-family:inherit;font-size:.9rem;"></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.8);">Your Feedback</label><textarea id="pfb-multiply-msg" rows="3" style="width:100%;padding:.7rem 1rem;border:2px solid rgba(255,255,255,.2);border-radius:12px;font-size:.9rem;font-family:inherit;resize:vertical;background:rgba(255,255,255,.1);color:#fff;" placeholder="What do you think about this phase?"></textarea></div>
+        <button class="btn-auth" style="background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.35);" onclick="submitPhaseFeedback('multiply')">Send Feedback →</button>
+      </div>
+      <div id="pfb-multiply-mentor" class="af" style="display:none;">
+        <div class="aerr" id="pmt-multiply-err"></div>
+        <div class="asuc" id="pmt-multiply-suc"></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.8);">Full Name</label><input type="text" id="pmt-multiply-name" placeholder="Your name" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;width:100%;padding:.7rem 1rem;border:2px solid;border-radius:12px;font-family:inherit;font-size:.9rem;"></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.8);">Email</label><input type="email" id="pmt-multiply-email" placeholder="you@email.com" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;width:100%;padding:.7rem 1rem;border:2px solid;border-radius:12px;font-family:inherit;font-size:.9rem;"></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.8);">What help do you need?</label><textarea id="pmt-multiply-msg" rows="3" style="width:100%;padding:.7rem 1rem;border:2px solid rgba(255,255,255,.2);border-radius:12px;font-size:.9rem;font-family:inherit;resize:vertical;background:rgba(255,255,255,.1);color:#fff;" placeholder="Your situation and goals..."></textarea></div>
+        <button class="btn-auth" style="background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.35);" onclick="submitPhaseMentor('multiply')">Request Mentor →</button>
+      </div>
+    </div>
+
+    <div id="ph-mul-lock-cta" style="text-align:center;margin-top:2rem;padding:2rem;background:rgba(0,0,0,.3);border-radius:20px;">
+      <div style="font-size:2.5rem;margin-bottom:.7rem;">🔐</div>
+      <div style="font-family:'Playfair Display',serif;color:#fff;font-size:1.5rem;margin-bottom:.7rem;">Full Access for $7.65</div>
+      <p style="color:rgba(255,255,255,.75);margin-bottom:1.5rem;">One payment. Lifetime access to all 4 Multiply lessons, all 3 Succeed lessons, and the entire Legacy Phase — plus every future update.</p>
+      <button class="btn-gold" onclick="openPay()">Unlock Everything Now →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PHASE 3: SUCCEED DASHBOARD ===================== -->
+<div id="phase-succeed" class="phase-page ph-succeed">
+  <div class="ph-nav">
+    <div class="ph-nav-title">🏆 Phase 3 — Succeed</div>
+    <button class="ph-close" onclick="closePhase('succeed')">← Back to Dashboard</button>
+  </div>
+  <div class="ph-body">
+    <div class="ph-hero">
+      <span class="ph-badge ph-badge-paid">🔐 Premium — Unlock for $7.65</span>
+      <h1>The Succeed Phase</h1>
+      <p>Most people spend their lives building wealth. A rare few learn how to keep it, protect it, and make it grow across generations. The Succeed Phase is the difference between those two groups. This is where financial mastery begins.</p>
+      <button class="btn-gold" id="ph-suc-btn" onclick="isPrem?closePhase('succeed'):openPay()">Unlock Full Access — $7.65 →</button>
+    </div>
+    <div class="ph-stats">
+      <div class="ph-stat"><div class="ph-stat-n">3</div><div class="ph-stat-l">Premium Lessons</div></div>
+      <div class="ph-stat"><div class="ph-stat-n">$7.65</div><div class="ph-stat-l">One-time Unlock</div></div>
+      <div class="ph-stat"><div class="ph-stat-n">24 min</div><div class="ph-stat-l">Total Read Time</div></div>
+    </div>
+    <div class="ph-section">
+      <h2>🏛️ Why Most African Wealth Disappears in One Generation</h2>
+      <p>You have seen it happen. A successful man builds a business, buys property, and dies — and within five years, his children have nothing left. This is not a coincidence. It is the predictable result of wealth built without structure, protection, or succession planning.</p>
+      <p>The Succeed Phase teaches you the exact systems wealthy families use to prevent this — legal structures, asset protection, insurance frameworks, and the mindset shifts that turn a single generation of success into a dynasty.</p>
+      <div class="ph-tip"><p><strong>Sobering Fact:</strong> 70% of wealthy families lose their wealth by the second generation. 90% lose it by the third. The Succeed Phase shows you how to be in the 10% that does not.</p></div>
+    </div>
+    <div class="ph-section">
+      <h2>📚 Succeed Phase Modules</h2>
+      <div id="ph-suc-topics"></div>
+    </div>
+    <div class="ph-section">
+      <h2>🌍 Africa-Specific Wealth Preservation Strategies</h2>
+      <ul>
+        <li><strong style="color:var(--gold2);">Land titling:</strong> Informal land ownership is the single biggest wealth risk in Africa. Title deed registration in your name is non-negotiable.</li>
+        <li><strong style="color:var(--gold2);">Will creation:</strong> Dying intestate in Zambia means the state distributes your assets — not you. A will at the High Court costs as little as K500.</li>
+        <li><strong style="color:var(--gold2);">Business separation:</strong> Never mix personal and business finances. A single lawsuit or business failure should not take your family home.</li>
+        <li><strong style="color:var(--gold2);">Life insurance:</strong> Your human capital — your ability to earn — is your most valuable asset. Insure it before anything else.</li>
+        <li><strong style="color:var(--gold2);">Currency diversification:</strong> Hold assets in multiple currencies. Kwacha depreciation has wiped out savings for millions. USD, USD-indexed bonds, or foreign assets provide protection.</li>
+      </ul>
+    </div>
+    <div class="ph-section">
+      <h2>📖 Recommended Books — Succeed Phase</h2>
+      <p>Premium books — unlock The Vault to read these in full:</p>
+      <div class="books-grid">
+        <div class="book-card" onclick="openBook('die_with_zero')"><span class="book-cover">📙</span><div class="book-title">Die With Zero</div><div class="book-author">Bill Perkins</div><div class="book-why">A radical rethinking of wealth — how to maximize life experiences while building lasting legacy. Changes how you plan your financial life.</div><div style="margin-top:.6rem;font-size:.76rem;color:var(--gold2);font-weight:700;">👆 Tap to Read →</div></div>
+        <div class="book-card" onclick="openBook('compound_effect')"><span class="book-cover">📗</span><div class="book-title">The Compound Effect</div><div class="book-author">Darren Hardy</div><div class="book-why">Small consistent actions compounding over time create extraordinary results. The principle behind every wealth-building strategy in this phase.</div><div style="margin-top:.6rem;font-size:.76rem;color:var(--gold2);font-weight:700;">👆 Tap to Read →</div></div>
+        <div class="book-card" onclick="openBook('think_grow_rich')"><span class="book-cover">📕</span><div class="book-title">Think and Grow Rich</div><div class="book-author">Napoleon Hill</div><div class="book-why">The mindset behind wealth — desire, faith, planning, persistence. Still the most powerful framework for African entrepreneurs 85 years after it was written.</div><div style="margin-top:.6rem;font-size:.76rem;color:var(--gold2);font-weight:700;">👆 Tap to Read →</div></div>
+      </div>
+    </div>
+    <div class="fb-widget">
+      <h2>💬 Feedback & Mentorship</h2>
+      <p class="sub">Share your thoughts on the Succeed Phase or request a personal mentor session.</p>
+      <div class="fb-tabs a-tabs" style="margin-bottom:1.2rem;">
+        <button class="a-tab on" style="background:rgba(255,255,255,.2);color:#fff;" onclick="switchPhaseFbTab('succeed','feedback')">📝 Feedback</button>
+        <button class="a-tab" style="color:rgba(255,255,255,.6);" onclick="switchPhaseFbTab('succeed','mentor')">🎓 Mentor</button>
+      </div>
+      <div id="pfb-succeed-feedback" class="af on">
+        <div class="aerr" id="pfb-succeed-err"></div>
+        <div class="asuc" id="pfb-succeed-suc"></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.8);">Full Name</label><input type="text" id="pfb-succeed-name" placeholder="Your name" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;width:100%;padding:.7rem 1rem;border:2px solid;border-radius:12px;font-family:inherit;font-size:.9rem;"></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.8);">Email</label><input type="email" id="pfb-succeed-email" placeholder="you@email.com" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;width:100%;padding:.7rem 1rem;border:2px solid;border-radius:12px;font-family:inherit;font-size:.9rem;"></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.8);">Your Feedback</label><textarea id="pfb-succeed-msg" rows="3" style="width:100%;padding:.7rem 1rem;border:2px solid rgba(255,255,255,.2);border-radius:12px;font-size:.9rem;font-family:inherit;resize:vertical;background:rgba(255,255,255,.1);color:#fff;" placeholder="What do you think about this phase?"></textarea></div>
+        <button class="btn-auth" style="background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.35);" onclick="submitPhaseFeedback('succeed')">Send Feedback →</button>
+      </div>
+      <div id="pfb-succeed-mentor" class="af" style="display:none;">
+        <div class="aerr" id="pmt-succeed-err"></div>
+        <div class="asuc" id="pmt-succeed-suc"></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.8);">Full Name</label><input type="text" id="pmt-succeed-name" placeholder="Your name" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;width:100%;padding:.7rem 1rem;border:2px solid;border-radius:12px;font-family:inherit;font-size:.9rem;"></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.8);">Email</label><input type="email" id="pmt-succeed-email" placeholder="you@email.com" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;width:100%;padding:.7rem 1rem;border:2px solid;border-radius:12px;font-family:inherit;font-size:.9rem;"></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.8);">What help do you need?</label><textarea id="pmt-succeed-msg" rows="3" style="width:100%;padding:.7rem 1rem;border:2px solid rgba(255,255,255,.2);border-radius:12px;font-size:.9rem;font-family:inherit;resize:vertical;background:rgba(255,255,255,.1);color:#fff;" placeholder="Your situation and goals..."></textarea></div>
+        <button class="btn-auth" style="background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.35);" onclick="submitPhaseMentor('succeed')">Request Mentor →</button>
+      </div>
+    </div>
+
+    <div id="ph-suc-lock-cta" style="text-align:center;margin-top:2rem;padding:2rem;background:rgba(0,0,0,.4);border-radius:20px;">
+      <div style="font-size:2.5rem;margin-bottom:.7rem;">🔐</div>
+      <div style="font-family:'Playfair Display',serif;color:#fff;font-size:1.5rem;margin-bottom:.7rem;">One Payment — Everything Unlocked</div>
+      <p style="color:rgba(255,255,255,.7);margin-bottom:1.5rem;">$7.65 unlocks Multiply + Succeed + Legacy phases, all future content, and your Insider badge. The cost of one bad financial decision — for a lifetime of good ones.</p>
+      <button class="btn-gold" onclick="openPay()">Unlock Everything Now →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PHASE 4: LEGACY DASHBOARD ===================== -->
+<div id="phase-legacy" class="phase-page ph-legacy">
+  <div class="ph-nav">
+    <div class="ph-nav-title">🌳 Phase 4 — Legacy</div>
+    <button class="ph-close" onclick="closePhase('legacy')">← Back to Dashboard</button>
+  </div>
+  <div class="ph-body">
+    <div class="ph-hero">
+      <span class="ph-badge ph-badge-paid">🔐 Premium — Unlock for $7.65</span>
+      <h1>The Legacy Phase</h1>
+      <p>You have grown. You have multiplied. You have succeeded. Now you face the ultimate financial question: what does your name mean after you are gone? The Legacy Phase is about building wealth so deep, so structured, and so well-protected that it outlives you by generations.</p>
+      <button class="btn-gold" id="ph-leg-btn" onclick="isPrem?closePhase('legacy'):openPay()">Unlock Full Access — $7.65 →</button>
+    </div>
+    <div class="ph-stats">
+      <div class="ph-stat"><div class="ph-stat-n">5</div><div class="ph-stat-l">Legacy Lessons</div></div>
+      <div class="ph-stat"><div class="ph-stat-n">$7.65</div><div class="ph-stat-l">One-time Unlock</div></div>
+      <div class="ph-stat"><div class="ph-stat-n">35 min</div><div class="ph-stat-l">Total Read Time</div></div>
+    </div>
+    <div class="ph-section">
+      <h2>🏰 What Generational Wealth Actually Means in Africa</h2>
+      <p>In the Western world, generational wealth is mostly about stock portfolios and trust funds. In Africa, it is much richer than that. Generational wealth here is land that feeds families for centuries. It is a family business that employs three generations. It is an education tradition that produces doctors, engineers, and leaders every generation. It is a name that opens doors before you speak a word.</p>
+      <p>The Legacy Phase integrates modern financial tools with deep African values around community, family, land, and long-term thinking. This is not about becoming wealthy. This is about becoming the ancestor your descendants will honor.</p>
+      <div class="ph-tip"><p><strong>The African Legacy Paradox:</strong> Africa has the youngest population on earth. This means the decisions you make about wealth today will compound for longer than anywhere else in the world. The Legacy Phase helps you build systems worthy of that opportunity.</p></div>
+    </div>
+    <div class="ph-section">
+      <h2>📚 Legacy Phase Modules</h2>
+      <div id="ph-leg-topics"></div>
+    </div>
+    <div class="ph-section">
+      <h2>🌱 The Five Pillars of African Legacy Wealth</h2>
+      <ul>
+        <li><strong style="color:var(--gold2);">Land:</strong> Buy land in growth corridors now. In 20 years it will be the most valuable thing you own. Plots near Lusaka, Nairobi, Lagos, and Accra that cost $3,000 today will be worth $50,000+.</li>
+        <li><strong style="color:var(--gold2);">Business equity:</strong> Build a business with systems that do not depend on you. A business you can walk away from for a year and still runs — that is a legacy asset.</li>
+        <li><strong style="color:var(--gold2);">Human capital investment:</strong> Fully fund your children's education. University abroad if possible. A degree from a recognised institution adds $500,000+ in lifetime earnings.</li>
+        <li><strong style="color:var(--gold2);">Family governance:</strong> Create a family constitution — written rules for how family wealth is managed, inherited, and grown. Rich families do this. It prevents bitter disputes that destroy wealth.</li>
+        <li><strong style="color:var(--gold2);">Community capital:</strong> Invest in your community's financial literacy. Wealthy communities create wealthy individuals. Your legacy is partially measured by how many people around you also rise.</li>
+      </ul>
+    </div>
+    <div class="ph-section">
+      <h2>💼 Building a Family Business That Lasts</h2>
+      <p>The Waltons (Walmart), the Rockefellers, the Rothschilds — generational dynasties are built on family businesses with clear succession rules. Here is how to build one in Africa:</p>
+      <ul>
+        <li>Start with a simple, profitable business in a sector you understand deeply</li>
+        <li>Register it as a limited company immediately — separate from personal assets</li>
+        <li>Document everything: processes, client relationships, supplier agreements</li>
+        <li>Bring children in early as shareholders, not just employees</li>
+        <li>Create a board with at least one independent advisor outside the family</li>
+        <li>Write a succession plan before you need it — who leads, who owns, who decides</li>
+      </ul>
+      <div class="ph-tip"><p><strong>Legacy Truth:</strong> Most family businesses die with their founder because the founder never built systems. Your job is to build a business that runs without you, serves customers without you, and grows without you.</p></div>
+    </div>
+    <div class="ph-section">
+      <h2>📖 Recommended Books — Legacy Phase</h2>
+      <p>Premium books — unlock The Vault to read these in full:</p>
+      <div class="books-grid">
+        <div class="book-card" onclick="openBook('built_to_last')"><span class="book-cover">📗</span><div class="book-title">Built to Last</div><div class="book-author">Jim Collins & Jerry Porras</div><div class="book-why">How visionary companies built themselves to outlast their founders by decades. The principles apply directly to building African family business dynasties.</div><div style="margin-top:.6rem;font-size:.76rem;color:var(--gold2);font-weight:700;">👆 Tap to Read →</div></div>
+        <div class="book-card" onclick="openBook('millionaire_fastlane')"><span class="book-cover">📕</span><div class="book-title">The Millionaire Fastlane</div><div class="book-author">MJ DeMarco</div><div class="book-why">Destroys the "work 40 years and retire" myth. Shows how to build systems that generate wealth at scale — the exact mindset needed for legacy building.</div><div style="margin-top:.6rem;font-size:.76rem;color:var(--gold2);font-weight:700;">👆 Tap to Read →</div></div>
+        <div class="book-card" onclick="openBook('outliers')"><span class="book-cover">📘</span><div class="book-title">Outliers</div><div class="book-author">Malcolm Gladwell</div><div class="book-why">The hidden factors behind extraordinary success. Understanding these patterns lets you consciously engineer advantages for your children and grandchildren.</div><div style="margin-top:.6rem;font-size:.76rem;color:var(--gold2);font-weight:700;">👆 Tap to Read →</div></div>
+      </div>
+    </div>
+    <div class="fb-widget">
+      <h2>💬 Feedback & Mentorship</h2>
+      <p class="sub">Share your thoughts on the Legacy Phase or request a personal mentor session.</p>
+      <div class="fb-tabs a-tabs" style="margin-bottom:1.2rem;">
+        <button class="a-tab on" style="background:rgba(255,255,255,.2);color:#fff;" onclick="switchPhaseFbTab('legacy','feedback')">📝 Feedback</button>
+        <button class="a-tab" style="color:rgba(255,255,255,.6);" onclick="switchPhaseFbTab('legacy','mentor')">🎓 Mentor</button>
+      </div>
+      <div id="pfb-legacy-feedback" class="af on">
+        <div class="aerr" id="pfb-legacy-err"></div>
+        <div class="asuc" id="pfb-legacy-suc"></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.8);">Full Name</label><input type="text" id="pfb-legacy-name" placeholder="Your name" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;width:100%;padding:.7rem 1rem;border:2px solid;border-radius:12px;font-family:inherit;font-size:.9rem;"></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.8);">Email</label><input type="email" id="pfb-legacy-email" placeholder="you@email.com" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;width:100%;padding:.7rem 1rem;border:2px solid;border-radius:12px;font-family:inherit;font-size:.9rem;"></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.8);">Your Feedback</label><textarea id="pfb-legacy-msg" rows="3" style="width:100%;padding:.7rem 1rem;border:2px solid rgba(255,255,255,.2);border-radius:12px;font-size:.9rem;font-family:inherit;resize:vertical;background:rgba(255,255,255,.1);color:#fff;" placeholder="What do you think about this phase?"></textarea></div>
+        <button class="btn-auth" style="background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.35);" onclick="submitPhaseFeedback('legacy')">Send Feedback →</button>
+      </div>
+      <div id="pfb-legacy-mentor" class="af" style="display:none;">
+        <div class="aerr" id="pmt-legacy-err"></div>
+        <div class="asuc" id="pmt-legacy-suc"></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.8);">Full Name</label><input type="text" id="pmt-legacy-name" placeholder="Your name" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;width:100%;padding:.7rem 1rem;border:2px solid;border-radius:12px;font-family:inherit;font-size:.9rem;"></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.8);">Email</label><input type="email" id="pmt-legacy-email" placeholder="you@email.com" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff;width:100%;padding:.7rem 1rem;border:2px solid;border-radius:12px;font-family:inherit;font-size:.9rem;"></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.8);">What help do you need?</label><textarea id="pmt-legacy-msg" rows="3" style="width:100%;padding:.7rem 1rem;border:2px solid rgba(255,255,255,.2);border-radius:12px;font-size:.9rem;font-family:inherit;resize:vertical;background:rgba(255,255,255,.1);color:#fff;" placeholder="Your situation and goals..."></textarea></div>
+        <button class="btn-auth" style="background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.35);" onclick="submitPhaseMentor('legacy')">Request Mentor →</button>
+      </div>
+    </div>
+
+    <div id="ph-leg-lock-cta" style="text-align:center;margin-top:2rem;padding:2.5rem;background:rgba(255,255,255,.05);border-radius:20px;border:1px solid rgba(255,255,255,.15);">
+      <div style="font-size:2.5rem;margin-bottom:.7rem;">👑</div>
+      <div style="font-family:'Playfair Display',serif;color:#fff;font-size:1.5rem;margin-bottom:.7rem;">Become a GMS Insider</div>
+      <p style="color:rgba(255,255,255,.7);margin-bottom:1.5rem;">$7.65 unlocks all four phases — Multiply, Succeed, Legacy, and every future update. Pay once. Learn forever. Build a legacy that lasts.</p>
+      <button class="btn-gold" onclick="openPay()">Unlock Everything — $7.65 →</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===================== BOOK READER MODAL ===================== -->
+<div id="book-reader">
+  <div class="br-nav">
+    <div class="br-title" id="br-nav-title">📖 GMS Library</div>
+    <button class="br-close" onclick="closeBook()">✕ Close</button>
+  </div>
+  <div class="br-body" id="br-body"></div>
 </div>
 
 <div class="toast" id="toast-el"></div>
@@ -1077,11 +1735,11 @@ function admGo(name){
   document.querySelectorAll('.asec').forEach(el=>el.classList.remove('on'));
   document.querySelectorAll('.adm-sb-item').forEach(el=>el.classList.remove('on'));
   document.getElementById('asec-'+name).classList.add('on');
-  const order=['dashboard','users','wallet','transactions','transfer','feedback','departments','social','roadmap'];
+  const order=['dashboard','users','wallet','transactions','transfer','feedback','payconfirm','departments','social','roadmap'];
   const idx=order.indexOf(name);
   if(idx>=0) document.querySelectorAll('.adm-sb-item')[idx].classList.add('on');
   document.getElementById('adm-sb').classList.remove('on');
-  const renders={dashboard:renderDash,users:renderUsers,wallet:renderWallet,transactions:renderTx,transfer:renderTransfer,feedback:renderTickets,departments:renderDepts,social:renderSocial,roadmap:renderKanban};
+  const renders={dashboard:renderDash,users:renderUsers,wallet:renderWallet,transactions:renderTx,transfer:renderTransfer,feedback:renderTickets,payconfirm:renderPayConfirm,departments:renderDepts,social:renderSocial,roadmap:renderKanban};
   if(renders[name]) renders[name]();
 }
 
@@ -1433,6 +2091,516 @@ function toast(msg,type){const el=document.getElementById('toast-el');el.textCon
 function ss(sel){const el=document.querySelector(sel);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}
 function exportCSV(rows,headers,filename){const c=[headers,...rows].map(r=>r.map(v=>'"'+(String(v||'').replace(/"/g,'""'))+'"').join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([c],{type:'text/csv'}));a.download=filename;a.click();toast('CSV exported ✓','ok');}
 document.getElementById('topic-ov').addEventListener('click',function(e){if(e.target===this)closeTopic();});
+
+// ============================================================
+// WALLET ACCOUNT NUMBERS — one per provider
+// ============================================================
+const WALLET_ACCOUNTS = {
+  'Airtel Money':  {num:'GMS-AIR-260971234567', name:'GMS Platform · Airtel Money · +260 97 123 4567'},
+  'MTN Zambia':    {num:'GMS-MTN-260961234567', name:'GMS Platform · MTN Money · +260 96 123 4567'},
+  'Zamtel Kwacha': {num:'GMS-ZAM-260951234567', name:'GMS Platform · Zamtel · +260 95 123 4567'},
+  'M-Pesa':        {num:'GMS-MPE-254712345678', name:'GMS Platform · M-Pesa · +254 712 345678'},
+  'OPay':          {num:'GMS-OPY-2348012345678',name:'GMS Platform · OPay · 08012345678'},
+  'Kuda':          {num:'GMS-KUD-1234567890',   name:'GMS Platform · Kuda Bank · 1234567890'},
+  'MTN MoMo':      {num:'GMS-MMO-233241234567', name:'GMS Platform · MTN MoMo · +233 24 123 4567'},
+  'SnapScan':      {num:'GMS-SNP-ZA0047123456', name:'GMS Platform · SnapScan · ZA0047123456'},
+  'M-Pesa TZ':     {num:'GMS-MTZ-255712345678', name:'GMS Platform · M-Pesa TZ · +255 712 345678'},
+  'Airtel TZ':     {num:'GMS-ATZ-255682345678', name:'GMS Platform · Airtel TZ · +255 682 345678'},
+  'MTN MoMo SA':   {num:'GMS-MSA-270831234567', name:'GMS Platform · MTN SA · +27 083 123 4567'},
+  'Airtel Money MW':{num:'GMS-AMW-265991234567',name:'GMS Platform · Airtel MW · +265 99 123 4567'},
+  'TNM Mpamba':    {num:'GMS-TNM-265881234567', name:'GMS Platform · TNM Mpamba · +265 88 123 4567'},
+  'EcoCash':       {num:'GMS-ECO-263771234567', name:'GMS Platform · EcoCash · +263 77 123 4567'},
+  'InnBucks':      {num:'GMS-INB-263781234567', name:'GMS Platform · InnBucks · +263 78 123 4567'},
+};
+
+// ============================================================
+// PAYMENT — show wallet account after provider selected
+// ============================================================
+const _origBuildMM = window.buildMM;
+function buildMM(){
+  const loc = LOCAL_AMOUNTS[CU&&CU.country||'ZM']||LOCAL_AMOUNTS['ZM'];
+  const providers = loc.providers;
+  document.getElementById('mm-opts').innerHTML = providers.map(p=>
+    `<div class="mm-opt" onclick="selectMM('${p}')">${p}</div>`
+  ).join('');
+  document.getElementById('wallet-acct-box').style.display='none';
+  document.getElementById('pay-steps-box').style.display='none';
+  document.getElementById('pay-confirm-section').style.display='none';
+  document.getElementById('pay-success-box').classList.remove('on');
+}
+function selectMM(provider){
+  document.querySelectorAll('.mm-opt').forEach(el=>el.classList.toggle('sel', el.textContent===provider));
+  const acct = WALLET_ACCOUNTS[provider] || {num:'GMS-2026-PLATFORM', name:'GMS Platform · '+provider};
+  document.getElementById('pay-acct-num').textContent = acct.num;
+  document.getElementById('pay-acct-name').textContent = acct.name;
+  document.getElementById('wallet-acct-box').style.display='block';
+  document.getElementById('pay-steps-box').style.display='flex';
+  document.getElementById('pay-steps-box').style.flexDirection='column';
+  document.getElementById('pay-confirm-section').style.display='block';
+}
+function copyAcct(){
+  const num = document.getElementById('pay-acct-num').textContent;
+  navigator.clipboard.writeText(num).then(()=>toast('✅ Account number copied!','ok')).catch(()=>{
+    const ta=document.createElement('textarea');ta.value=num;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);toast('✅ Copied!','ok');
+  });
+}
+function confirmPayment(){
+  const sender = document.getElementById('pay-sender-name').value.trim();
+  const ref = document.getElementById('pay-ref').value.trim();
+  const selectedProv = document.querySelector('.mm-opt.sel');
+  const provider = selectedProv ? selectedProv.textContent : '';
+  // Run detector
+  runPayDetector(sender, ref, provider);
+  if(!sender||!ref||!provider){toast('Please fill all fields and select a provider','err');return;}
+  const loc = LOCAL_AMOUNTS[CU&&CU.country||'ZM']||LOCAL_AMOUNTS['ZM'];
+  const txRef = 'TX-'+Date.now().toString().slice(-7);
+  // Save as pending_admin — waits for admin to confirm
+  const pendingTx = {
+    ref:txRef, user:CU.name||sender, email:CU.email||'', country:CU&&CU.country||'ZM',
+    local:loc.label, localCur:loc.cur, provider:provider,
+    usd:7.65, status:'pending_admin', date:new Date().toISOString().split('T')[0],
+    senderRef:ref, senderName:sender
+  };
+  DB.txns = [...DB.txns, pendingTx];
+  // Show pending message
+  document.getElementById('pay-success-box').innerHTML = `<p>⏳ <strong>Payment submitted for review!</strong> Your transaction reference <strong>${ref}</strong> has been received. Our admin team will verify and unlock your access within 1–24 hours. You will see your Insider badge once confirmed.</p>`;
+  document.getElementById('pay-success-box').classList.add('on');
+  document.getElementById('pay-success-box').style.background='#fefce8';
+  document.getElementById('pay-success-box').style.borderColor='#fde047';
+  document.getElementById('pay-confirm-section').style.display='none';
+  toast('⏳ Payment submitted! Admin will verify shortly.','');
+}
+function processPay(){ confirmPayment(); }
+
+// ============================================================
+// FEEDBACK PAGE
+// ============================================================
+function openFeedback(){document.getElementById('feedback-page').classList.add('on');document.body.style.overflow='hidden';}
+function closeFeedback(){document.getElementById('feedback-page').classList.remove('on');document.body.style.overflow='';}
+function switchFbTab(tab){
+  document.querySelectorAll('.fb-tab').forEach((el,i)=>el.classList.toggle('on',(tab==='feedback'&&i===0)||(tab==='mentor'&&i===1)));
+  document.getElementById('fbf-feedback').classList.toggle('on',tab==='feedback');
+  document.getElementById('fbf-mentor').classList.toggle('on',tab==='mentor');
+}
+function submitFeedback(){
+  const name=document.getElementById('fb-name').value.trim();
+  const email=document.getElementById('fb-email').value.trim();
+  const msg=document.getElementById('fb-msg').value.trim();
+  if(!name||!email||!msg){document.getElementById('fb-err').textContent='Please fill in all fields.';document.getElementById('fb-err').classList.add('on');return;}
+  document.getElementById('fb-err').classList.remove('on');
+  // Save ticket
+  DB.tickets=[...DB.tickets,{id:Date.now(),user:name,email:email,subject:'User Feedback',status:'open',date:new Date().toISOString().split('T')[0],msg:msg}];
+  document.getElementById('fb-suc').textContent='✅ Thank you! Your feedback has been received. We read every message.';
+  document.getElementById('fb-suc').classList.add('on');
+  document.getElementById('fb-name').value='';document.getElementById('fb-email').value='';document.getElementById('fb-msg').value='';
+  setTimeout(()=>document.getElementById('fb-suc').classList.remove('on'),5000);
+}
+function submitMentor(){
+  const name=document.getElementById('mt-name').value.trim();
+  const email=document.getElementById('mt-email').value.trim();
+  const country=document.getElementById('mt-country').value;
+  const topic=document.getElementById('mt-topic').value;
+  const msg=document.getElementById('mt-msg').value.trim();
+  if(!name||!email||!msg){document.getElementById('mt-err').textContent='Please fill in all fields.';document.getElementById('mt-err').classList.add('on');return;}
+  document.getElementById('mt-err').classList.remove('on');
+  DB.tickets=[...DB.tickets,{id:Date.now(),user:name,email:email,subject:'Mentorship Request: '+topic,status:'open',date:new Date().toISOString().split('T')[0],msg:'Country: '+country+' | Topic: '+topic+' | '+msg}];
+  document.getElementById('mt-suc').textContent='🎓 Mentorship request received! A GMS mentor will contact you at '+email+' within 24–48 hours.';
+  document.getElementById('mt-suc').classList.add('on');
+  ['mt-name','mt-email','mt-msg'].forEach(id=>document.getElementById(id).value='');
+  setTimeout(()=>document.getElementById('mt-suc').classList.remove('on'),7000);
+}
+
+// ============================================================
+// PHASE DASHBOARDS
+// ============================================================
+function openPhase(phase){
+  document.getElementById('phase-'+phase).classList.add('on');
+  document.body.style.overflow='hidden';
+  // populate topic lists
+  if(phase==='multiply') renderPhaseTopics('ph-mul-topics', ['investing','sidehustles','mobilemoney','localproducts']);
+  if(phase==='succeed')  renderPhaseTopics('ph-suc-topics', ['retirement','assetprotection','generational']);
+  if(phase==='legacy')   renderPhaseTopics('ph-leg-topics', ['generational','retirement','assetprotection']);
+  // show/hide lock CTAs based on premium
+  ['mul','suc','leg'].forEach(p=>{
+    const cta=document.getElementById('ph-'+p+'-lock-cta');
+    if(cta) cta.style.display = isPrem ? 'none' : 'block';
+    const btn=document.getElementById('ph-'+p+'-btn');
+    if(btn&&isPrem) btn.textContent='✅ You Have Full Access';
+  });
+}
+function closePhase(phase){
+  document.getElementById('phase-'+phase).classList.remove('on');
+  document.body.style.overflow='';
+}
+function renderPhaseTopics(containerId, keys){
+  const el=document.getElementById(containerId);
+  if(!el) return;
+  el.innerHTML='<div class="ph-topics">'+keys.map(k=>{
+    const d=TPC[k];if(!d)return'';
+    const locked=!isPrem&&d.hc;
+    return `<button class="ph-topic-btn" onclick="${locked?'openPay()':'openTopic(\''+k+'\')'}">
+      <div class="ph-topic-icon">${d.icon}</div>
+      <div class="ph-topic-name">${locked?'🔐 ':''} ${d.title}</div>
+      <div class="ph-topic-time">${d.sub}</div>
+    </button>`;
+  }).join('')+'</div>';
+}
+
+// ============================================================
+// OVERRIDE openPay to trigger buildMM
+// ============================================================
+const _origOpenPay = window.openPay;
+function openPay(){
+  const o=document.getElementById('pay-ov');
+  o.classList.add('on');
+  document.body.style.overflow='hidden';
+  const loc=LOCAL_AMOUNTS[CU&&CU.country||'ZM']||LOCAL_AMOUNTS['ZM'];
+  document.getElementById('pay-local-amt').textContent=loc.label;
+  document.getElementById('pay-local-lbl').textContent=loc.lbl;
+  buildMM();
+}
+function closePay(){
+  document.getElementById('pay-ov').classList.remove('on');
+  document.body.style.overflow='';
+}
+
+
+
+// ============================================================
+// PAYMENT DETECTOR — live update as user types
+// ============================================================
+function liveDetect(){
+  const sender = (document.getElementById('pay-sender-name').value||'').trim();
+  const ref    = (document.getElementById('pay-ref').value||'').trim();
+  const prov   = (document.querySelector('.mm-opt.sel')||{}).textContent||'';
+  const acct   = document.getElementById('pay-acct-num').textContent||'';
+  document.getElementById('pay-detector').style.display='block';
+  setDet('prov', prov?'ok':'idle', prov||'Not selected yet');
+  setDet('acct', acct&&acct!=='GMS-2026-0047'?'ok':'warn', acct||'—');
+  setDet('name', sender.length>=2?'ok': sender?'warn':'idle', sender||'Not entered yet');
+  setDet('ref',  ref.length>=5?'ok': ref?'warn':'idle', ref||'Not entered yet');
+  const allDone = prov && sender.length>=2 && ref.length>=5;
+  setDet('status', allDone?'ok':'warn', allDone?'✅ Ready to submit':'⏳ Fill all fields above');
+}
+function runPayDetector(sender, ref, provider){
+  document.getElementById('pay-detector').style.display='block';
+  setDet('prov',   provider?'ok':'err', provider||'❌ No provider selected');
+  setDet('name',   sender?'ok':'err', sender||'❌ Name missing');
+  setDet('ref',    ref?'ok':'err', ref||'❌ Reference missing');
+  const acct = document.getElementById('pay-acct-num').textContent;
+  setDet('acct', 'ok', acct);
+  const ok = provider&&sender&&ref;
+  setDet('status', ok?'ok':'err', ok?'✅ Submitted for admin review':'❌ Incomplete — cannot submit');
+}
+function setDet(field, status, value){
+  const dot = document.getElementById('det-'+field+'-dot');
+  const val = document.getElementById('det-'+field+'-val');
+  if(!dot||!val) return;
+  dot.className='det-dot det-dot-'+({'ok':'ok','warn':'warn','err':'err','idle':'idle'}[status]||'idle');
+  val.textContent = value;
+}
+// Show detector when provider is selected
+const _origSelectMM = window.selectMM;
+function selectMM(provider){
+  document.querySelectorAll('.mm-opt').forEach(el=>el.classList.toggle('sel', el.textContent===provider));
+  const acct = WALLET_ACCOUNTS[provider]||{num:'GMS-2026-PLATFORM',name:'GMS Platform · '+provider};
+  document.getElementById('pay-acct-num').textContent = acct.num;
+  document.getElementById('pay-acct-name').textContent = acct.name;
+  document.getElementById('wallet-acct-box').style.display='block';
+  document.getElementById('pay-steps-box').style.display='flex';
+  document.getElementById('pay-steps-box').style.flexDirection='column';
+  document.getElementById('pay-confirm-section').style.display='block';
+  liveDetect();
+}
+
+// ============================================================
+// ADMIN — PAYMENT CONFIRMATIONS
+// ============================================================
+function renderPayConfirm(){
+  const fs = (document.getElementById('pc-fs')||{}).value||'';
+  let txns = DB.txns.filter(t=>t.status==='pending_admin'||t.status==='completed'||t.status==='rejected');
+  if(fs) txns = txns.filter(t=>t.status===fs);
+  const pending = DB.txns.filter(t=>t.status==='pending_admin').length;
+  const today   = new Date().toISOString().split('T')[0];
+  const unlocked= DB.txns.filter(t=>t.status==='completed'&&t.date===today).length;
+  const rejected= DB.txns.filter(t=>t.status==='rejected').length;
+  const el = document.getElementById('pc-pending-count');
+  if(el) el.textContent=pending;
+  const el2 = document.getElementById('pc-unlocked-count');
+  if(el2) el2.textContent=unlocked;
+  const el3 = document.getElementById('pc-rejected-count');
+  if(el3) el3.textContent=rejected;
+  const list = document.getElementById('pc-list');
+  if(!list) return;
+  if(txns.length===0){list.innerHTML='<div style="color:rgba(255,255,255,.35);text-align:center;padding:2rem;">No payment submissions yet</div>';return;}
+  list.innerHTML = txns.slice().reverse().map(t=>{
+    const sc = {pending_admin:'by',completed:'bg',rejected:'br'};
+    const isPend = t.status==='pending_admin';
+    return `<div class="pay-pend-card">
+      <div class="pay-pend-top">
+        <div>
+          <div style="color:#fff;font-weight:700;">${t.senderName||t.user} <span class="bdg ${sc[t.status]||'bgr'}">${t.status==='pending_admin'?'⏳ Pending':t.status==='completed'?'✅ Unlocked':'❌ Rejected'}</span></div>
+          <div class="pay-pend-ref">${t.ref} · ${t.email||'—'} · ${t.country} · ${t.date}</div>
+          <div style="color:rgba(255,255,255,.55);font-size:.8rem;margin-top:.3rem;">Provider: ${t.provider} · Amount: ${t.local} (≈$${t.usd}) · Sender Ref: <strong style="color:var(--gold2);">${t.senderRef||'—'}</strong></div>
+        </div>
+        <div class="pay-pend-btns">
+          ${isPend?`<button class="abtn abtn-g" onclick="adminUnlock('${t.ref}')">✅ Confirm & Unlock</button><button class="abtn abtn-r" onclick="adminReject('${t.ref}')">❌ Reject</button>`:''}
+          ${t.status==='completed'?`<button class="abtn abtn-r" style="font-size:.72rem;" onclick="adminLock('${t.ref}')">🔒 Revoke Access</button>`:''}
+          ${t.status==='rejected'?`<button class="abtn abtn-g" style="font-size:.72rem;" onclick="adminUnlock('${t.ref}')">↩ Re-unlock</button>`:''}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function adminUnlock(txRef){
+  const txns = DB.txns;
+  const tx = txns.find(t=>t.ref===txRef);
+  if(!tx){toast('Transaction not found','err');return;}
+  tx.status='completed';
+  DB.txns=txns;
+  // Unlock the user
+  const users=DB.users;
+  const idx=users.findIndex(u=>u.email===tx.email||u.name===tx.user);
+  if(idx>-1){users[idx].isPremium=true;DB.users=users;}
+  // If this is the currently logged-in user, update session live
+  if(CU&&(CU.email===tx.email||CU.name===tx.user)){
+    CU.isPremium=true;isPrem=true;
+    sessionStorage.setItem('gms_sess',JSON.stringify(CU));
+    updateDash();
+  }
+  renderPayConfirm();renderDash();renderTx();
+  toast('✅ Access unlocked for '+tx.senderName+'!','ok');
+}
+
+function adminReject(txRef){
+  if(!confirm('Reject this payment and deny access?')) return;
+  const txns=DB.txns;
+  const tx=txns.find(t=>t.ref===txRef);
+  if(tx) tx.status='rejected';
+  DB.txns=txns;
+  renderPayConfirm();
+  toast('❌ Payment rejected','err');
+}
+
+function adminLock(txRef){
+  if(!confirm('Revoke premium access for this user?')) return;
+  const txns=DB.txns;
+  const tx=txns.find(t=>t.ref===txRef);
+  if(tx){
+    tx.status='rejected';
+    const users=DB.users;
+    const idx=users.findIndex(u=>u.email===tx.email||u.name===tx.user);
+    if(idx>-1){users[idx].isPremium=false;DB.users=users;}
+    DB.txns=txns;
+  }
+  renderPayConfirm();renderDash();
+  toast('🔒 Access revoked','err');
+}
+
+// ============================================================
+// HOME FEEDBACK (inline on main page)
+// ============================================================
+function switchHomeFbTab(tab){
+  document.getElementById('hfbt-feedback').classList.toggle('on',tab==='feedback');
+  document.getElementById('hfbt-mentor').classList.toggle('on',tab==='mentor');
+  const fEl=document.getElementById('hfb-feedback');
+  const mEl=document.getElementById('hfb-mentor');
+  if(fEl){fEl.classList.toggle('on',tab==='feedback');fEl.style.display=tab==='feedback'?'block':'';}
+  if(mEl){mEl.classList.toggle('on',tab==='mentor');mEl.style.display=tab==='mentor'?'block':'';}
+}
+function submitHomeFeedback(){
+  const name=(document.getElementById('hfb-name').value||'').trim();
+  const email=(document.getElementById('hfb-email').value||'').trim();
+  const msg=(document.getElementById('hfb-msg').value||'').trim();
+  if(!name||!email||!msg){document.getElementById('hfb-err').textContent='Please fill all fields.';document.getElementById('hfb-err').classList.add('on');return;}
+  document.getElementById('hfb-err').classList.remove('on');
+  DB.tickets=[...DB.tickets,{id:Date.now(),user:name,email:email,subject:'Feedback (Home)',status:'open',date:new Date().toISOString().split('T')[0],msg:msg}];
+  document.getElementById('hfb-suc').textContent='✅ Thank you! Feedback received.';
+  document.getElementById('hfb-suc').classList.add('on');
+  ['hfb-name','hfb-email','hfb-msg'].forEach(id=>document.getElementById(id).value='');
+  setTimeout(()=>document.getElementById('hfb-suc').classList.remove('on'),4000);
+}
+function submitHomeMentor(){
+  const name=(document.getElementById('hmt-name').value||'').trim();
+  const email=(document.getElementById('hmt-email').value||'').trim();
+  const topic=(document.getElementById('hmt-topic').value||'');
+  const msg=(document.getElementById('hmt-msg').value||'').trim();
+  if(!name||!email||!msg){document.getElementById('hmt-err').textContent='Please fill all fields.';document.getElementById('hmt-err').classList.add('on');return;}
+  document.getElementById('hmt-err').classList.remove('on');
+  DB.tickets=[...DB.tickets,{id:Date.now(),user:name,email:email,subject:'Mentorship: '+topic,status:'open',date:new Date().toISOString().split('T')[0],msg:msg}];
+  document.getElementById('hmt-suc').textContent='🎓 Request received! A mentor will contact you within 24–48 hours.';
+  document.getElementById('hmt-suc').classList.add('on');
+  ['hmt-name','hmt-email','hmt-msg'].forEach(id=>document.getElementById(id).value='');
+  setTimeout(()=>document.getElementById('hmt-suc').classList.remove('on'),6000);
+}
+
+// ============================================================
+// PHASE FEEDBACK WIDGETS
+// ============================================================
+function switchPhaseFbTab(phase,tab){
+  const fEl=document.getElementById('pfb-'+phase+'-feedback');
+  const mEl=document.getElementById('pfb-'+phase+'-mentor');
+  if(fEl){fEl.style.display=tab==='feedback'?'block':'none';fEl.classList.toggle('on',tab==='feedback');}
+  if(mEl){mEl.style.display=tab==='mentor'?'block':'none';mEl.classList.toggle('on',tab==='mentor');}
+  // Update tab buttons
+  const wrap = fEl&&fEl.closest('.fb-widget');
+  if(wrap){wrap.querySelectorAll('.a-tab').forEach((el,i)=>{el.classList.toggle('on',(tab==='feedback'&&i===0)||(tab==='mentor'&&i===1));el.style.background=el.classList.contains('on')?'rgba(255,255,255,.2)':'transparent';el.style.color=el.classList.contains('on')?'#fff':'rgba(255,255,255,.5)';});}
+}
+function submitPhaseFeedback(phase){
+  const name=(document.getElementById('pfb-'+phase+'-name').value||'').trim();
+  const email=(document.getElementById('pfb-'+phase+'-email').value||'').trim();
+  const msg=(document.getElementById('pfb-'+phase+'-msg').value||'').trim();
+  const errEl=document.getElementById('pfb-'+phase+'-err');
+  const sucEl=document.getElementById('pfb-'+phase+'-suc');
+  if(!name||!email||!msg){if(errEl){errEl.textContent='Please fill all fields.';errEl.classList.add('on');}return;}
+  if(errEl) errEl.classList.remove('on');
+  DB.tickets=[...DB.tickets,{id:Date.now(),user:name,email:email,subject:'Feedback ('+phase.charAt(0).toUpperCase()+phase.slice(1)+' Phase)',status:'open',date:new Date().toISOString().split('T')[0],msg:msg}];
+  if(sucEl){sucEl.textContent='✅ Feedback sent! Thank you.';sucEl.classList.add('on');setTimeout(()=>sucEl.classList.remove('on'),4000);}
+  ['pfb-'+phase+'-name','pfb-'+phase+'-email','pfb-'+phase+'-msg'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+}
+function submitPhaseMentor(phase){
+  const name=(document.getElementById('pmt-'+phase+'-name').value||'').trim();
+  const email=(document.getElementById('pmt-'+phase+'-email').value||'').trim();
+  const msg=(document.getElementById('pmt-'+phase+'-msg').value||'').trim();
+  const errEl=document.getElementById('pmt-'+phase+'-err');
+  const sucEl=document.getElementById('pmt-'+phase+'-suc');
+  if(!name||!email||!msg){if(errEl){errEl.textContent='Please fill all fields.';errEl.classList.add('on');}return;}
+  if(errEl) errEl.classList.remove('on');
+  DB.tickets=[...DB.tickets,{id:Date.now(),user:name,email:email,subject:'Mentorship Request ('+phase.charAt(0).toUpperCase()+phase.slice(1)+' Phase)',status:'open',date:new Date().toISOString().split('T')[0],msg:msg}];
+  if(sucEl){sucEl.textContent='🎓 Request sent! A mentor will contact you within 24–48 hours.';sucEl.classList.add('on');setTimeout(()=>sucEl.classList.remove('on'),6000);}
+  ['pmt-'+phase+'-name','pmt-'+phase+'-email','pmt-'+phase+'-msg'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+}
+
+// ============================================================
+// BOOK READER — full summaries (original content, not reproduced)
+// ============================================================
+const BOOKS = {
+  rich_dad: {
+    free:true, emoji:'📗', title:'Rich Dad Poor Dad', author:'Robert Kiyosaki',
+    chapters:[
+      {h:'Introduction — Two Dads, Two Destinies',body:`<p>Robert Kiyosaki grew up with two father figures. His biological father — a highly educated government employee who struggled financially his whole life. And his best friend's father — a man with little formal education who became one of Hawaii's richest men.</p><p>Same city. Same opportunities. Completely different outcomes. The difference was not intelligence, not education, not luck. The difference was what each man believed about money — and how they taught those beliefs to the next generation.</p><div class="br-quote"><p>"The poor and middle class work for money. The rich have money work for them."</p></div><p>This book is the story of those two men and what Kiyosaki learned from comparing them.</p>`},
+      {h:'Chapter 1 — The Rich Do Not Work for Money',body:`<p>Most people spend their lives in a pattern Kiyosaki calls the "rat race." They work to earn money, they spend what they earn, and when they need more, they work harder. Fear of not having money drives them to work. Then the desire for nice things drives them to spend. This cycle repeats forever.</p><p>The rich understand something different: emotions should not drive financial decisions. Instead of reacting to fear and desire, wealthy people observe these emotions and channel them toward building assets.</p><h3>The Employee Trap</h3><p>When most people get a raise, their expenses rise too. This is called "lifestyle inflation" — and it is the reason higher income alone never creates wealth. The person earning K10,000/month and the person earning K3,000/month often have the same problem: they spend everything they earn.</p><div class="br-quote"><p>"Intelligence solves problems and produces money. Money without financial intelligence is money soon gone."</p></div>`},
+      {h:'Chapter 2 — Why Teach Financial Literacy?',body:`<p>Kiyosaki introduces the most important concept in the book: the difference between an asset and a liability. His definition is brutally simple:</p><ul><li><strong>An asset puts money INTO your pocket</strong></li><li><strong>A liability takes money OUT of your pocket</strong></li></ul><p>Most people think their house is their greatest asset. Kiyosaki argues it is actually a liability — it requires mortgage payments, insurance, maintenance, and taxes every single month. It takes money out of your pocket.</p><p>The rich accumulate assets. The poor and middle class accumulate liabilities while believing they are assets.</p><h3>Applied to Africa</h3><p>In Zambia, Kenya, and Nigeria — land and property purchased in growth areas genuinely appreciate and can generate rental income. This makes them true assets. A plot in Lusaka's Chalala area purchased in 2015 for K80,000 is worth K350,000+ today — and generates K4,500/month in rent. That is an asset by Kiyosaki's definition.</p>`},
+      {h:'Chapter 3 — Mind Your Own Business',body:`<p>Kiyosaki's message here is direct: keep your job, but start building your own asset column. Most people spend their entire careers building someone else's business. Your salary builds the company owner's wealth. Your energy creates their asset.</p><p>Minding your own business means using your job income to acquire assets — not to increase your lifestyle. Every salary increase should go into acquiring income-producing assets, not into a bigger house or a newer car.</p><div class="br-quote"><p>"The primary reason the majority of the poor and middle class are fiscally conservative is fear. They do not win because they are terrified of losing."</p></div><p>Assets for the African context: government bonds, shares on the Lusaka Stock Exchange, rental property, a small business with systems, mobile money interest accounts, and unit trusts.</p>`},
+      {h:'Core Lessons — Applied to Your Life',body:`<p>The lasting lessons from this book that apply directly to building wealth in Africa today:</p><ul><li>Pay yourself first — before you pay bills, before you spend, move money into your asset column</li><li>The rich buy assets. The poor buy liabilities. The middle class buys liabilities thinking they are assets.</li><li>Your financial intelligence determines how much money you keep, not how much you earn</li><li>Corporations and the self-employed have enormous tax advantages over employees — understand them</li><li>Work to learn, not just to earn. Skills compound like money does.</li></ul><div class="br-quote"><p>"In school we learn that mistakes are bad, and we are punished for making them. Yet if you look at the way humans are designed to learn, we learn by making mistakes."</p></div>`}
+    ]
+  },
+  richest_babylon: {
+    free:true, emoji:'📘', title:'The Richest Man in Babylon', author:'George S. Clason',
+    chapters:[
+      {h:'The Setting — Ancient Wisdom for Modern Wealth',body:`<p>Five thousand years ago, Babylon was the wealthiest city on earth. Not because of natural resources, but because its people understood principles of wealth creation that most people today still have not learned.</p><p>George Clason tells these timeless principles through parables — stories of real people facing real financial struggles. The lessons are presented as the wisdom of Arkad, the richest man in Babylon, who started with nothing and became wealthy through the consistent application of seven simple rules.</p><div class="br-quote"><p>"Gold cometh gladly and in increasing quantity to any man who will put by not less than one tenth of his earnings to create an estate for his future and that of his family."</p></div>`},
+      {h:'The First Cure — Start Thy Purse to Fattening',body:`<p>The very first principle is the foundation of everything: save at least 10% of everything you earn. Every coin you earn — keep one in ten for yourself.</p><p>This sounds simple. Almost everyone knows it. Almost no one does it consistently. The reason most people fail at this is they try to save what is left after spending. There is never anything left.</p><p>The solution: pay yourself first. When your salary arrives, move 10% immediately — before you pay rent, before you buy food, before you do anything else. That money is yours. It does not belong to your landlord or the grocery store.</p><h3>For Zambia and Africa</h3><p>Set up an automatic transfer on Airtel Money or MTN Mobile Money to a separate savings wallet the moment salary arrives. Even K200 on a K2,000 salary builds powerful habits and real money over time. K200/month at 8% interest = over K8,000 in three years.</p>`},
+      {h:'The Second Cure — Control Thy Expenditures',body:`<p>Arkad's second lesson addresses a universal human weakness: we expand our spending to fill our income. As we earn more, we want more. This is human nature — but it is also the trap that keeps people poor regardless of their income level.</p><p>The solution is not deprivation. It is budgeting with intention. Distinguish between necessary expenses and desires. Necessary expenses are non-negotiable. Desires must be ranked and satisfied only after savings and necessities are covered.</p><div class="br-quote"><p>"What we call necessary expenses will always grow to equal our incomes unless we protest to the contrary."</p></div><p>Budget your life around 70% of your income. Live on 70%, save 20%, invest 10%. This is the Babylon formula that has built wealth across 50 centuries.</p>`},
+      {h:'The Five Laws of Gold',body:`<p>These are the laws that Arkad passed to his son Nomasir — the rules that guarantee wealth to anyone who follows them:</p><ul><li><strong>Gold comes to those who save a tenth of their earnings</strong> — consistent saving always produces wealth</li><li><strong>Gold multiplies for those who invest wisely</strong> — money properly invested grows automatically</li><li><strong>Gold stays with the owner who takes counsel from wise men</strong> — seek advice from those who understand money</li><li><strong>Gold slips away from those who invest in unfamiliar areas</strong> — never invest in what you do not understand</li><li><strong>Gold flees those who force impossible returns, or listen to tricksters</strong> — if it sounds too good to be true, it destroys wealth</li></ul><p>These five laws explain every financial failure in Africa today — and every financial success.</p>`}
+    ]
+  },
+  i_will_teach: {
+    free:true, emoji:'📙', title:'I Will Teach You To Be Rich', author:'Ramit Sethi',
+    chapters:[
+      {h:'The Core Philosophy — Automate Your Finances',body:`<p>Ramit Sethi wrote this book for young people who want to build wealth but are overwhelmed by complexity. His core argument is radical in its simplicity: the best financial system is one you set up once and forget.</p><p>Most people fail at personal finance not because they are bad with money, but because they have to make too many decisions every month. Every month, "should I save?", "how much?", "which account?", "did I pay that bill?" becomes exhausting and eventually stops.</p><p>The solution: automate everything. Savings move automatically. Bills pay automatically. Investments happen automatically. You only interact with your money to check it is working — not to make it work.</p>`},
+      {h:'The Debt Elimination System',body:`<p>Before you can build wealth, you must eliminate destructive debt. Sethi distinguishes between debt that costs you (credit cards, loan sharks, personal loans) and debt that can build you (mortgages on appreciating property, business loans with positive ROI).</p><p>For African readers: high-interest mobile loans (Fuliza in Kenya, Zaad in Zambia, Quick Credit across West Africa) are the modern equivalent of the loan shark. They feel convenient but their interest rates destroy financial progress faster than any other single factor.</p><h3>The Elimination Order</h3><ul><li>List all debts from highest to lowest interest rate</li><li>Pay the minimum on all debts every month without fail</li><li>Put every extra shilling/kwacha/naira toward the highest-interest debt</li><li>When it is cleared, redirect that payment to the next one</li><li>Never take on high-interest debt again once you are free</li></ul>`},
+      {h:'The Conscious Spending Plan',body:`<p>Sethi replaces the word "budget" (which feels restrictive and negative) with "conscious spending plan" — a framework that allows guilt-free spending on what you love while cutting aggressively on what you do not care about.</p><p>The framework divides spending into four categories: Fixed costs (50–60% of income), Savings (10%), Investments (5–10%), and Guilt-free spending (20–35%).</p><div class="br-quote"><p>"I want you to spend extravagantly on the things you love, and cut costs mercilessly on the things you don't."</p></div><p>Applied to African life: if you love family events and celebrations, spend fully on them — but cut satellite TV, data bundles you rarely use, and subscriptions you forget exist.</p>`}
+    ]
+  },
+  intelligent_investor: {
+    free:false, emoji:'📕', title:'The Intelligent Investor', author:'Benjamin Graham',
+    chapters:[
+      {h:'Introduction — Investment vs Speculation',body:`<p>Benjamin Graham opens with the most important distinction in all of investing: the difference between investing and speculating. This distinction alone has saved millions of investors from financial ruin.</p><p>An investment operation is one which, upon thorough analysis, promises safety of principal and an adequate return. Everything else is speculation. If you cannot explain why an asset will produce returns, you are not investing — you are gambling.</p><div class="br-quote"><p>"The investor's chief problem — and even his worst enemy — is likely to be himself."</p></div><p>Applied to African markets: buying Zambia government bonds at 20% annual yield after understanding the credit risk is investing. Putting K5,000 into a WhatsApp scheme promising 50% monthly is speculation — and will end in total loss.</p>`},
+      {h:'The Defensive Investor Strategy',body:`<p>Graham describes two types of investors. The defensive investor wants safety, minimal effort, and freedom from anxiety. The enterprising investor is willing to invest time and energy into selecting securities for superior returns.</p><p>For most African investors building wealth for the first time, Graham's defensive strategy is the right one: diversify, buy quality, hold long term, and do not try to time markets.</p><ul><li>Hold a mix of bonds and equities — never more than 75% in either</li><li>Rebalance when markets move dramatically</li><li>Do not react to short-term market movements</li><li>The defensive investor's goal is to not lose money, then to earn moderate returns consistently</li></ul>`},
+      {h:'Mr Market — The Most Powerful Metaphor in Investing',body:`<p>Graham introduces Mr Market — an imaginary business partner who shows up every day offering to buy your shares or sell you his, at whatever price his mood dictates. Some days Mr Market is euphoric and offers absurdly high prices. Some days he is depressed and offers absurdly low prices.</p><p>The intelligent investor does not let Mr Market's moods influence their valuation of a business. They only transact when Mr Market's prices are advantageous — buying when he is pessimistic, selling when he is overly optimistic.</p><div class="br-quote"><p>"You are neither right nor wrong because the crowd disagrees with you. You are right because your data and reasoning are right."</p></div>`}
+    ]
+  },
+  psychology_money: {
+    free:false, emoji:'📗', title:'Psychology of Money', author:'Morgan Housel',
+    chapters:[
+      {h:'No One is Crazy — Why Smart People Make Terrible Financial Decisions',body:`<p>Morgan Housel opens with a profound observation: people who grew up during hyperinflation are more terrified of inflation than people who did not. People who experienced poverty make different financial decisions than people who grew up comfortable. We all carry the scars of our past economic experiences into every financial decision we make.</p><p>This is not irrationality. It is entirely logical based on each person's history. The challenge is recognizing when your past experiences are leading you toward decisions that do not serve your present reality.</p><div class="br-quote"><p>"Your personal experiences with money make up maybe 0.00000001% of what's happened in the world, but maybe 80% of how you think the world works."</p></div>`},
+      {h:'Wealth is What You Do Not See',body:`<p>Housel makes a distinction that most people never consider: the difference between being rich and being wealthy. Rich is visible — the car, the house, the clothes. Wealthy is invisible — it is the assets not yet spent, the financial flexibility, the choices.</p><p>We judge others' wealth by what we can see. But what we see is consumption — the opposite of wealth accumulation. The person driving the K800,000 Mercedes may have less true wealth than the teacher driving a K40,000 Toyota who has been quietly buying government bonds for 15 years.</p><p>In African communities, the pressure to display wealth through consumption is enormous — and it is one of the single biggest destroyers of actual wealth. True wealth is what you do not spend.</p>`},
+      {h:'The Tail End — Why Getting Wealthy Takes Longer Than You Think',body:`<p>Housel explains a counterintuitive truth about compound interest: most of the wealth it creates happens at the very end. Warren Buffett's net worth at age 65 was $17 billion. By age 90 it had grown to over $100 billion. The bulk of his wealth came after most people retire.</p><p>This is why patience is the most undervalued financial skill. The investor who starts at 25 and holds for 40 years will always outperform the investor who starts at 35 and makes brilliant decisions. Time in the market beats timing the market, every single time.</p><div class="br-quote"><p>"The ability to do nothing. To be willing to be bored. To not check stock prices. To not act when everyone else is acting. This is an actual financial superpower."</p></div>`}
+    ]
+  },
+  millionaire_next_door: {
+    free:false, emoji:'📘', title:'The Millionaire Next Door', author:'Thomas Stanley',
+    chapters:[
+      {h:'The Surprising Profile of American Millionaires',body:`<p>Stanley and Danko spent decades studying wealthy households in America. Their findings destroyed almost every assumption people hold about who the wealthy are and how they live. Most millionaires do not look wealthy. They drive ordinary cars. They live in modest houses. They wear inexpensive clothes.</p><p>The reason: they became wealthy by not spending their money on things that signal wealth. Every kwacha, shilling, or naira not spent on status goods becomes a kwacha invested in assets that produce more money.</p><div class="br-quote"><p>"Whatever your income, always live below your means."</p></div>`},
+      {h:'PAW vs UAW — Prodigious vs Under Accumulators of Wealth',body:`<p>The researchers developed a simple formula: multiply your age by your annual income, divide by ten. This is what your net worth should be. If you are above this level, you are a Prodigious Accumulator of Wealth — you are building wealth faster than expected. Below it, you are an Under Accumulator.</p><p>Most high-income professionals — doctors, lawyers, executives — are Under Accumulators. Their incomes are high, but their spending is higher. Teachers, civil servants, and small business owners who live below their means often accumulate more real wealth over a lifetime.</p><p>In Africa: the government clerk who has quietly bought four plots of land over 20 years and rented them out has more wealth than the bank manager who drives a financed BMW.</p>`},
+      {h:'Economically Productive Activities vs Economic Outpatient Care',body:`<p>One of the most important findings in the research: wealthy families do not subsidize their adult children's lifestyles. When wealthy parents give adult children money to maintain expensive lifestyles, those children become financially dependent and never build their own wealth-creation skills.</p><p>The wealthiest families invest in education and business opportunities for their children — not in funding luxury consumption. This creates wealth builders, not wealth inheritors who deplete what they receive.</p><p>For African families navigating the intense pressure of family financial obligations: give education, give opportunities, give business capital with accountability. Do not give money to fund consumption. That destroys financial futures one generation at a time.</p>`}
+    ]
+  },
+  die_with_zero: {
+    free:false, emoji:'📙', title:'Die With Zero', author:'Bill Perkins',
+    chapters:[
+      {h:'The Core Argument — Stop Saving For a Death You May Not Have',body:`<p>Bill Perkins makes a controversial argument: most people dramatically oversave for retirement and dramatically under-invest in experiences during the years when they can fully enjoy them. They accumulate wealth they never spend on a life they never fully live.</p><p>His premise is not "spend everything." It is "optimize when you spend." Some experiences are only available at certain ages. Climbing Kilimanjaro at 35 is a completely different experience than at 70. Your health, energy, and social context all shape what experiences are possible.</p><div class="br-quote"><p>"Dying with money means you worked too hard and gave too many hours of your life to accumulating money you never used."</p></div>`},
+      {h:'Memory Dividends — Investing in Experiences',body:`<p>Perkins introduces the concept of memory dividends: experiences generate returns for the rest of your life through the memories, relationships, and personal growth they produce. A family trip to Victoria Falls creates memories that the whole family discusses for decades. The financial return on that investment is incalculable.</p><p>The key insight: experiences have a time value. They must be bought when you have the health, relationships, and life circumstances to fully appreciate them. Money deferred into old age cannot buy back the experience of raising young children, being young and adventurous, or having elderly parents still alive.</p>`},
+      {h:'The Life Calendar — Planning Your Wealth Through Time',body:`<p>Perkins suggests mapping your life decade by decade and matching your spending and saving to each phase. Early decades should prioritize experiences and skills. Middle decades should balance building wealth with peak-life experiences. Later decades should focus on giving and meaning.</p><p>The goal is a wealth curve that rises, peaks, and intentionally descends to near zero at death — with assets given away while you are alive to see their impact, rather than passed on after death when you cannot.</p><p>Applied to Africa: this framework encourages strategic family investments — funding children's education while you are alive and present, buying land and assets at optimal ages, and creating a legacy that you actively shape rather than leaving to chance.</p>`}
+    ]
+  },
+  compound_effect: {
+    free:false, emoji:'📗', title:'The Compound Effect', author:'Darren Hardy',
+    chapters:[
+      {h:'The Most Underestimated Force in Life',body:`<p>The compound effect is the principle of reaping huge rewards from small, seemingly insignificant actions. No dramatic changes. No lottery wins. No overnight success. Just tiny, consistent improvements that accumulate into extraordinary results.</p><p>Hardy opens with a simple illustration: three friends, same starting point. One makes no changes. One makes a 2% improvement in habits each week. One makes a 2% negative change each week. After 24 months, the three friends are living completely different lives — even though nothing dramatic happened to any of them.</p><div class="br-quote"><p>"Small, seemingly insignificant steps completed consistently over time will create a radical difference."</p></div>`},
+      {h:'The Power of Habits — Your Automatic Wealth Machine',body:`<p>Hardy argues that success is not the result of willpower or discipline — it is the result of habits that make success automatic. Willpower is a limited resource that depletes under stress. Habits run automatically regardless of how tired or stressed you are.</p><p>For financial success: the habit of saving before spending, the habit of reviewing your finances weekly, the habit of learning one new financial concept per month — these compound into extraordinary results over years.</p><p>Build your financial habits to be automatic. Mobile money auto-transfer for savings. Calendar reminders for monthly financial reviews. Scheduled reading of financial content every week. You do not become wealthy through moments of financial brilliance — you become wealthy through consistent financial habits.</p>`},
+      {h:'Momentum — The Flywheel of Success',body:`<p>A flywheel takes enormous effort to start spinning. But once it is moving, it takes almost no effort to keep accelerating. Wealth works exactly this way. The first years of building financial habits and assets require significant discipline and sacrifice. But once the momentum builds — once your savings are generating returns, once your investments are compounding — the system accelerates on its own.</p><p>The greatest threat to this momentum is stopping. Taking money out of investments. Breaking the saving habit for one month. Getting discouraged by slow early progress. Hardy's advice: focus on the process, not the results, for the first few years. Results come later — and when they come, they come faster than you expect.</p>`}
+    ]
+  },
+  think_grow_rich: {
+    free:false, emoji:'📕', title:'Think and Grow Rich', author:'Napoleon Hill',
+    chapters:[
+      {h:'The Starting Point — Desire: The First Step to Riches',body:`<p>Napoleon Hill spent 25 years studying 500 of the most successful people of his era — including Andrew Carnegie, Henry Ford, and Thomas Edison. His finding: wealth begins with a specific, burning desire — not a vague wish, but a clear, definite goal backed by an obsessive commitment to achievement.</p><p>Hill is explicit that desire alone is not enough. The desire must be translated into a written plan, with a specific amount, a specific deadline, and a specific price you are willing to pay to achieve it. Vague financial goals produce vague results. Specific goals, written and reviewed daily, program the subconscious mind to find paths to achievement.</p><div class="br-quote"><p>"Whatever the mind of man can conceive and believe, it can achieve."</p></div>`},
+      {h:'Faith — Believing Before You Can See',body:`<p>Hill's second step is faith — the belief that you will achieve your goal before any evidence exists to support that belief. This is not mysticism. It is psychology. People who believe they will achieve something approach every situation looking for opportunities to advance toward it. People who do not believe they will succeed interpret the same situations as evidence that they are right.</p><p>The practical tool Hill prescribes: write a clear statement of your financial goal and read it aloud twice daily — morning and night. This repeated reinforcement gradually shifts your beliefs about what is possible for you. It sounds simple. The people who do it consistently for a year consistently describe it as transformative.</p>`},
+      {h:'Specialized Knowledge — Why General Education Does Not Create Wealth',body:`<p>Hill distinguishes between general education and specialized knowledge. Most formal education provides general knowledge — useful, but not directly connected to wealth creation. Wealthy people become wealthy through specialized knowledge in a specific field, combined with the ability to apply that knowledge to create value.</p><p>For Africans in 2026: the most valuable specialized knowledge includes financial literacy (this course is part of it), technology skills that command global salaries, agricultural production knowledge in an era of food security challenges, and business systems knowledge that allows scaling beyond personal effort.</p><p>The most important insight: you do not need to have all the specialized knowledge yourself. You need to know how to organize and attract people who do. The organizer of knowledge is worth more than the person who simply possesses it.</p>`}
+    ]
+  },
+  built_to_last: {
+    free:false, emoji:'📗', title:'Built to Last', author:'Jim Collins',
+    chapters:[
+      {h:'Visionary Companies — What Makes Them Different',body:`<p>Collins and Porras studied 18 pairs of companies — visionary companies that had lasted 50+ years versus their similarly-situated competitors. Their question: what separates companies that endure from those that do not?</p><p>The answer was counterintuitive: visionary companies are not primarily driven by profit maximization. They are driven by a core ideology — a set of values and a sense of purpose that remains stable even as strategies, products, and leaders change. The profit follows from the purpose. When purpose is the only driver, it erodes under pressure.</p><div class="br-quote"><p>"The builders of visionary companies were first and foremost builders, not money-makers."</p></div><p>Applied to African family businesses: the businesses that survive generations are those built around a clear purpose — feeding the community, educating children, building the region — not just accumulating personal wealth.</p>`},
+      {h:'The Core Ideology — Values That Do Not Change',body:`<p>Every visionary company has two components: a core ideology (what we stand for, why we exist) and envisioned future (what we are building toward). The core ideology never changes regardless of market conditions, competitive threats, or leadership transitions.</p><p>Building a family legacy in Africa requires the same clarity. What does your family stand for? Integrity in business? Education as the highest priority? Community contribution? These values, clearly articulated and passed to every generation, create the framework within which wealth is built, protected, and grown.</p>`},
+      {h:'Preserve the Core, Stimulate Progress',body:`<p>The most important operating principle Collins found in visionary companies: they change everything except their core values. Products, strategies, structures, people — all subject to radical change and experimentation. Core values — never compromised.</p><p>For African wealth builders: this principle protects family businesses from the generational conflict that destroys most of them. When children or grandchildren want to change the business direction, the question is not "are they being loyal to the founder?" The question is "does this change violate our core values?" If not, let them innovate. If yes, protect the foundation.</p>`}
+    ]
+  },
+  millionaire_fastlane: {
+    free:false, emoji:'📕', title:'The Millionaire Fastlane', author:'MJ DeMarco',
+    chapters:[
+      {h:'The Three Financial Roads',body:`<p>MJ DeMarco describes three financial roads people travel. The Sidewalk: living paycheck to paycheck, consuming everything earned, no plan, no savings, no future. The Slowlane: the conventional path — get a job, save 10%, invest in mutual funds, wait 40 years for retirement. Mathematically sound but enslaves your best years to a future you will only access when old.</p><p>The Fastlane: building a business system that generates wealth independent of your personal time. Trading time for money is the fundamental poverty trap — because there are only 24 hours in a day. Scaling a business system has no such ceiling.</p><div class="br-quote"><p>"Wealth is not authored by a high-paying job, saving money, or riding the stock market, but by the businesses we create."</p></div>`},
+      {h:'The CENTS Framework — What Makes a Fastlane Business',body:`<p>DeMarco's CENTS framework defines the criteria a business must meet to generate Fastlane wealth:</p><ul><li><strong>Control:</strong> You control the system. You are not dependent on a platform, employer, or single customer that can remove your income overnight.</li><li><strong>Entry:</strong> High entry barriers protect your margins. Anyone can start it means fierce competition and thin margins.</li><li><strong>Need:</strong> The business solves a genuine, widespread problem — not just something you want to sell.</li><li><strong>Time:</strong> The business generates money without your direct, constant time involvement. Systems and people do the work.</li><li><strong>Scale:</strong> The business can serve 10x, 100x more customers without proportionally more cost or personal effort.</li></ul><p>Applied to African entrepreneurship: mobile money agent networks, agricultural processing businesses, digital education platforms, and trade import businesses that meet these criteria generate real, scalable, Fastlane wealth.</p>`},
+      {h:'Stop Being a Consumer — Become a Producer',body:`<p>DeMarco's most actionable insight: wealthy people are producers first, consumers second. Poor people are consumers first, producers second — or not at all.</p><p>Every purchase you make makes someone else wealthy. Every product or service you create makes you wealthy. The shift from consumer to producer mindset is the single most powerful identity change available to an aspiring African entrepreneur.</p><p>Practical application: when you see a problem in your community, your first question should not be "how do I avoid this problem?" but "how can I create a business that solves this problem for everyone who faces it?" Water shortages, transport challenges, food distribution gaps, financial education deficits — every community problem in Africa is a business opportunity for a producer-minded entrepreneur.</p>`}
+    ]
+  },
+  outliers: {
+    free:false, emoji:'📘', title:'Outliers', author:'Malcolm Gladwell',
+    chapters:[
+      {h:'The Matthew Effect — Why Success is Cumulative',body:`<p>Gladwell opens Outliers with an unexpected finding about professional hockey players: a disproportionate number are born in January, February, and March. The reason is not astrological. It is that children born early in the calendar year are slightly older — and therefore slightly bigger and more coordinated — when youth leagues begin.</p><p>These children get selected for elite programs. They get better coaching, more practice, more competition. The small initial advantage compounds into a massive performance gap by adulthood. Success breeds success. Advantage breeds advantage. This is the Matthew Effect: "to those who have, more shall be given."</p><div class="br-quote"><p>"We are so caught in the myths of the best and the brightest and the self-made that we think outliers spring naturally from the earth."</p></div>`},
+      {h:'The 10,000 Hour Rule and What It Really Means',body:`<p>Gladwell examines the careers of extraordinary performers — from The Beatles to Bill Gates to chess grandmasters. His finding: world-class expertise requires approximately 10,000 hours of deliberate practice. No exceptions were found. Prodigies exist, but they become world-class only through thousands of hours of focused practice.</p><p>The implication for generational wealth building: give your children 10,000 hours of exposure to financial thinking, business problems, investment decisions, and entrepreneurial challenges before they are adults. Children who grow up in businesses, who are given real financial responsibilities early, who have financial education embedded in daily family life — these children arrive at adulthood with an extraordinary advantage.</p>`},
+      {h:'Cultural Legacy — How History Shapes Financial Behavior',body:`<p>Gladwell explores how cultural legacies — values and assumptions passed through generations — shape individual behavior in ways people rarely recognize. Rice farming cultures develop extraordinary persistence and mathematical precision. Honor cultures develop negotiating strength and risk-taking courage.</p><p>For African families building generational wealth: deliberately identify and reinforce the cultural strengths in your heritage. African traditions of long-term thinking (planting trees whose shade you will never sit under), communal resource pooling (Chilimba, Susu, Stokvel), and respect for elders' wisdom — these are cultural assets for wealth building when properly directed.</p><p>Simultaneously, identify and consciously disrupt inherited patterns that undermine wealth: conspicuous consumption as status, resistance to formal financial systems, distributing wealth rather than growing it. Outliers are not born — they are built, deliberately, over generations.</p>`}
+    ]
+  }
+};
+
+function openBook(key){
+  const book = BOOKS[key];
+  if(!book) return;
+  // Free books: open for all. Paid books: require isPrem
+  if(!book.free && !isPrem){
+    toast('🔐 This book requires The Vault — unlock for $7.65','');
+    setTimeout(openPay, 1500);
+    return;
+  }
+  document.getElementById('br-nav-title').textContent = book.emoji+' '+book.title;
+  let html = `<div class="br-cover"><span class="br-cover-emoji">${book.emoji}</span><h1>${book.title}</h1><div class="br-author">by ${book.author}</div><span class="br-badge">${book.free?'✅ Free to Read':'⭐ Insider Content'}</span></div>`;
+  book.chapters.forEach((ch,i)=>{
+    html += `<div class="br-chapter"><h2>Chapter ${i+1}: ${ch.h}</h2>${ch.body}</div>`;
+  });
+  document.getElementById('br-body').innerHTML = html;
+  document.getElementById('book-reader').classList.add('on');
+  document.body.style.overflow='hidden';
+  document.getElementById('book-reader').scrollTop=0;
+}
+function closeBook(){
+  document.getElementById('book-reader').classList.remove('on');
+  document.body.style.overflow='';
+}
+
 document.getElementById('pay-ov').addEventListener('click',function(e){if(e.target===this)closePay();});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeTopic();closePay();}});
 </script>
